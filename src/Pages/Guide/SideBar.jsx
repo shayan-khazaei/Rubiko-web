@@ -2,8 +2,11 @@ import { useLocation } from "react-router-dom";
 import { beginnerIcons, speedcubingIcons, algorithmsIcons } from "./GuideDatas";
 import List from "./List";
 import ShowGuidIcons from "./ShowGuidIcons";
+import { useState } from "react";
 
 export default function SideBar() {
+  const [activeId, setActiveId] = useState("");
+
   const location = useLocation();
   const sidebarIcons =
     location.pathname === "/solution-guides" ||
@@ -30,15 +33,33 @@ export default function SideBar() {
           <ul className="flex flex-col items-center gap-5 h-full justify-center">
             {location.pathname === "/solution-guides" &&
               beginnerIcons.map((data) => (
-                <ShowGuidIcons image={data.image} id={data.id} key={data.id} />
+                <ShowGuidIcons
+                  image={data.image}
+                  id={data.id}
+                  key={data.id}
+                  activeId={activeId}
+                  setActiveId={setActiveId}
+                />
               ))}
             {location.pathname.includes("speedcubing") &&
               speedcubingIcons.map((data) => (
-                <ShowGuidIcons image={data.image} id={data.id} key={data.id} />
+                <ShowGuidIcons
+                  image={data.image}
+                  id={data.id}
+                  key={data.id}
+                  activeId={activeId}
+                  setActiveId={setActiveId}
+                />
               ))}
             {location.pathname.includes("algorithms") &&
               algorithmsIcons.map((data) => (
-                <ShowGuidIcons image={data.image} id={data.id} key={data.id} />
+                <ShowGuidIcons
+                  image={data.image}
+                  id={data.id}
+                  key={data.id}
+                  activeId={activeId}
+                  setActiveId={setActiveId}
+                />
               ))}
           </ul>
         </section>
