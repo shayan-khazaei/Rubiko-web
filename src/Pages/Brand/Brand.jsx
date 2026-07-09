@@ -97,8 +97,7 @@ export default function Brand() {
             More information:
           </h4>
           <p className="font-grey-700 tet-xl">
-            For questions regarding our legal information or Spin Master’s
-            intellectual property, please contact us at our social media
+            For questions regarding our legal information, please contact us at our social media
             accounts.
           </p>
         </div>

@@ -3,9 +3,25 @@ import { datas } from "./NewsData";
 import { wallDatas } from "./WalldData";
 import NewsCard from "./NewsCard";
 import WallPaperCard from "./WallPaperCard";
-import { GoArrowRight } from "react-icons/go";
+import { GoArrowLeft, GoArrowRight } from "react-icons/go";
+import { useState } from "react";
 
 export default function News() {
+  const [newsSlider, setNewsSlider] = useState(false);
+  const [startIndex, setStartIndex] = useState(0);
+  const [endIndex, setEndIndex] = useState(3);
+
+  const clickHandler = () => {
+    if (endIndex < datas.length) {
+      setStartIndex((prev) => prev + 3);
+      setEndIndex((prev) => prev + 3);
+    } else {
+      setStartIndex(0);
+      setEndIndex(3);
+    }
+    setNewsSlider((prev) => !prev);
+  };
+
   return (
     <div className="container mx-auto flex flex-col">
       <section className="flex justify-between pt-[140px]">
@@ -56,7 +72,7 @@ export default function News() {
       </section>
       <section>
         <ul className="grid grid-cols-3 gap-7 mt-7 pb-5">
-          {datas.map((data) => (
+          {datas.slice(startIndex, endIndex).map((data) => (
             <li key={data.id}>
               <NewsCard
                 image={data.image}
@@ -69,8 +85,11 @@ export default function News() {
             </li>
           ))}
         </ul>
-        <div className="flex items-center justify-center w-10 h-10 bg-grey-100 rounded-full text-2xl cursor-pointer">
-          <GoArrowRight />
+        <div
+          className="flex items-center justify-center w-10 h-10 bg-grey-100 rounded-full text-2xl cursor-pointer"
+          onClick={clickHandler}
+        >
+          {newsSlider ? <GoArrowLeft /> : <GoArrowRight />}
         </div>
       </section>
       <section>

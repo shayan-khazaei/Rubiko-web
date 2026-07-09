@@ -10,7 +10,7 @@ export default function NewsCard({
 }) {
   return (
     <a href={newsLink} target="blank">
-      <div className="relative bg-grey-100 shadow-sm rounded-xl cursor-pointer hover:-translate-y-1 transition-transform">
+      <div className="h-[490px] relative bg-grey-100 shadow-sm rounded-xl cursor-pointer hover:-translate-y-1 transition-transform">
         <div>
           <img
             src={image}

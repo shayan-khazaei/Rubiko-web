@@ -1,14 +1,22 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 export default function ShowGuidIcons({ image, id, activeId, setActiveId }) {
-  const clickHandlre = () => {
+  const location = useLocation();
+  const clickHandler = () => {
     setActiveId(id);
   };
 
-  const isActive = activeId === id;
+  const isActive = id <= activeId;
+
+  useEffect(() => {
+    setActiveId("");
+  }, [location.pathname, setActiveId]);
 
   return (
     <li
       className="transition-all duration-[10s] flex items-center justify-center rounded-full w-[70px] h-[70px] cursor-pointer border-1 border-green-500 bg-grey-200"
-      onClick={clickHandlre}
+      onClick={clickHandler}
     >
       <a href={`#${id}`}>
         <img

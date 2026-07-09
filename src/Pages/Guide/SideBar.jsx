@@ -5,13 +5,35 @@ import ShowGuidIcons from "./ShowGuidIcons";
 import { useState } from "react";
 
 export default function SideBar() {
+  const location = useLocation();
   const [activeId, setActiveId] = useState("");
 
-  const location = useLocation();
   const sidebarIcons =
     location.pathname === "/solution-guides" ||
     location.pathname.includes("speedcubing") ||
     location.pathname.includes("algorithms");
+
+  const sidebars = [
+    {
+      path: "/solution-guides",
+      exact: true,
+      icons: beginnerIcons,
+    },
+    {
+      path: "speedcubing",
+      icons: speedcubingIcons,
+    },
+    {
+      path: "algorithms",
+      icons: algorithmsIcons,
+    },
+  ];
+
+  const currentSidebar = sidebars.find((sidebar) => {
+    return sidebar.exact
+      ? location.pathname === sidebar.path
+      : location.pathname.includes(sidebar.path);
+  });
 
   return (
     <>
@@ -31,36 +53,15 @@ export default function SideBar() {
         <section className="relative flex-1 bg-grey-200 z-10 ">
           <div className="absolute w-[2px] h-[100%] bg-green-500 top-0 left-[52px] -z-10 "></div>
           <ul className="flex flex-col items-center gap-5 h-full justify-center">
-            {location.pathname === "/solution-guides" &&
-              beginnerIcons.map((data) => (
-                <ShowGuidIcons
-                  image={data.image}
-                  id={data.id}
-                  key={data.id}
-                  activeId={activeId}
-                  setActiveId={setActiveId}
-                />
-              ))}
-            {location.pathname.includes("speedcubing") &&
-              speedcubingIcons.map((data) => (
-                <ShowGuidIcons
-                  image={data.image}
-                  id={data.id}
-                  key={data.id}
-                  activeId={activeId}
-                  setActiveId={setActiveId}
-                />
-              ))}
-            {location.pathname.includes("algorithms") &&
-              algorithmsIcons.map((data) => (
-                <ShowGuidIcons
-                  image={data.image}
-                  id={data.id}
-                  key={data.id}
-                  activeId={activeId}
-                  setActiveId={setActiveId}
-                />
-              ))}
+            {currentSidebar?.icons.map((data) => (
+              <ShowGuidIcons
+                image={data.image}
+                id={data.id}
+                key={data.id}
+                activeId={activeId}
+                setActiveId={setActiveId}
+              />
+            ))}
           </ul>
         </section>
       )}
