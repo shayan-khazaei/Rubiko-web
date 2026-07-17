@@ -3,7 +3,7 @@ export default function RightLogo() {
     <img
       src="/images/GuidePage/rightlogo.png"
       alt="rightLogo"
-      className="w-[450px] absolute top-[88px] right-[0px] fixed "
+      className="w-[450px] absolute top-[88px] right-[0px] fixed  "
     />
   );
 }
