@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import Layout from "./Components/Layout";
 import Login from "./Pages/Login/Login";
 import History from "./Pages/History/History";
@@ -13,11 +14,11 @@ import Beginners from "./Pages/Guide/Beginners/Beginners";
 import Timer from "./Pages/Guide/Timer/Timer";
 import Algorithms from "./Pages/Guide/Algorithms/Algorithms";
 import Notation from "./Pages/Guide/Notation/Notation";
-
 export default function App() {
   return (
     <>
       <ScrollToTop />
+      <Toaster />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
