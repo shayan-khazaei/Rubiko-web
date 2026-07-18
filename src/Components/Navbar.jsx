@@ -5,13 +5,17 @@ import Logo from "./Logo";
 import supabase from "../Services/Supabase";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../Hook/useAuth";
+import { useState } from "react";
 
 export default function Navbar() {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
   const { session } = useAuth();
 
   const logoutHandler = async () => {
+    setIsLoading(true);
     const { error } = await supabase.auth.signOut();
+    setIsLoading(false);
     navigate("/");
 
     if (error) toast.error("Something Went Wrong...");
@@ -38,7 +42,11 @@ export default function Navbar() {
           Log in
         </Button>
         {session && (
-          <Button onClick={logoutHandler} variant="outline">
+          <Button
+            disabled={isLoading}
+            onClick={logoutHandler}
+            variant="outline"
+          >
             Log Out
           </Button>
         )}

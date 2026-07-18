@@ -3,9 +3,11 @@ import { useForm } from "react-hook-form";
 import supabase from "../../Services/Supabase";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function Signup() {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   const {
     register,
@@ -17,6 +19,7 @@ export default function Signup() {
   const submitForm = async (data) => {
     const { name, email, password } = data;
 
+    setIsLoading(true);
     const { user, error } = await supabase.auth.signUp({
       email,
       password,
@@ -26,6 +29,7 @@ export default function Signup() {
         },
       },
     });
+    setIsLoading(false);
 
     if (error) {
       toast.error(error.message);
@@ -114,7 +118,10 @@ export default function Signup() {
             </p>
           )}
         </div>
-        <button className="px-4 py-1.5 rounded-sm text-gray-300 bg-green-800 hover:bg-green-700 transition-colors cursor-pointer">
+        <button
+          disabled={isLoading}
+          className="px-4 py-1.5 rounded-sm text-gray-300 bg-green-800 hover:bg-green-700 transition-colors cursor-pointer disabled:bg-green-900 disabled:cursor-none"
+        >
           Sign Up
         </button>
       </form>

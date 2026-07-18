@@ -6,6 +6,7 @@ export default function Button({
   external,
   to,
   onClick,
+  disabled,
 }) {
   const baseClass =
     "flex items-center gap-2 block px-4 py-1.5 rounded-lg border-b border-l transition-colors cursor-pointer border-transparent";
@@ -14,6 +15,8 @@ export default function Button({
     variant === "outline"
       ? "bg-green-600 text-white hover:bg-green-700"
       : "text-gray-700 hover:border-b hover:border-l hover:border-green-600";
+
+  const disabledClass = "disabled:bg-green-900 disabled:cursor-none";
 
   if (to) {
     if (external) {
@@ -31,7 +34,11 @@ export default function Button({
   }
 
   return (
-    <button onClick={onClick} className={`${baseClass} ${variantClass}`}>
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      className={`${baseClass} ${variantClass} ${disabledClass}`}
+    >
       {children}
     </button>
   );

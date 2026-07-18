@@ -3,10 +3,12 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import supabase from "../../Services/Supabase";
 import useAuth from "../../Hook/useAuth";
+import { useState } from "react";
 
 export default function Login() {
   const navigate = useNavigate();
   const { session } = useAuth();
+  const [isLoading, setIsLoading] = useState(false);
 
   if (session) navigate("/solution-guides");
 
@@ -19,6 +21,7 @@ export default function Login() {
   const submitForm = async (data) => {
     const { name, email, password } = data;
 
+    setIsLoading(true);
     const { data: AuthData, error } = await supabase.auth.signInWithPassword({
       email,
       password,
@@ -28,6 +31,7 @@ export default function Login() {
         },
       },
     });
+    setIsLoading(false);
 
     if (error) {
       toast.error("Email or Password is incorrect");
@@ -82,8 +86,9 @@ export default function Login() {
           </div>
         </div>
         <button
+          disabled={isLoading}
           type="submit"
-          className="px-4 py-1.5 rounded-sm text-gray-300 bg-green-800 hover:bg-green-700 transition-colors cursor-pointer"
+          className="px-4 py-1.5 rounded-sm text-gray-300 bg-green-800 hover:bg-green-700 transition-colors cursor-pointer disabled:bg-green-900 disabled:cursor-none"
         >
           Log in
         </button>
