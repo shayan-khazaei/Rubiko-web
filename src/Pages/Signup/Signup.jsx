@@ -28,7 +28,7 @@ export default function Signup() {
     });
 
     if (error) {
-      toast.error("Something went wrong...");
+      toast.error(error.message);
       return;
     }
 
@@ -40,13 +40,10 @@ export default function Signup() {
   };
 
   return (
-    <div
-      onSubmit={handleSubmit(submitForm)}
-      className="flex flex-col items-center justify-center gap-6 h-[calc(100vh-176px)]"
-    >
+    <div className="flex flex-col items-center justify-center gap-6 h-[calc(100vh-176px)]">
       <h2 className="text-4xl">Sign Up</h2>
       <form
-        action="submit"
+        onSubmit={handleSubmit(submitForm)}
         className="flex flex-col gap-5 bg-gray-900 px-10 py-16 rounded-sm"
       >
         <div>

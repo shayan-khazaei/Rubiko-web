@@ -4,9 +4,11 @@ import Button from "./Button";
 import Logo from "./Logo";
 import supabase from "../Services/Supabase";
 import { useNavigate } from "react-router-dom";
+import useAuth from "../Hook/useAuth";
 
 export default function Navbar() {
   const navigate = useNavigate();
+  const { session } = useAuth();
 
   const logoutHandler = async () => {
     const { error } = await supabase.auth.signOut();
@@ -35,9 +37,11 @@ export default function Navbar() {
         <Button to="/login" variant="outline">
           Log in
         </Button>
-        <Button onClick={logoutHandler} variant="outline">
-          Log Out
-        </Button>
+        {session && (
+          <Button onClick={logoutHandler} variant="outline">
+            Log Out
+          </Button>
+        )}
       </section>
     </nav>
   );

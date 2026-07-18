@@ -2,9 +2,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import supabase from "../../Services/Supabase";
+import useAuth from "../../Hook/useAuth";
 
 export default function Login() {
   const navigate = useNavigate();
+  const { session } = useAuth();
+
+  if (session) navigate("/solution-guides");
 
   const {
     register,
@@ -13,11 +17,16 @@ export default function Login() {
   } = useForm();
 
   const submitForm = async (data) => {
-    const { email, password } = data;
+    const { name, email, password } = data;
 
     const { data: AuthData, error } = await supabase.auth.signInWithPassword({
       email,
       password,
+      options: {
+        data: {
+          display_name: name,
+        },
+      },
     });
 
     if (error) {
@@ -25,10 +34,7 @@ export default function Login() {
       return;
     }
 
-    toast.success("Welcome back");
-    navigate("/solution-guides");
-
-    console.log(AuthData.user);
+    toast.success(`Welcome ${AuthData.user.user_metadata.display_name}`);
   };
 
   return (
