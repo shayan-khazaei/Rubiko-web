@@ -14,6 +14,7 @@ import Beginners from "./Pages/Guide/Beginners/Beginners";
 import Timer from "./Pages/Guide/Timer/Timer";
 import Algorithms from "./Pages/Guide/Algorithms/Algorithms";
 import Notation from "./Pages/Guide/Notation/Notation";
+import ProtectedRoute from "./Features/ProtectedRoute";
 export default function App() {
   return (
     <>
@@ -27,7 +28,14 @@ export default function App() {
           <Route path="/history" element={<History />} />
           <Route path="/brand" element={<Brand />} />
           <Route path="/news-events-more" element={<News />} />
-          <Route path="/solution-guides" element={<GuideLayout />}>
+          <Route
+            path="/solution-guides"
+            element={
+              <ProtectedRoute>
+                <GuideLayout />
+              </ProtectedRoute>
+            }
+          >
             <Route index element={<Beginners />} />
             <Route path="speedcubing" element={<SpeedCubingGuide />} />
             <Route path="algorithms" element={<Algorithms />} />

@@ -32,7 +32,9 @@ export default function Signup() {
       return;
     }
 
-    toast.success("User Created Successfully");
+    toast.success(
+      "User Created Successfully, Please Confirm Your email to sign in"
+    );
     console.log(user);
     navigate("/solution-guides");
   };

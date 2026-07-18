@@ -5,7 +5,7 @@ import supabase from "../../Services/Supabase";
 
 export default function Login() {
   const navigate = useNavigate();
-  
+
   const {
     register,
     formState: { errors },
@@ -15,13 +15,13 @@ export default function Login() {
   const submitForm = async (data) => {
     const { email, password } = data;
 
-    const { AuthData, error } = await supabase.auth.signInWithPassword({
+    const { data: AuthData, error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
 
     if (error) {
-      toast.error("User Not Found");
+      toast.error("Email or Password is incorrect");
       return;
     }
 
