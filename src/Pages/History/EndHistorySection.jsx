@@ -1,7 +1,7 @@
 export default function EndHistorySection() {
   return (
     <div className="flex flex-col items-center gap-5">
-      <p className="w-3xl text-center text-2xl text-grey-800 pb-7">
+      <p className="max-w-3xl text-center text-sm md:text-2xl text-grey-800 pb-7">
         These are some of the many exciting moments in the history of the
         Rubik’s Cube. Today, the Rubik’s Cube is revered as one of the most
         beloved toys of all time. In its 50th year, inquiring minds and puzzlers

@@ -1,7 +1,7 @@
 export default function BeginnerStep6() {
   return (
     <div id="step6" className="text-md max-w-5xl text-justify pt-5">
-      <h2 className="text-3xl font-semibold">
+      <h2 className="text-2xl sm:text-3xl font-semibold">
         Step 6 - The Last Layer Corners 1{" "}
       </h2>
       <div className="flex flex-col gap-4 pt-5">
@@ -45,7 +45,7 @@ export default function BeginnerStep6() {
             then it doesn't matter which cubie is in the FRU corner.
           </span>
           <span>You can then perform this algorithm:</span>
-          <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+          <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
             <img
               src="images/GuidePage/beginners/lastlayercorner3.png"
               alt="lastlayercorner3image"

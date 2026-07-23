@@ -1,7 +1,7 @@
 export default function BeginnerStep4() {
   return (
     <div id="step4" className="text-md max-w-5xl text-justify pt-5">
-      <h2 className="text-3xl font-semibold">Step 4 - The Last Layer Cross </h2>
+      <h2 className="text-2xl sm:text-3xl font-semibold">Step 4 - The Last Layer Cross </h2>
       <div className="flex flex-col gap-4 pt-5">
         <span>
           As the name suggests, this stage consists of creating a cross on the
@@ -25,7 +25,7 @@ export default function BeginnerStep4() {
           <ul className="list-inside flex flex-col gap-3 list-decimal">
             <li className="pl-6">
               <span>Backwards L, for example</span>
-              <div className="flex gap-7 mt-5">
+              <div className="grid grid-cols-2 sm:flex sm:gap-7 mt-5">
                 <img
                   src="images/GuidePage/beginners/lastlayer2.png"
                   alt="lastlayer2image"
@@ -45,7 +45,7 @@ export default function BeginnerStep4() {
             </li>
             <li className="pl-6">
               <span>Line, for example</span>
-              <div className="flex gap-7 mt-5">
+              <div className="grid grid-cols-2 sm:flex sm:gap-7 mt-5">
                 <img
                   src="images/GuidePage/beginners/lastlayer5.png"
                   alt="lastlayer5image"
@@ -65,7 +65,7 @@ export default function BeginnerStep4() {
             </li>
             <li className="pl-6">
               <span>Dot, for example</span>
-              <div className="flex gap-7 mt-5">
+              <div className="grid grid-cols-2 sm:flex sm:gap-7 mt-5">
                 <img
                   src="images/GuidePage/beginners/lastlayer11.png"
                   alt="lastlayer11image"
@@ -85,7 +85,7 @@ export default function BeginnerStep4() {
             </li>
             <li className="pl-6">
               <span>Cross, for example</span>
-              <div className="flex gap-7 mt-5">
+              <div className="grid grid-cols-2 sm:flex sm:gap-7 mt-5">
                 <img
                   src="images/GuidePage/beginners/lastlayer11.png"
                   alt="lastlayer11image"
@@ -109,7 +109,7 @@ export default function BeginnerStep4() {
             the cube so that it is in the top left corner and apply the
             following algorithm:
           </span>
-          <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+          <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
             <img
               src="images/GuidePage/beginners/lastlayer14.png"
               alt="lastlayer14image"
@@ -121,7 +121,7 @@ export default function BeginnerStep4() {
             And if you have a line, then you need to hold the cube so it is
             horizontal and use this algorithm:
           </span>
-          <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+          <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
             <img
               src="images/GuidePage/beginners/lastlayer15.png"
               alt="lastlayer15image"

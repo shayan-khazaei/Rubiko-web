@@ -1,7 +1,7 @@
 export default function Notation() {
   return (
-    <div id="step1" className="text-md max-w-5xl text-justify pt-5 pb-7">
-      <h2 className="text-5xl font-semibold uppercase ">
+    <div id="step1" className="text-md max-w-5xl xl:text-justify pt-5 pb-7">
+      <h2 className="text-4xl sm:text-5xl font-semibold uppercase ">
         You can learn all you need here
       </h2>
       <h2 className="text-3xl font-semibold pt-20">Notation</h2>
@@ -39,15 +39,6 @@ export default function Notation() {
             to move that face anticlockwise instead, and 2 after a letter (like
             R2) tells you to move that face by 180 degrees.
           </span>
-          <span>Here's an example for you:</span>
-          <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
-            <img
-              src="/images/GuidePage/rotation.png"
-              alt="rotationimage"
-              className="w-[100px]"
-            />
-            <span className="underline text-xs">R</span>
-          </div>
           <span>
             If you managed to followed that correctly by turning each face of
             your cube twice, you should have achieved a rather charming

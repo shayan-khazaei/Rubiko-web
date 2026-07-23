@@ -5,7 +5,7 @@ import { F2LData } from "./SpeedCubingData";
 export default function SpeedCubingStep2() {
   return (
     <div id="step2s" className="text-md max-w-5xl text-justify pt-5">
-      <h2 className="text-3xl font-semibold">Step 2 - F2L </h2>
+      <h2 className="text-2xl sm:text-3xl font-semibold">Step 2 - F2L </h2>
       <div className="flex flex-col gap-4 pt-5">
         <span>
           The next step is to solve the rest of the first two layers (which is
@@ -21,7 +21,7 @@ export default function SpeedCubingStep2() {
           the corresponding edge piece and then insert them into the correct
           place. Here's a simple example:
         </span>
-        <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+        <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
           <img
             src="/images/GuidePage/speedcubings/f2l2.png"
             alt="f2l2image"
@@ -35,7 +35,7 @@ export default function SpeedCubingStep2() {
           situations you might find yourself in where this procedure is not
           quite so obvious. Here's a similar example:
         </span>
-        <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+        <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
           <img
             src="/images/GuidePage/speedcubings/f2l3.png"
             alt="f2l3image"
@@ -56,9 +56,9 @@ export default function SpeedCubingStep2() {
           without affecting any of the other previously solved pairs. For
           example, here are two ways of pairing the corner and edge pieces:
         </span>
-        <ul className="list-inside flex gap-3">
+        <ul className="list-inside flex flex-col sm:flex-row gap-3">
           <li>
-            <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+            <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
               <img
                 src="/images/GuidePage/speedcubings/f2l4.png"
                 alt="f2l4image"
@@ -68,7 +68,7 @@ export default function SpeedCubingStep2() {
             </div>
           </li>
           <li>
-            <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+            <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
               <img
                 src="/images/GuidePage/speedcubings/f2l5.png"
                 alt="f2l5image"
@@ -96,9 +96,9 @@ export default function SpeedCubingStep2() {
           disturb unsolved spaces by choosing a space to build your corner-edge
           pair that also assists the creation of the next pair. For example:
         </span>
-        <ul className="list-inside flex gap-3">
+        <ul className="list-inside flex flex-col sm:flex-row gap-3">
           <li>
-            <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+            <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
               <img
                 src="/images/GuidePage/speedcubings/f2l6.png"
                 alt="f2l6image"
@@ -108,7 +108,7 @@ export default function SpeedCubingStep2() {
             </div>
           </li>
           <li>
-            <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+            <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
               <img
                 src="/images/GuidePage/speedcubings/f2l7.png"
                 alt="f2l7image"
@@ -167,9 +167,9 @@ export default function SpeedCubingStep2() {
           much less obvious algorithm to solve it. For example, consider the
           following two algorithms:
         </span>
-        <ul className="list-inside flex gap-3">
+        <ul className="list-inside flex flex-col sm:flex-row gap-3">
           <li>
-            <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+            <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
               <img
                 src="/images/GuidePage/speedcubings/f2l8.png"
                 alt="f2l8image"
@@ -181,7 +181,7 @@ export default function SpeedCubingStep2() {
             </div>
           </li>
           <li>
-            <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+            <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
               <img
                 src="/images/GuidePage/speedcubings/f2l9.png"
                 alt="f2l9image"
@@ -243,9 +243,9 @@ export default function SpeedCubingStep2() {
           like d as opposed U y'. Both have the same effect, but a double layer
           turn is quicker. Compare these two algorithms:
         </span>
-        <ul className="list-inside flex gap-3">
+        <ul className="list-inside flex flex-col sm:flex-row gap-3">
           <li>
-            <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+            <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
               <img
                 src="/images/GuidePage/speedcubings/f2l5.png"
                 alt="f2l5image"
@@ -255,7 +255,7 @@ export default function SpeedCubingStep2() {
             </div>
           </li>
           <li>
-            <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+            <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
               <img
                 src="/images/GuidePage/speedcubings/f2l16.png"
                 alt="f2l16image"
@@ -277,9 +277,9 @@ export default function SpeedCubingStep2() {
           also an excellent life tip, some situations are just better handled on
           a specific side of the cube. Take this example:
         </span>
-        <ul className="list-inside flex gap-3">
+        <ul className="list-inside flex flex-col sm:flex-row gap-3">
           <li>
-            <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+            <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
               <img
                 src="/images/GuidePage/speedcubings/f2l7.png"
                 alt="f2l7image"
@@ -291,7 +291,7 @@ export default function SpeedCubingStep2() {
             </div>
           </li>
           <li>
-            <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+            <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
               <img
                 src="/images/GuidePage/speedcubings/f2l18.png"
                 alt="f2l18image"

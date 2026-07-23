@@ -24,12 +24,12 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="flex justify-between items-center px-5 py-1 bg-grey-50 text-xl h-[88px]  ">
+    <nav className="md:flex justify-between items-center px-5 py-1 bg-grey-50 text-xl h-[88px] hidden">
       <section className="flex items-center">
         <Logo />
       </section>
       <section>
-        <ul className="flex items-center gap-8 text-grey-700">
+        <ul className="flex items-center gap-5 md:gap-8 text-grey-700  text-sm lg:text-xl">
           <List to="/">Home</List>
           <List to="/solution-guides">Solution Guides</List>
           <List to="/history">History</List>
@@ -38,16 +38,17 @@ export default function Navbar() {
         </ul>
       </section>
       <section className="flex items-center gap-2">
-        <Button to="/login" variant="outline">
-          Log in
-        </Button>
-        {session && (
+        {session ? (
           <Button
             disabled={isLoading}
             onClick={logoutHandler}
             variant="outline"
           >
             Log Out
+          </Button>
+        ) : (
+          <Button to="/login" variant="outline">
+            Log in
           </Button>
         )}
       </section>

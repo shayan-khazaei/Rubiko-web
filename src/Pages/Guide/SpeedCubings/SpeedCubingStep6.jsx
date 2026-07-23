@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function SpeedCubingStep6() {
   return (
     <div id="step6s" className="text-md max-w-5xl text-justify pt-5">
-      <h2 className="text-3xl font-semibold">Step 6 - PLL Edges</h2>
+      <h2 className="text-2xl sm:text-3xl font-semibold">Step 6 - PLL Edges</h2>
       <div className="flex flex-col gap-4 pt-5">
         <span>
           This step aims to permute the edge pieces, which by now you have
@@ -21,7 +21,7 @@ export default function SpeedCubingStep6() {
           direction that the other edges need to be cycled. If they need to move
           clockwise, then use this algorithm:
         </span>
-        <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+        <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
           <img
             src="/images/GuidePage/speedcubings/pll7.png"
             alt="pll7image"
@@ -32,7 +32,7 @@ export default function SpeedCubingStep6() {
           </span>
         </div>
         <span>And if they need to move anticlockwise, use this algorithm:</span>
-        <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+        <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
           <img
             src="/images/GuidePage/speedcubings/pll8.png"
             alt="pll8image"
@@ -52,7 +52,7 @@ export default function SpeedCubingStep6() {
           There are, however, some more optimal algorithms. If you need to swap
           opposite edges, you can use this algorithm:
         </span>
-        <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+        <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
           <img
             src="/images/GuidePage/speedcubings/pll9.png"
             alt="pll9image"
@@ -61,7 +61,7 @@ export default function SpeedCubingStep6() {
           <span className="underline text-xs">(M2 U M2) U2 (M2 U M2)</span>
         </div>
         <span>And if you need to swap adjacent edges, use this algorithm:</span>
-        <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+        <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
           <img
             src="/images/GuidePage/speedcubings/pll10.png"
             alt="pll10image"

@@ -3,10 +3,10 @@ import { TfiHandPointRight } from "react-icons/tfi";
 
 export default function AboutSection() {
   return (
-    <div className="pt-5 flex flex-col ">
-      <section className="flex flex-col items-center gap-5 text-xl ">
+    <div className="pt-5 flex flex-col  ">
+      <section className="flex flex-col items-center gap-5 text-sm md:text-xl w-full ">
         <div className="flex flex-col gap-2 ">
-          <h2 className=" text-center text-4xl font-semibold text-grey-800">
+          <h2 className="text-center text-xl sm:text-2xl md:text-4xl font-semibold text-grey-800">
             where did the rubik’s cube come from?
           </h2>
           <p className="text-center">
@@ -17,24 +17,26 @@ export default function AboutSection() {
           </p>
         </div>
 
-        <Button to="/history" variant="outline">
-          Learn More
-        </Button>
+        <div>
+          <Button to="/history" variant="outline">
+            Learn More
+          </Button>
+        </div>
       </section>
-      <section className="flex gap-80 pt-10">
+      <section className="flex flex-col sm:flex-row sm:gap-5 xl:gap-80 pt-10 sm:w-full">
         <img
-          className="cursor-pointer ml-[px]"
+          className="cursor-pointer w-[90px] ml-25 md:ml-0 md:w-xl"
           src="images/aboutPic.jpg"
           alt="heroLogo"
         />
-        <div className="pt-[200px] flex flex-col gap-5">
-          <p className="font-semibold text-4xl">
+        <div className="md:pt-10 lg:pt-50 flex flex-col gap-5 mt-5 md:mt-0">
+          <p className="font-semibold text-md sm:text-lg md:text-3xl">
             Every minute, the world record <br />
             can be break as fast as <br />
             you can not imagine
           </p>
-          <div className="flex gap-3 items-center text-xl">
-            <h2 className=" text-grey-700 flex items-center gap-5">
+          <div className="flex gap-3 items-center text-md sm:text-lg">
+            <h2 className="text-grey-700 flex items-center gap-5">
               You can see live results and records here
               <TfiHandPointRight className="text-green-700" />
             </h2>
@@ -48,7 +50,6 @@ export default function AboutSection() {
           </div>
         </div>
       </section>
-     
     </div>
   );
 }

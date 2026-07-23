@@ -10,12 +10,12 @@ export default function SpeedCubingGuide() {
   return (
     <>
       <section>
-        <h2 className="text-5xl font-semibold uppercase ">
+        <h2 className="text-4xl sm:text-5xl font-semibold uppercase ">
           You can learn all you need here
         </h2>
       </section>
       <section>
-        <h2 className="text-4xl font-semibold pt-15">Speedcubing Guide</h2>
+        <h2 className="text-3xl sm:text-4xl font-semibold pt-15">Speedcubing Guide</h2>
         <div className="flex flex-col gap-3 pt-5 text-xl max-w-5xl text-justify">
           <span>
             So you've gone through the beginner's method a few times, and maybe

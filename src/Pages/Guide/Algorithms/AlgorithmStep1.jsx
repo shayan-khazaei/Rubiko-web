@@ -4,7 +4,7 @@ import { F2LData } from "./AlgorithmsData";
 export default function AlgorithmStep1() {
   return (
     <div id="f2l" className="text-md max-w-5xl text-justify pt-5">
-      <h2 className="text-3xl font-semibold">F2L</h2>
+      <h2 className=" text-2xl sm:text-3xl font-semibold">F2L</h2>
       <div className="flex flex-col gap-4 pt-5">
         <span>
           If you've read the How to be better at F2L section of my speedcubing

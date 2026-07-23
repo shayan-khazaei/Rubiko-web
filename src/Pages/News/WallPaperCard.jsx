@@ -7,7 +7,7 @@ export default function WallPaperCard({ image, desktopImage, mobileImage }) {
         <img
           src={image}
           alt={`${""}Image`}
-          className="rounded-t-xl object-cover h-[300px] "
+          className="rounded-t-xl object-cover lg:h-[250px] w-full "
         />
       </div>
       <div className="p-5">
@@ -22,7 +22,6 @@ export default function WallPaperCard({ image, desktopImage, mobileImage }) {
         <div className="h-px bg-green-700"></div>
         <a href={mobileImage} target="blank">
           <div className="flex items-center justify-between">
-            {/* i should fix hover */}
             <div className="text-2xl uppercase font-semibold flex gap-5 cursor-pointer">
               Mobile
             </div>

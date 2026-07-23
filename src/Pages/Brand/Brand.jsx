@@ -5,17 +5,17 @@ export default function Brand() {
         <img
           src="images/brandSection.png"
           alt="brandHeader"
-          className="w-full object-cover h-[33rem] brightness-75"
+          className="w-full object-cover md:h-[33rem] brightness-75"
         />
       </section>
-      <section className="container mx-auto grid grid-cols-3 gap-[25rem]">
+      <section className="container mx-auto px-6 xl:px-0 xl:grid xl:grid-cols-3 gap-[25rem]">
         <section className="col-span-1">
-          <h2 className="sticky top-36 text-6xl w-xl uppercase font-bold">
+          <h2 className="-mt-14 sm:-mt-0 mb-8 md:sticky md:top-36 text-2xl sm:text-3xl md:text-6xl w-full md:max-w-xl uppercase font-bold">
             RUBIK’S® brand <br /> & trademark guidelines
           </h2>
         </section>
         <section className="flex flex-col gap-10 col-span-2 items-center">
-          <p className="text-2xl w-2xl text-left">
+          <p className="text-md sm:text-xl xl:text-2xl w-full xl:max-w-2xl text-left">
             The RUBIK’S® brand is famous for the three-dimensional puzzle cube
             originally created by Ernő Rubik in 1974. The Rubik’s® Cube is
             revered as one of the most beloved toys of all time. Since the
@@ -25,8 +25,10 @@ export default function Brand() {
             trademark.
           </p>
           <div>
-            <span className="uppercase text-3xl font-semibold">facts</span>
-            <ul className="text-xl w-2xl text-left list-disc list-outside pl-6 flex flex-col gap-3 mt-5">
+            <span className="uppercase text-lg sm:text-xl xl:text-3xl font-semibold">
+              facts
+            </span>
+            <ul className="sm:text-lg xl:text-xl w-full xl:max-w-2xl text-left list-disc list-outside pl-6 flex flex-col gap-3 mt-5">
               <li>
                 Spin Master currently owns over 400 trademarks worldwide
                 protecting the Rubik’s® Cube and the RUBIK’S® brand.
@@ -51,10 +53,10 @@ export default function Brand() {
             </ul>
           </div>
           <div>
-            <span className="uppercase text-3xl font-semibold">
+            <span className="uppercase text-lg sm:text-xl xl:text-3xl font-semibold">
               trademark guidelines
             </span>
-            <ul className="text-xl w-2xl text-left list-disc list-outside ps-6 flex flex-col gap-3 mt-5">
+            <ul className="sm:text-lg xl:text-xl w-full xl:max-w-2xl text-left list-disc list-outside ps-6 flex flex-col gap-3 mt-5">
               <li>
                 The RUBIK’S® trademark can only be used in connection with
                 original RUBIK’S® brand products manufactured or licensed by
@@ -93,12 +95,12 @@ export default function Brand() {
       <section className="w-[95%] mx-auto">
         <div className="text-green-700 border mb-10" />
         <div className="flex flex-col gap-2">
-          <h4 className="text-grey-900 text-xl font-semibold">
+          <h4 className="text-grey-900 sm:text-xl font-semibold">
             More information:
           </h4>
-          <p className="font-grey-700 tet-xl">
-            For questions regarding our legal information, please contact us at our social media
-            accounts.
+          <p className="font-grey-700 sm:text-lg">
+            For questions regarding our legal information, please contact us at
+            our social media accounts.
           </p>
         </div>
       </section>

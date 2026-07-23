@@ -1,7 +1,7 @@
 export default function BeginnerStep3() {
   return (
     <div id="step3" className="text-md max-w-5xl text-justify pt-5">
-      <h2 className="text-3xl font-semibold">Step 3 - The Second Layer </h2>
+      <h2 className="text-2xl sm:text-3xl font-semibold">Step 3 - The Second Layer </h2>
       <div className="flex flex-col gap-4 pt-5">
         <span>
           Now that the first layer is complete, it's on to the second layer:
@@ -47,8 +47,8 @@ export default function BeginnerStep3() {
             depending on which of the three ways the white side of the cubie
             could be facing, use one of these algorithms:
           </span>
-          <div className="flex gap-20">
-            <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+          <div className="flex flex-col gap-20">
+            <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
               <img
                 src="images/GuidePage/beginners/secondlayer4.png"
                 alt="secondlayer4image"
@@ -59,7 +59,7 @@ export default function BeginnerStep3() {
                 Move the top layer edge piece tp the right
               </span>
             </div>
-            <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+            <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
               <img
                 src="images/GuidePage/beginners/secondlayer5.png"
                 alt="secondlayer5image"
@@ -87,7 +87,7 @@ export default function BeginnerStep3() {
             using the first algorithm on the yellow-red edge piece will displace
             the orange-green piece, causing it to move to the top layer like so:
           </span>
-          <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+          <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
             <img
               src="images/GuidePage/beginners/secondlayer7.png"
               alt="secondlayer7image"
@@ -112,7 +112,7 @@ export default function BeginnerStep3() {
             clever, you can show it who's boss and see how it likes one of
             these:
           </span>
-          <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+          <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
             <img
               src="images/GuidePage/beginners/secondlayer9.png"
               alt="secondlayer9image"

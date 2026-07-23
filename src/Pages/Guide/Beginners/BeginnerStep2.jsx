@@ -1,7 +1,9 @@
 export default function BeginnerStep2() {
   return (
     <div id="step2" className="text-md max-w-5xl text-justify pt-5">
-      <h2 className="text-3xl font-semibold">Step 2 - The Corners </h2>
+      <h2 className="text-2xl sm:text-3xl font-semibold">
+        Step 2 - The Corners{" "}
+      </h2>
       <div className="flex flex-col gap-4 pt-5">
         <span>The next step is to put the corners in, like this:</span>
         <div className="flex flex-col gap-4">
@@ -27,8 +29,8 @@ export default function BeginnerStep2() {
             depending on which of the three ways the white side of the cubie
             could be facing, use one of these algorithms:
           </span>
-          <div className="flex gap-20">
-            <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+          <div className="flex flex-col gap-20">
+            <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
               <img
                 src="images/GuidePage/beginners/corner3.png"
                 alt="corner3image"
@@ -36,7 +38,7 @@ export default function BeginnerStep2() {
               />
               <span className="underline text-xs">F D F'</span>
             </div>
-            <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+            <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
               <img
                 src="images/GuidePage/beginners/corner4.png"
                 alt="corner4image"
@@ -44,7 +46,7 @@ export default function BeginnerStep2() {
               />
               <span className="underline text-xs">R' D' R</span>
             </div>
-            <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+            <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
               <img
                 src="images/GuidePage/beginners/corner5.png"
                 alt="corner5image"
@@ -81,7 +83,7 @@ export default function BeginnerStep2() {
             the above algorithms. You simply put some other piece in its place,
             like so:
           </span>
-          <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+          <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
             <img
               src="images/GuidePage/beginners/corner7.png"
               alt="corner7image"
@@ -99,7 +101,7 @@ export default function BeginnerStep2() {
             be in the correct place in the top layer, but just needs
             reorienting. For example:
           </span>
-          <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+          <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
             <img
               src="images/GuidePage/beginners/corner8.png"
               alt="corner8image"

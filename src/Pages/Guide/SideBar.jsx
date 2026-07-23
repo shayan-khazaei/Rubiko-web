@@ -4,7 +4,7 @@ import List from "./List";
 import ShowGuidIcons from "./ShowGuidIcons";
 import { useState } from "react";
 
-export default function SideBar() {
+export default function SideBar({setIsOpenSidebar}) {
   const location = useLocation();
   const [activeId, setActiveId] = useState("");
 
@@ -50,8 +50,8 @@ export default function SideBar() {
       </section>
 
       {sidebarIcons && (
-        <section className="relative flex-1 bg-grey-200 z-10 ">
-          <div className="absolute w-[2px] h-[100%] bg-green-500 top-0 left-[52px] -z-10 "></div>
+        <section className="relative flex-[1.4] 2xl:flex-[1.2] bg-grey-200 z-10 ">
+          <div className="absolute w-[2px] h-[100%] bg-green-500 top-0 left-[50%] -z-10 "></div>
           <ul className="flex flex-col items-center gap-5 h-full justify-center">
             {currentSidebar?.icons.map((data) => (
               <ShowGuidIcons
@@ -60,6 +60,7 @@ export default function SideBar() {
                 key={data.id}
                 activeId={activeId}
                 setActiveId={setActiveId}
+                setIsOpenSidebar={setIsOpenSidebar}
               />
             ))}
           </ul>

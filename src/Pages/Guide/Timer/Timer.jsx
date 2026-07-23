@@ -59,9 +59,9 @@ export default function Timer() {
   const milliseconds = Math.floor(time % 1000);
 
   return (
-    <div id="step6" className="text-md max-w-5xl text-justify pt-5 h-full">
+    <div id="step6" className="text-md max-w-5xl xl:text-justify pt-5 h-full">
       <section>
-        <h2 className="text-5xl font-semibold uppercase ">
+        <h2 className="text-4xl sm:text-5xl font-semibold uppercase ">
           Use Timer To See Your Progress
         </h2>
         <div className="pt-15">
@@ -82,7 +82,13 @@ export default function Timer() {
         </div>
       </section>
       <section>
-        <div className="bg-grey-200 border border-green-500 h-[400px] flex items-center justify-center mt-7 cursor-pointer">
+        <div
+          className="bg-grey-200 border border-green-500 h-[400px] flex items-center justify-center mt-7 cursor-pointer"
+          onPointerDown={() => {
+            if (isRunning) stopTimer();
+            else startTimer();
+          }}
+        >
           <h1 className="text-5xl">
             <span> {String(minutes).padStart(2, "0")} :</span>
             <span> {String(seconds).padStart(2, "0")}</span>

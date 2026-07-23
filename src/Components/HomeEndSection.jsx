@@ -1,30 +1,29 @@
 import { TfiHandPointRight } from "react-icons/tfi";
 import Button from "./Button";
 
-
 export default function HomeEndSection() {
   return (
-    <section className="relative min-h-[427px]">
+    <section className="relative pb-5">
       <img
-        className="absolute right-[-50px] top-[-420px] cursor-pointer hover:opacity-0 "
+        className="hidden xl:block w-xl 2xl:w-2xl absolute mr-14 right-[-50px] top-[-420px] cursor-pointer hover:opacity-0 "
         src="images/aboutPic2.png"
         alt="heroLogo"
       />
       <img
-        className="absolute right-[-47.5px] top-[-420px] cursor-pointer opacity-0 hover:opacity-100 hover:rotate-1 "
+        className="hidden xl:block w-xl 2xl:w-2xl absolute mr-14 right-[-47.5px] top-[-420px] cursor-pointer opacity-0 hover:opacity-100 hover:rotate-1 "
         src="images/aboutPic3.png"
         alt="heroLogo"
       />
 
-      <div className="flex flex-col gap-5 pt-15">
-        <h2 className="text-4xl font-semibold text-grey-800">
+      <div className="flex flex-col items-center sm:w-full md:items-center xl:items-start gap-5 pt-15">
+        <h2 className="text-lg md:text-4xl font-semibold text-grey-800">
           Ready for your next challenges ?
         </h2>
-        <h3 className="text-2xl font-semibold text-grey-700 ">
+        <h3 className="text-md sm:text-lg md:text-2xl font-semibold text-grey-700 ">
           Join the Rubiko Community
         </h3>
-        <div className="flex items-end gap-5 text-xl">
-          <p className="text-grey-700  flex items-end ">
+        <div className="flex items-end gap-5 text-md sm:text-lg md:text-xl">
+          <p className="text-grey-700 flex items-end ">
             Create your account,
             <br />
             save your progress,

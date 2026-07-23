@@ -45,10 +45,10 @@ export default function Signup() {
 
   return (
     <div className="flex flex-col items-center justify-center gap-6 h-[calc(100vh-176px)]">
-      <h2 className="text-4xl">Sign Up</h2>
+      <h2 className="text-2xl sm:text-3xl md:text-4xl">Sign Up</h2>
       <form
         onSubmit={handleSubmit(submitForm)}
-        className="flex flex-col gap-5 bg-gray-900 px-10 py-16 rounded-sm"
+        className="flex flex-col gap-5 bg-gray-900 px-6 py-10 md:px-10 md:py-16 rounded-sm"
       >
         <div>
           <input
@@ -56,7 +56,7 @@ export default function Signup() {
               required: "name is required",
             })}
             aria-invalid={errors.password ? "true" : "false"}
-            className="px-6 py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-lg focus:outline-0 focus:placeholder:text-xl"
+            className="px-4 py-2 md:px-6 md:py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-lg focus:outline-0 focus:placeholder:text-xl"
             type="text"
             placeholder="Name"
           />
@@ -70,7 +70,7 @@ export default function Signup() {
           <input
             {...register("email", { required: "Email Address is required" })}
             aria-invalid={errors.email ? "true" : "false"}
-            className="px-6 py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-lg focus:outline-0 focus:placeholder:text-xl"
+            className="px-4 py-2 md:px-6 md:py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-lg focus:outline-0 focus:placeholder:text-xl"
             type="email"
             placeholder="Email ID"
           />
@@ -90,7 +90,7 @@ export default function Signup() {
               },
             })}
             aria-invalid={errors.password ? "true" : "false"}
-            className="px-6 py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-lg focus:outline-0 focus:placeholder:text-xl"
+            className="px-4 py-2 md:px-6 md:py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-lg focus:outline-0 focus:placeholder:text-xl"
             type="password"
             placeholder="Password"
           />
@@ -108,7 +108,7 @@ export default function Signup() {
                 value === getValues("password") || "Password don't match",
             })}
             aria-invalid={errors.confirmPassword ? "true" : "false"}
-            className="px-6 py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-lg focus:outline-0 focus:placeholder:text-xl"
+            className="px-4 py-2 md:px-6 md:py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-lg focus:outline-0 focus:placeholder:text-xl"
             type="password"
             placeholder="Confirm Your Password"
           />
@@ -126,7 +126,9 @@ export default function Signup() {
         </button>
       </form>
       <div className="flex items-center gap-1">
-        <span className="text-gray-800 text-lg">Already have an account ?</span>
+        <span className="text-gray-800 md:text-lg">
+          Already have an account ?
+        </span>
         <Button to="/login">Log in</Button>
       </div>
     </div>

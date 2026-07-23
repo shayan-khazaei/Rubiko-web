@@ -1,7 +1,7 @@
 export default function SpeedCubingStep5() {
   return (
     <div id="step5s" className="text-md max-w-5xl text-justify pt-5">
-      <h2 className="text-3xl font-semibold">Step 5 - PLL Corners</h2>
+      <h2 className="text-2xl sm:text-3xl font-semibold">Step 5 - PLL Corners</h2>
       <div className="flex flex-col gap-4 pt-5">
         <span>
           Now that the OLL is done, you can start PLL. This step is called CPLL,
@@ -29,7 +29,7 @@ export default function SpeedCubingStep5() {
           You then hold the headlights so they are facing to the right, and
           perform this algorithm:
         </span>
-        <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+        <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
           <img
             src="/images/GuidePage/speedcubings/pll3.png"
             alt="pll3image"
@@ -55,7 +55,7 @@ export default function SpeedCubingStep5() {
           anyway, which will make some headlights for you to solve as above. The
           second option is this algorithm:
         </span>
-        <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+        <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
           <img
             src="/images/GuidePage/speedcubings/pll5.png"
             alt="pll5image"

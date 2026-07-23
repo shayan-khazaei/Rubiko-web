@@ -1,7 +1,7 @@
 export default function SpeedCubingStep3() {
   return (
     <div id="step3s" className="text-md max-w-5xl text-justify pt-5">
-      <h2 className="text-3xl font-semibold">Step 3 - OLL Edges</h2>
+      <h2 className="text-2xl sm:text-3xl font-semibold">Step 3 - OLL Edges</h2>
       <div className="flex flex-col gap-4 pt-5">
         <span>
           Now, when you're solving the cube using the full CFOP method, the
@@ -65,7 +65,7 @@ export default function SpeedCubingStep3() {
           yourself presented with this:
         </span>
 
-        <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+        <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
           <img
             src="/images/GuidePage/speedcubings/oll2.png"
             alt="oll2image"

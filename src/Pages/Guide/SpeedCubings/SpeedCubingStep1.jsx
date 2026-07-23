@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function SpeedCubingStep1() {
   return (
     <div id="step1s" className="text-md max-w-5xl text-justify pt-5">
-      <h2 className="text-3xl font-semibold">Step 1 - The Cross </h2>
+      <h2 className="text-2xl sm:text-3xl font-semibold">Step 1 - The Cross </h2>
       <span>
         This step is the same as the beginner method - forming a cross on the
         first layer to get this:
@@ -56,7 +56,7 @@ export default function SpeedCubingStep1() {
           place the white-blue edge piece on the bottom layer. But you could
           also place the white-red piece by doing this:
         </span>
-        <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+        <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
           <img
             src="/images/GuidePage/speedcubings/cross3.png"
             alt="cross3image"
@@ -69,9 +69,9 @@ export default function SpeedCubingStep1() {
           the edge pieces in the correct place straight away. Consider this
           situation, and the two approaches to solving it:
         </span>
-        <ul className="list-inside flex  gap-3">
+        <ul className="list-inside flex flex-col sm:flex-row gap-3">
           <li>
-            <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+            <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
               <img
                 src="/images/GuidePage/speedcubings/cross4.png"
                 alt="cross4image"
@@ -81,7 +81,7 @@ export default function SpeedCubingStep1() {
             </div>
           </li>
           <li>
-            <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+            <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
               <img
                 src="/images/GuidePage/speedcubings/cross5.png"
                 alt="cross5image"

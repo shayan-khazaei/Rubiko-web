@@ -5,7 +5,7 @@ import { OLLData } from "./SpeedCubingData";
 export default function SpeedCubingStep4() {
   return (
     <div id="step4s" className="text-md max-w-5xl text-justify pt-5">
-      <h2 className="text-3xl font-semibold">Step 4 - OLL Corners</h2>
+      <h2 className="text-2xl sm:text-3xl font-semibold">Step 4 - OLL Corners</h2>
       <div className="flex flex-col gap-4 pt-5">
         <span>The next step is to correctly orient the corner cubies:</span>
         <img

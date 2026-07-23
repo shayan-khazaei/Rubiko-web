@@ -4,7 +4,7 @@ import { Table, Td, Th, Tr } from "./Table";
 export default function AlgorithmStep3() {
   return (
     <div id="pll" className="text-md max-w-5xl text-justify pt-5">
-      <h2 className="text-3xl font-semibold">PLL</h2>
+      <h2 className="text-2xl sm:text-3xl font-semibold">PLL</h2>
       <div className="flex flex-col gap-4 pt-5">
         <span>
           Much like the OLL algorithms, these PLL algorithms are presented with

@@ -1,7 +1,7 @@
 export default function BeginnerStep7() {
   return (
     <div id="step7" className="text-md max-w-5xl text-justify pt-5">
-      <h2 className="text-3xl font-semibold">
+      <h2 className="text-2xl sm:text-3xl font-semibold">
         Step 7 - The Last Layer Corners 2{" "}
       </h2>
       <div className="flex flex-col gap-4 pt-5">
@@ -99,7 +99,7 @@ export default function BeginnerStep7() {
             If your FRU cubie has its yellow side facing to the right, you use
             this algorithm:
           </span>
-          <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+          <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
             <img
               src="images/GuidePage/beginners/lastlayercorners5.png"
               alt="lastlayercorners5image"
@@ -111,7 +111,7 @@ export default function BeginnerStep7() {
             And if it is facing forward, you use exactly the same algorithm, but
             twice in a row:
           </span>
-          <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+          <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
             <img
               src="images/GuidePage/beginners/lastlayercorners6.png"
               alt="lastlayercorners6image"

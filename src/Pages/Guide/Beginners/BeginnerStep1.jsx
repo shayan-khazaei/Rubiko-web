@@ -1,7 +1,7 @@
 export default function BeginnerStep1() {
   return (
     <div id="step1" className="text-md max-w-5xl text-justify pt-5">
-      <h2 className="text-3xl font-semibold">Step 1 - The Cross </h2>
+      <h2 className="text-2xl sm:text-3xl font-semibold">Step 1 - The Cross </h2>
       <div className="flex flex-col gap-4 pt-5">
         <div>
           The first thing to do is to be aware of two facts:
@@ -166,7 +166,7 @@ export default function BeginnerStep1() {
             centre pieces. They can be swapped around without affecting the rest
             of the cross like so:
           </span>
-          <div className="flex flex-col items-center gap-1 w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
+          <div className="flex flex-col items-center gap-1 md:w-[340px] bg-grey-100 px-20 py-5 border border-grey-400">
             <img
               src="images/GuidePage/beginners/cross7.png"
               alt="cross7image"

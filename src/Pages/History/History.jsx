@@ -4,7 +4,7 @@ import MainHistorySection from "./MainHistorySection";
 
 export default function History() {
   return (
-    <div className="flex flex-col gap-32 container mx-auto ">
+    <div className="flex flex-col gap-32 container mx-auto px-6 xl:px-0 ">
       <div>
         <MainHistorySection />
       </div>

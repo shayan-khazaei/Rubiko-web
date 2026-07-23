@@ -4,9 +4,9 @@ import HeroSection from "../Components/HomeHeroSection";
 
 export default function Home() {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto px-6 2xl:px-0">
       <HeroSection />
-      <AboutSection />
+      <AboutSection  />
       <HomeEndSection />
     </div>
   );

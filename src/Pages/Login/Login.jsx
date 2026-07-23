@@ -42,17 +42,17 @@ export default function Login() {
   };
 
   return (
-    <div className="w-full h-[calc(100vh-176px)] flex flex-col items-center justify-center gap-6 min-h-full">
-      <h2 className="text-4xl">User Login</h2>
+    <div className="w-full h-[calc(100vh-176px)] flex flex-col items-center justify-center gap-6">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl">User Login</h2>
       <form
         onSubmit={handleSubmit(submitForm)}
-        className="flex flex-col gap-5 bg-gray-900 px-10 py-16 rounded-sm"
+        className="flex flex-col gap-5 bg-gray-900 px-6 py-10 md:px-10 md:py-16  rounded-sm"
       >
         <div>
           <input
             {...register("email", { required: "Email Address is required" })}
             aria-invalid={errors.email ? "true" : "false"}
-            className="px-6 py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-lg focus:outline-0 focus:placeholder:text-xl"
+            className="px-4 py-2 md:px-6 md:py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-lg focus:outline-0 focus:placeholder:text-xl"
             type="email"
             placeholder="Email ID"
           />
@@ -66,7 +66,7 @@ export default function Login() {
           <input
             {...register("password", { required: "Password is required" })}
             aria-invalid={errors.password ? "true" : "false"}
-            className="px-6 py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-lg focus:outline-0 focus:placeholder:text-xl"
+            className="px-4 py-2 md:px-6 md:py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-lg focus:outline-0 focus:placeholder:text-xl"
             type="password"
             placeholder="Password"
           />
