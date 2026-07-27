@@ -3,14 +3,14 @@ import Button from "./Button";
 
 export default function HomeEndSection() {
   return (
-    <section className="relative pb-5">
+    <section className="relative pb-14 ">
       <img
-        className="hidden xl:block w-xl 2xl:w-2xl absolute mr-14 right-[-50px] top-[-420px] cursor-pointer hover:opacity-0 "
+        className="hidden xl:block w-xl 2xl:w-xl absolute mr-14 right-[-50px] top-[-420px] cursor-pointer hover:opacity-0 "
         src="images/aboutPic2.png"
         alt="heroLogo"
       />
       <img
-        className="hidden xl:block w-xl 2xl:w-2xl absolute mr-14 right-[-47.5px] top-[-420px] cursor-pointer opacity-0 hover:opacity-100 hover:rotate-1 "
+        className="hidden xl:block w-xl 2xl:w-xl absolute mr-14 right-[-47.5px] top-[-420px] cursor-pointer opacity-0 hover:opacity-100 hover:rotate-1 "
         src="images/aboutPic3.png"
         alt="heroLogo"
       />
