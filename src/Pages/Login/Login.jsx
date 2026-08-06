@@ -46,7 +46,7 @@ export default function Login() {
       <h2 className="text-2xl sm:text-3xl md:text-4xl">User Login</h2>
       <form
         onSubmit={handleSubmit(submitForm)}
-        className="flex flex-col gap-5 bg-gray-900 px-6 py-10 md:px-10 md:py-16  rounded-sm"
+        className="flex flex-col gap-5 bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% px-6 py-10 md:px-10 md:py-16  rounded-sm"
       >
         <div>
           <input
