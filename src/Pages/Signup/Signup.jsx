@@ -18,9 +18,8 @@ export default function Signup() {
 
   const submitForm = async (data) => {
     const { name, email, password } = data;
-
     setIsLoading(true);
-    const { user, error } = await supabase.auth.signUp({
+    const { error } = await supabase.auth.signUp({
       email,
       password,
       options: {
@@ -30,13 +29,18 @@ export default function Signup() {
       },
     });
 
-    if (user.user) {
-      await supabase.from("Profile").insert({
-        user_id: user.user.id,
-        username: name,
-        role: "user",
-      });
-    }
+    // if (authData.user) {
+    //   const { data, error } = await supabase
+    //     .from("profile")
+    //     .insert({
+    //       user_id: authData.user.id,
+    //       username: name,
+    //       role: "user",
+    //     })
+    //     .select();
+    //   console.log(data);
+    //   console.log(error);
+    // }
 
     setIsLoading(false);
 
@@ -48,8 +52,7 @@ export default function Signup() {
     toast.success(
       "User Created Successfully, Please Confirm Your email to sign in"
     );
-    console.log(user);
-    navigate("/solution-guides");
+    navigate("/login");
   };
 
   return (

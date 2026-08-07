@@ -17,7 +17,7 @@ export default function UserProfile() {
       const { data } = await supabase
         .from("profile")
         .select("*")
-        .eq("user_id", session.user.id)
+        .eq("id", session.user.id)
         .single();
 
       setProfile(data);
@@ -54,12 +54,16 @@ export default function UserProfile() {
         .from("avatars")
         .getPublicUrl(fileName);
 
-      await supabase
+      const { data: updated, error } = await supabase
         .from("profile")
         .update({
           avatar: image.publicUrl,
         })
-        .eq("user_id", session.user.id);
+        .eq("id", session.user.id)
+        .select();
+
+      console.log(updated);
+      console.log(error);
 
       setProfile((prev) => ({
         ...prev,
