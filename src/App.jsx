@@ -16,6 +16,10 @@ import Algorithms from "./Pages/Guide/Algorithms/Algorithms";
 import Notation from "./Pages/Guide/Notation/Notation";
 import UserProfile from "./Pages/Profile/UserProfile";
 import ProtectedRoute from "./Features/ProtectedRoute";
+import AdminLayout from "./Admin/Components/AdminLayout";
+import Dashboard from "./Admin/Pages/Dashboard/Dashboard";
+import Users from "./Admin/Pages/Users/Users";
+
 export default function App() {
   return (
     <>
@@ -51,6 +55,10 @@ export default function App() {
             <Route path="timer" element={<Timer />} />
             <Route path="notation" element={<Notation />} />
           </Route>
+        </Route>
+        <Route path="/dashboard" element={<AdminLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="users" element={<Users />} />
         </Route>
       </Routes>
     </>
