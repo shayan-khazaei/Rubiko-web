@@ -18,30 +18,30 @@ export default function Sidebar() {
       </section>
       <section>
         <ul className="flex flex-col gap-6 text-gray-300 text-xl mt-5">
-          <List to="/">
+          <List to="/dashboard" end>
             <FaHome />
             Overview
           </List>
-          <List to="/">
+          <List to="users">
             <FiUsers />
             Users
           </List>
-          <List to="/solution-guides">
+          <List to="solution-guides">
             <PiChalkboardTeacher />
             Solution Guides
           </List>
-          <List to="/history">
+          <List to="news">
             <FaRegNewspaper /> News
           </List>
-          <List to="/brand">
+          <List to="records">
             <LuFileClock />
             Records
           </List>
-          <List to="/news-events-more">
+          <List to="reports">
             <VscReport />
             Reports
           </List>
-          <List to="/news-events-more">
+          <List to="settings">
             <CiSettings />
             Settings
           </List>
