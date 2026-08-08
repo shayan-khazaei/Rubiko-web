@@ -39,13 +39,16 @@ export default function Navbar() {
       </section>
       <section className="flex items-center gap-2">
         {session ? (
-          <Button
-            disabled={isLoading}
-            onClick={logoutHandler}
-            variant="outline"
-          >
-            Log Out
-          </Button>
+          <>
+            <Button to="/user-profile">See Profile</Button>
+            <Button
+              disabled={isLoading}
+              onClick={logoutHandler}
+              variant="outline"
+            >
+              Log Out
+            </Button>
+          </>
         ) : (
           <Button to="/login" variant="outline">
             Log in

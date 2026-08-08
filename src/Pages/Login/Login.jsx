@@ -10,7 +10,7 @@ export default function Login() {
   const { session } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
 
-  if (session) navigate("/solution-guides");
+  if (session) navigate("/");
 
   const {
     register,
