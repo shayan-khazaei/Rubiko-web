@@ -53,6 +53,14 @@ const UsersData = [
     user: "Shayan",
     email: "shayankhazaei50@gmail.com",
     joinedAt: "Jun 7, 2025",
+    role: "Admin",
+    status: "Active",
+  },
+  {
+    image: "/images/profilebg.png",
+    user: "Ali",
+    email: "aliakbari557@gmail.com",
+    joinedAt: "May 17, 2027",
     role: "User",
     status: "Active",
   },
@@ -64,6 +72,64 @@ const UsersData = [
     role: "User",
     status: "Active",
   },
+  {
+    image: "/images/profilebg.png",
+    user: "Ali",
+    email: "aliakbari557@gmail.com",
+    joinedAt: "May 17, 2027",
+    role: "User",
+    status: "Active",
+  },
+  {
+    image: "/images/profilebg.png",
+    user: "Ali",
+    email: "aliakbari557@gmail.com",
+    joinedAt: "May 17, 2027",
+    role: "User",
+    status: "Active",
+  },
+  {
+    image: "/images/profilebg.png",
+    user: "Ali",
+    email: "aliakbari557@gmail.com",
+    joinedAt: "May 17, 2027",
+    role: "User",
+    status: "Active",
+  },
+  {
+    image: "/images/profilebg.png",
+    user: "Ali",
+    email: "aliakbari557@gmail.com",
+    joinedAt: "May 17, 2027",
+    role: "User",
+    status: "Active",
+  },
+  {
+    image: "/images/profilebg.png",
+    user: "Ali",
+    email: "aliakbari557@gmail.com",
+    joinedAt: "May 17, 2027",
+    role: "User",
+    status: "Active",
+  },
+  {
+    image: "/images/profilebg.png",
+    user: "Ali",
+    email: "aliakbari557@gmail.com",
+    joinedAt: "May 17, 2027",
+    role: "User",
+    status: "Active",
+  },
+    {
+    image: "/images/profilebg.png",
+    user: "Ali",
+    email: "aliakbari557@gmail.com",
+    joinedAt: "May 17, 2027",
+    role: "User",
+    status: "Active",
+  },
 ];
 
-export { CardsData, ChartData, UsersData };
+const theadData = ["User", "Email", "Joined At", "Role", "Status"];
+
+export { CardsData, ChartData, UsersData, theadData };

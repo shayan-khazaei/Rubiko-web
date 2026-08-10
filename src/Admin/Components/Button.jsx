@@ -4,8 +4,10 @@ export default function Button({ children, variant = "solid", light }) {
 
   const variantClass =
     variant === "outline"
-      ? "bg-green-600 text-white hover:bg-green-700"
-      :`${light ? "text-gray-800" : "text-gray-300"} hover:border-b hover:border-l hover:border-grey-600`;
+      ? "bg-radial-[at_25%_25%] from-zinc-800 to-green-900 to-95% text-white hover:shadow-2xl"
+      : `${
+          light ? "text-gray-800" : "text-gray-300"
+        } hover:border-b hover:border-l hover:border-grey-600`;
 
   return <button className={`${baseClass} ${variantClass}`}>{children}</button>;
 }

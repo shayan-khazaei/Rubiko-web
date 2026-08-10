@@ -18,7 +18,6 @@ export default function Navbar() {
             className=" bg-white px-2 py-1.5 rounded-lg focus:outline-0 focus:border-1 focus:border-green-800"
           />
         </div>
-
         <div className="relative">
           <CiBellOn className="text-3xl cursor-pointer" />
           <p className="absolute bottom-4.5 left-5 flex items-center justify-center text-white bg-green-700 text-[10px] w-4 h-4 rounded-full ">

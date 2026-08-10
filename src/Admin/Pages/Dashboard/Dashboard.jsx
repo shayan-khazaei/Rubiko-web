@@ -1,6 +1,6 @@
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
 import DashboardCard from "./DashboardCard";
-import { CardsData, ChartData, UsersData } from "./DashboardData";
+import { CardsData, ChartData, UsersData, theadData } from "./DashboardData";
 import { MdArrowDropDown } from "react-icons/md";
 import Button from "../../Components/Button";
 
@@ -71,11 +71,9 @@ export default function Dashboard() {
         <table className="w-[85%] mx-auto text-left ">
           <thead>
             <tr className="border border-gray-300 text-lg ">
-              <th className="px-2 py-1">User</th>
-              <th className="px-2 py-1">Email</th>
-              <th className="px-2 py-1">Joined At</th>
-              <th className="px-2 py-1">Role</th>
-              <th className="px-2 py-1">Status</th>
+              {theadData.map((thead) => (
+                <th className="px-2 py-1">{thead}</th>
+              ))}
             </tr>
           </thead>
           <tbody>
