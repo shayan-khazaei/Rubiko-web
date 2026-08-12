@@ -3,7 +3,6 @@ import { FaHome } from "react-icons/fa";
 import List from "./List";
 import { FiUsers } from "react-icons/fi";
 import { FaRegNewspaper } from "react-icons/fa6";
-import { LuFileClock } from "react-icons/lu";
 import { VscReport } from "react-icons/vsc";
 import { CiSettings } from "react-icons/ci";
 import Button from "./Button";
@@ -11,7 +10,7 @@ import { IoExitOutline } from "react-icons/io5";
 
 export default function Sidebar() {
   return (
-    <aside className="relative flex flex-col items-start w-60 px-5 py-1 bg-radial-[at_25%_25%] from-zinc-950 to-green-900 to-95% text-xl">
+    <aside className="relative flex flex-col items-start w-60 px-5 py-5 bg-radial-[at_25%_25%] from-zinc-950 to-green-900 to-95% text-xl">
       <section className="flex items-center">
         <Logo />
       </section>
@@ -27,10 +26,6 @@ export default function Sidebar() {
           </List>
           <List to="news">
             <FaRegNewspaper /> News
-          </List>
-          <List to="records">
-            <LuFileClock />
-            Records
           </List>
           <List to="reports">
             <VscReport />

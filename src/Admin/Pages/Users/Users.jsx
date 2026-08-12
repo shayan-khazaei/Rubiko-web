@@ -35,7 +35,7 @@ export default function Users() {
               name="searchbox"
               id="searchbox"
               placeholder="🔍    Search User..."
-              className=" bg-white px-2 py-2.5 rounded-lg focus:outline-0 focus:border-1 focus:border-green-800"
+              className=" bg-white px-2 py-2.5 w-70 rounded-lg focus:outline-0 focus:border-1 focus:border-green-800"
             />
           </div>
           <div className="relative">

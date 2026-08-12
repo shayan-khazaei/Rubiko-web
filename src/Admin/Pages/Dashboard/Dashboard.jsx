@@ -45,8 +45,16 @@ export default function Dashboard() {
           className="focus:border-none focus:outline-none"
         >
           <CartesianGrid stroke="var(--color-border-3)" strokeDasharray="5 5" />
-          <XAxis dataKey="month" stroke="var(--color-text-3)" />
-          <YAxis width="auto" stroke="var(--color-text-3)" />
+          <XAxis
+            dataKey="month"
+            stroke="var(--color-text-3)"
+            padding={{ left: 20, right: 20 }}
+          />
+          <YAxis
+            width="auto"
+            stroke="var(--color-text-3)"
+            padding={{ top: 20, bottom: 20 }}
+          />
           <Line
             type="monotone"
             dataKey="users"

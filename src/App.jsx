@@ -20,7 +20,6 @@ import AdminLayout from "./Admin/Components/AdminLayout";
 import Dashboard from "./Admin/Pages/Dashboard/Dashboard";
 import Users from "./Admin/Pages/Users/Users";
 import AdminNews from "./Admin/Pages/News/News";
-import Records from "./Admin/Pages/Records/Records";
 import Reports from "./Admin/Pages/Reports/Reports";
 import Settings from "./Admin/Pages/Settings/Settings";
 
@@ -64,7 +63,6 @@ export default function App() {
           <Route index element={<Dashboard />} />
           <Route path="users" element={<Users />} />
           <Route path="news" element={<AdminNews />} />
-          <Route path="records" element={<Records />} />
           <Route path="reports" element={<Reports />} />
           <Route path="settings" element={<Settings />} />
         </Route>

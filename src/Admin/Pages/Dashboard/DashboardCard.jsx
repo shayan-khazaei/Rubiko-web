@@ -12,7 +12,7 @@ export default function DashboardCard({
     <div className="w-72 h-52 rounded-lg shadow-xl pl-5 flex flex-col justify-center border border-grey-100 relative ">
       <section className="flex items-center gap-3">
         <div
-          className={`bg-${color}-100 w-14 h-14 rounded-full flex items-center justify-center`}
+          className={`${color} w-14 h-14 rounded-full flex items-center justify-center`}
         >
           <Icon />
         </div>

@@ -10,7 +10,7 @@ const CardsData = [
     Amount: 1248,
     rate: 12.5,
     rank: "up",
-    color: "blue",
+    color: "bg-blue-100",
   },
   {
     icon: PiChalkboardTeacher,
@@ -18,7 +18,7 @@ const CardsData = [
     Amount: 24,
     rate: 8.3,
     rank: "up",
-    color: "green",
+    color: "bg-green-100",
   },
   {
     icon: FaRegNewspaper,
@@ -26,7 +26,7 @@ const CardsData = [
     Amount: 18,
     rate: 2.1,
     rank: "down",
-    color: "grey",
+    color: "bg-grey-100",
   },
   {
     icon: LuFileClock,
@@ -34,7 +34,7 @@ const CardsData = [
     Amount: 8532,
     rate: 15.7,
     rank: "up",
-    color: "yellow",
+    color: "bg-yellow-100",
   },
 ];
 
