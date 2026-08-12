@@ -1,7 +1,8 @@
 const datas = [
   {
     id: 1,
-    image: "images/NewsPage/News6.jpg",
+    status: "Published",
+    image: "/images/NewsPage/News6.jpg",
     date: "February 8,2026",
     publisher: "guinness world records",
     description:
@@ -11,7 +12,8 @@ const datas = [
   },
   {
     id: 2,
-    image: "images/NewsPage/News5.jpg",
+    status: "Published",
+    image: "/images/NewsPage/News5.jpg",
     date: "January 14,2026",
     publisher: "Fortune",
     description:
@@ -21,7 +23,8 @@ const datas = [
   },
   {
     id: 3,
-    image: "images/NewsPage/News4.jpg",
+    status: "Published",
+    image: "/images/NewsPage/News4.jpg",
     date: "January 25,2025",
     publisher: "Hypebeast",
     description:
@@ -31,21 +34,24 @@ const datas = [
   },
   {
     id: 4,
-    image: "images/NewsPage/News3.jpg",
+    status: "Published",
+    image: "/images/NewsPage/News3.jpg",
     date: "January 22,2025",
     publisher: "The Hustle",
     description: "Rubik's cube turns 50 years, which is about...",
   },
   {
     id: 5,
-    image: "images/NewsPage/News2.jpg",
+    status: "Published",
+    image: "/images/NewsPage/News2.jpg",
     date: "January 13,2024",
     publisher: "AllHipHop",
     description: "Logic explains how solving a rubik's cube...",
   },
   {
     id: 6,
-    image: "images/NewsPage/News1.jpg",
+    status: "Published",
+    image: "/images/NewsPage/News1.jpg",
     date: "January 7,2024",
     publisher: "USA Today",
     description: "Watch 21-year-old solve rubik's cube in...",

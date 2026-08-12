@@ -77,7 +77,7 @@ export default function Dashboard() {
             </tr>
           </thead>
           <tbody>
-            {UsersData.map((user) => (
+            {UsersData.slice(0, 2).map((user) => (
               <tr className="border border-gray-300">
                 <th className="px-2 py-1 flex items-center gap-3">
                   <img

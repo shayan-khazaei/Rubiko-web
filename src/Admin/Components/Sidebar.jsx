@@ -2,7 +2,6 @@ import Logo from "./Logo";
 import { FaHome } from "react-icons/fa";
 import List from "./List";
 import { FiUsers } from "react-icons/fi";
-import { PiChalkboardTeacher } from "react-icons/pi";
 import { FaRegNewspaper } from "react-icons/fa6";
 import { LuFileClock } from "react-icons/lu";
 import { VscReport } from "react-icons/vsc";
@@ -25,10 +24,6 @@ export default function Sidebar() {
           <List to="users">
             <FiUsers />
             Users
-          </List>
-          <List to="solution-guides">
-            <PiChalkboardTeacher />
-            Solution Guides
           </List>
           <List to="news">
             <FaRegNewspaper /> News

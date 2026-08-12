@@ -19,7 +19,6 @@ import ProtectedRoute from "./Features/ProtectedRoute";
 import AdminLayout from "./Admin/Components/AdminLayout";
 import Dashboard from "./Admin/Pages/Dashboard/Dashboard";
 import Users from "./Admin/Pages/Users/Users";
-import SolutionGuide from "./Admin/Pages/SolutionGuides/SolutionGuides";
 import AdminNews from "./Admin/Pages/News/News";
 import Records from "./Admin/Pages/Records/Records";
 import Reports from "./Admin/Pages/Reports/Reports";
@@ -64,7 +63,6 @@ export default function App() {
         <Route path="/dashboard" element={<AdminLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="users" element={<Users />} />
-          <Route path="solution-guides" element={<SolutionGuide />} />
           <Route path="news" element={<AdminNews />} />
           <Route path="records" element={<Records />} />
           <Route path="reports" element={<Reports />} />

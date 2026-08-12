@@ -10,8 +10,16 @@ import { CiEdit } from "react-icons/ci";
 import { RiDeleteBin5Line } from "react-icons/ri";
 
 export default function Users() {
+  const statusStyle = {
+    Active: "bg-green-100 text-green-700",
+    Inactive: "bg-gray-100 text-gray-700",
+    Pending: "bg-yellow-100 text-yellow-700",
+    Suspended: "bg-orange-100 text-orange-700",
+    Banned: "bg-red-100 text-red-700",
+  };
+
   return (
-    <div className="w-[79%] mx-auto">
+    <div className="w-[79%] mx-auto mt-6">
       <section className="text-center space-y-1">
         <h2 className="text-4xl text-gray-600">User Management</h2>
         <h4 className="text-xl text-gray-500">
@@ -162,7 +170,15 @@ export default function Users() {
                   <td className="px-2 py-1">{user.email}</td>
                   <td className="px-2 py-1">{user.joinedAt}</td>
                   <td className="px-2 py-1">{user.role}</td>
-                  <td className="px-2 py-1">{user.status}</td>
+                  <td className="px-2 py-1">
+                    <div
+                      className={`w-20 py-1 text-center rounded-2xl ${
+                        statusStyle[user.status]
+                      }`}
+                    >
+                      {user.status}
+                    </div>
+                  </td>
                   <td className="flex items-center gap-5 text-lg -translate-y-1/2">
                     <CiEdit className="text-red-900 cursor-pointer" />
                     <RiDeleteBin5Line className="text-green-900 cursor-pointer" />
@@ -177,11 +193,11 @@ export default function Users() {
         <div>
           Page <span>1</span> of <span className="ml-1">5</span>
         </div>
-        <div>
-          <button className="bg-white text-green-600 px-2 py-2 text-xl border border-gray-300 ">
+        <div className="bg-radial-[at_25%_25%] from-zinc-950 to-green-900 to-95% text-green-300">
+          <button className=" px-2 py-2 text-xl border border-green-900 cursor-pointer ">
             <MdOutlineKeyboardArrowLeft />
           </button>
-          <button className="bg-white text-green-600 px-2 py-2 text-xl border border-gray-300 border-l-0 ">
+          <button className=" px-2 py-2 text-xl border border-green-900 border-l-0 cursor-pointer ">
             <MdOutlineKeyboardArrowRight />
           </button>
         </div>
