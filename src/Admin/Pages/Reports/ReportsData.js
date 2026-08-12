@@ -38,16 +38,18 @@ const CardData = [
   },
 ];
 
+
 const ChartData = [
-  { time: "May 12", attempt: 120 },
-  { time: "May 16", attempt: 180 },
-  { time: "May 20", attempt: 150 },
-  { time: "May 24", attempt: 230 },
-  { time: "May 28", attempt: 340 },
-  { time: "Jun 1", attempt: 280 },
-  { time: "Jun 5", attempt: 280 },
-  { time: "Jun 9", attempt: 280 },
-  { time: "Jun 12", attempt: 280 },
+    
+  { date: "May 12", attempts: 20 },
+  { date: "May 16", attempts: 45 },
+  { date: "May 20", attempts: 11 },
+  { date: "May 24", attempts: 3 },
+  { date: "May 28", attempts: 150 },
+  { date: "Jun 1", attempts: 200 },
+  { date: "Jun 5", attempts: 100 },
+  { date: "Jun 9", attempts: 12 },
+  { date: "Jun 12", attempts: 10 },
 ];
 
 const RecordsData = [

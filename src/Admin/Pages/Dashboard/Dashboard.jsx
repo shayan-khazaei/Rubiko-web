@@ -52,6 +52,7 @@ export default function Dashboard() {
           />
           <YAxis
             width="auto"
+            ticks={[0, 100, 200, 300, 400]}
             stroke="var(--color-text-3)"
             padding={{ top: 20, bottom: 20 }}
           />

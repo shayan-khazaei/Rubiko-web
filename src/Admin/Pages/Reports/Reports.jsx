@@ -25,7 +25,7 @@ export default function Reports() {
           <section className="col-span-2">
             <section className="flex flex-col items-center justify-center rounded-lg shadow-xl pt-5 pb-10 border border-grey-100">
               <div className="w-full flex justify-between px-5 mb-5">
-                <h2 className="text-xl">User Registrations</h2>
+                <h2 className="text-xl">Attempts Over Tome</h2>
                 <div className="relative">
                   <select
                     name="filterUsers"
@@ -53,18 +53,19 @@ export default function Reports() {
                   strokeDasharray="5 5"
                 />
                 <XAxis
-                  dataKey="time"
+                  dataKey="date"
                   stroke="var(--color-text-3)"
                   padding={{ left: 20, right: 20 }}
                 />
                 <YAxis
                   width={50}
+                  ticks={[0, 50, 100, 150, 200]}
                   stroke="var(--color-text-3)"
                   padding={{ top: 20, bottom: 20 }}
                 />
                 <Area
                   type="monotone"
-                  dataKey="attempt"
+                  dataKey="attempts"
                   stroke="#22c55e"
                   fill="#116f08"
                   fillOpacity={0.15}
