@@ -37,8 +37,8 @@ export default function NewsAnatomy() {
   ];
 
   return (
-    <div className="relative flex items-center bg-gray-100 mt-1 px-10 rounded-xl">
-      <section className="absolute top-2 flex items-center justify-between w-[65%] text-xl text-green-700">
+    <div className="relative flex items-center bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% mt-1 px-10 rounded-xl">
+      <section className="absolute top-2 flex items-center justify-between w-[65%] text-xl text-gray-300">
         <h2 className="mt-1">Card Anatomy</h2>
         <h2>Status Badges</h2>
       </section>
@@ -50,61 +50,60 @@ export default function NewsAnatomy() {
             publisher="Author"
             status="Published"
             date="Jan 14, 2026"
-            height={70}
-            imageHeight={30}
+            anatomyCard={true}
           />
           <div className="absolute top-2 -right-50">
-            <div className="flex items-center gap-1 text-green-600">
+            <div className="flex items-center gap-1 text-green-400">
               <div>
                 <CgArrowLongRightC className="text-3xl" />
               </div>
               <div className="flex flex-col ">
                 <h2>Status Badge</h2>
-                <h5 className="text-gray-500 text-xs">
+                <h5 className="text-gray-300 text-xs">
                   Shows the current status of the news
                 </h5>
               </div>
             </div>
-            <div className="flex items-center gap-1 text-blue-600">
+            <div className="flex items-center gap-1 text-blue-400">
               <div>
                 <CgArrowLongRightC className="text-3xl" />
               </div>
               <div className="flex flex-col ">
                 <h2>Thumbnail / Image</h2>
-                <h5 className="text-gray-500 text-xs">
+                <h5 className="text-gray-300 text-xs">
                   Represents the news visually
                 </h5>
               </div>
             </div>
-            <div className="flex items-center gap-1 text-yellow-600 mt-8">
+            <div className="flex items-center gap-1 text-yellow-400 mt-8">
               <div>
                 <CgArrowLongRightC className="text-3xl" />
               </div>
               <div className="flex flex-col ">
                 <h2>Title</h2>
-                <h5 className="text-gray-500 text-xs">
+                <h5 className="text-gray-300 text-xs">
                   Main headline of the news
                 </h5>
               </div>
             </div>
-            <div className="flex items-center gap-1 text-blue-800 mt-3">
+            <div className="flex items-center gap-1 text-blue-400 mt-3">
               <div>
                 <CgArrowLongRightC className="text-3xl" />
               </div>
               <div className="flex flex-col ">
                 <h2>Meta Info</h2>
-                <h5 className="text-gray-500 text-xs">
+                <h5 className="text-gray-300 text-xs">
                   Author and publish date
                 </h5>
               </div>
             </div>
-            <div className="flex items-center gap-1 text-green-900 mt-1">
+            <div className="flex items-center gap-1 text-green-400 mt-1">
               <div>
                 <CgArrowLongRightC className="text-3xl" />
               </div>
               <div className="flex flex-col ">
                 <h2>Actions</h2>
-                <h5 className="text-gray-500 text-xs">
+                <h5 className="text-gray-300 text-xs">
                   Edit, Delete and View actions
                 </h5>
               </div>
@@ -120,7 +119,7 @@ export default function NewsAnatomy() {
                 <div className={`${status.color} px-2 py-1 rounded-xl`}>
                   {status.title}
                 </div>
-                <div className="w-80">{status.description}</div>
+                <div className="w-80 text-gray-300">{status.description}</div>
               </div>
               <div className="h-[1px] bg-gray-200"></div>
             </>

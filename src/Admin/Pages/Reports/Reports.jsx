@@ -23,9 +23,9 @@ export default function Reports() {
       <section className="grid grid-cols-3">
         <section className="col-span-2 space-y-6">
           <section className="col-span-2">
-            <section className="flex flex-col items-center justify-center rounded-lg shadow-xl pt-5 pb-10 border border-grey-100">
+            <section className="flex flex-col items-center justify-center rounded-lg shadow-xl pt-5 pb-10 border border-grey-700">
               <div className="w-full flex justify-between px-5 mb-5">
-                <h2 className="text-xl">Attempts Over Tome</h2>
+                <h2 className="text-xl text-gray-100">Attempts Over Time</h2>
                 <div className="relative">
                   <select
                     name="filterUsers"
@@ -54,30 +54,30 @@ export default function Reports() {
                 />
                 <XAxis
                   dataKey="date"
-                  stroke="var(--color-text-3)"
+                  stroke="#d7e1db"
                   padding={{ left: 20, right: 20 }}
                 />
                 <YAxis
                   width={50}
                   ticks={[0, 50, 100, 150, 200]}
-                  stroke="var(--color-text-3)"
+                  stroke="#d7e1db"
                   padding={{ top: 20, bottom: 20 }}
                 />
                 <Area
                   type="monotone"
                   dataKey="attempts"
-                  stroke="#22c55e"
-                  fill="#116f08"
+                  stroke="#08e95a"
+                  fill="#1a4528"
                   fillOpacity={0.15}
                 />
                 {/* <RechartsDevtools /> */}
               </AreaChart>
             </section>
           </section>
-          <section className="col-span-1 justify-center rounded-lg shadow-xl pt-5 pb-5 border border-grey-100">
+          <section className="col-span-1 justify-center rounded-lg shadow-xl pt-5 pb-5 border border-grey-700">
             <table className="w-[85%] mx-auto text-left ">
               <thead>
-                <tr className="border border-gray-300 text-lg ">
+                <tr className="border border-green-800 text-gray-100 text-lg ">
                   {theadData.map((thead) => (
                     <th className="px-2 py-1">{thead}</th>
                   ))}
@@ -85,12 +85,12 @@ export default function Reports() {
               </thead>
               <tbody>
                 {RecordsData.slice(0, 2).map((user) => (
-                  <tr className="border border-gray-300">
+                  <tr className="border border-green-800 text-gray-300">
                     <th className="px-2 py-1 flex items-center gap-3">
                       <img
                         src={user.image}
                         alt="userImage"
-                        className="w-9 h-9 rounded-full border border-green-300"
+                        className="w-9 h-9 rounded-full border border-gray-700"
                       />
                       {user.user}
                     </th>

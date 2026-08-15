@@ -19,12 +19,11 @@ export default function News() {
             status={data.status}
             date={data.date}
             height={100}
-            imageHeight= {50}
           />
         ))}
       </section>
       <section className="mt-3 flex items-center justify-between">
-        <div>
+        <div className="text-gray-300">
           Page <span>1</span> of <span className="ml-1">2</span>
         </div>
         <div className="bg-radial-[at_25%_25%] from-zinc-950 to-green-900 to-95% text-green-300">

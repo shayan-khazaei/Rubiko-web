@@ -11,18 +11,18 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 
 export default function Users() {
   const statusStyle = {
-    Active: "bg-green-100 text-green-700",
-    Inactive: "bg-gray-100 text-gray-700",
-    Pending: "bg-yellow-100 text-yellow-700",
-    Suspended: "bg-orange-100 text-orange-700",
-    Banned: "bg-red-100 text-red-700",
+    Active: "bg-green-700 text-green-400",
+    Inactive: "bg-gray-700 text-gray-400",
+    Pending: "bg-yellow-700 text-yellow-400",
+    Suspended: "bg-orange-700 text-orange-400",
+    Banned: "bg-red-700 text-red-400",
   };
 
   return (
     <div className="w-[79%] mx-auto mt-6">
       <section className="text-center space-y-1">
-        <h2 className="text-4xl text-gray-600">User Management</h2>
-        <h4 className="text-xl text-gray-500">
+        <h2 className="text-4xl text-gray-100">User Management</h2>
+        <h4 className="text-xl text-gray-400">
           Manage all users in one place, Control access, assign roles, and
           monitor activity...
         </h4>
@@ -35,7 +35,7 @@ export default function Users() {
               name="searchbox"
               id="searchbox"
               placeholder="🔍    Search User..."
-              className=" bg-white px-2 py-2.5 w-70 rounded-lg focus:outline-0 focus:border-1 focus:border-green-800"
+              className=" bg-gray-600 placeholder:text-gray-300 px-2 py-2.5 w-70 rounded-lg focus:outline-0 focus:border-1 focus:border-green-800"
             />
           </div>
           <div className="relative">
@@ -131,7 +131,7 @@ export default function Users() {
           </div>
         </section>
         <section className="flex items-center gap-10 ">
-          <Button light={true}>
+          <Button>
             <a
               href="path_to_file"
               download="proposed_file_name"
@@ -147,7 +147,7 @@ export default function Users() {
         <div>
           <table className="w-full mx-auto mt-5 text-left ">
             <thead>
-              <tr className="border border-gray-300 text-lg ">
+              <tr className="border border-green-800 text-lg text-gray-100 ">
                 {theadData.map((thead) => (
                   <td key={thead} className="px-2 py-1">
                     {thead}
@@ -158,12 +158,15 @@ export default function Users() {
             </thead>
             <tbody>
               {UsersData.map((user) => (
-                <tr key={user.email} className="border border-gray-300">
+                <tr
+                  key={user.email}
+                  className="border border-green-800 text-gray-300"
+                >
                   <th className="px-2 py-1 flex items-center gap-3">
                     <img
                       src={user.image}
                       alt="userImage"
-                      className="w-9 h-9 rounded-full border border-green-300"
+                      className="w-9 h-9 rounded-full border border-gray-700"
                     />
                     {user.user}
                   </th>
@@ -180,8 +183,8 @@ export default function Users() {
                     </div>
                   </td>
                   <td className="flex items-center gap-5 text-lg -translate-y-1/2">
-                    <CiEdit className="text-red-900 cursor-pointer" />
-                    <RiDeleteBin5Line className="text-green-900 cursor-pointer" />
+                    <CiEdit className="text-red-500 cursor-pointer" />
+                    <RiDeleteBin5Line className="text-green-500 cursor-pointer" />
                   </td>
                 </tr>
               ))}
@@ -190,7 +193,7 @@ export default function Users() {
         </div>
       </section>
       <section className="mt-3 flex items-center justify-between">
-        <div>
+        <div className="text-gray-300">
           Page <span>1</span> of <span className="ml-1">5</span>
         </div>
         <div className="bg-radial-[at_25%_25%] from-zinc-950 to-green-900 to-95% text-green-300">

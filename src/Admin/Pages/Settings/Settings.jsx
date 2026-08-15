@@ -14,15 +14,15 @@ export default function Settings() {
 
   return (
     <div className="space-y-6 w-[79%] mx-auto">
-      <section className="flex items-center rounded-lg shadow-xl p-5 border border-grey-100 ">
+      <section className="flex items-center rounded-lg shadow-xl p-5 border border-grey-700 ">
         <section className="w-60 p-3 ">
           <div className="flex gap-3">
             <div className="text-green-500 bg-green-100 w-14 h-10 flex items-center justify-center rounded-lg">
               <FaUser />
             </div>
             <div>
-              <h2 className="text-lg">Profile Information</h2>
-              <h5 className="text-xs text-gray-500 mt-1">
+              <h2 className="text-lg text-gray-100">Profile Information</h2>
+              <h5 className="text-xs text-gray-300 mt-1">
                 Update your personal information and profile picture.
               </h5>
               <div className="mt-3 ml-6 relative flex flex-col">
@@ -34,7 +34,7 @@ export default function Settings() {
                 <div className="bg-gray-400 w-6 h-6 flex items-center justify-center rounded-full absolute bottom-9 left-11">
                   <FaCamera className="text-gray-600 text-xs" />
                 </div>
-                <h4 className="text-xs text-gray-600 mt-3 -ml-7">
+                <h4 className="text-xs text-gray-400 mt-3 -ml-7">
                   JPG, PNG. Max size 2MB.
                 </h4>
               </div>
@@ -72,15 +72,15 @@ export default function Settings() {
           </form>
         </section>
       </section>
-      <section className="flex items-center rounded-lg shadow-xl p-5 border border-grey-100 ">
+      <section className="flex items-center rounded-lg shadow-xl p-5 border border-grey-700 ">
         <section className="w-60 p-3 ">
           <div className="flex gap-3">
             <div className="text-blue-500 bg-blue-100 w-14 h-10 flex items-center justify-center rounded-lg">
               <AiOutlineSecurityScan />
             </div>
             <div>
-              <h2 className="text-lg">Security</h2>
-              <h5 className="text-xs text-gray-500 mt-1">
+              <h2 className="text-lg text-gray-100">Security</h2>
+              <h5 className="text-xs text-gray-300 mt-1">
                 Change your password and secure account.
               </h5>
             </div>
@@ -137,15 +137,15 @@ export default function Settings() {
           </form>
         </section>
       </section>
-      <section className="flex items-center rounded-lg shadow-xl p-5 border border-grey-100 ">
+      <section className="flex items-center rounded-lg shadow-xl p-5 border border-grey-700 ">
         <section className="w-60 p-3 ">
           <div className="flex gap-3">
             <div className="text-purple-500 bg-purple-100 w-14 h-10 flex items-center justify-center rounded-lg">
               <IoIosNotificationsOutline />
             </div>
             <div>
-              <h2 className="text-lg">Notifications</h2>
-              <h5 className="text-xs text-gray-500 mt-1">
+              <h2 className="text-lg text-gray-100">Notifications</h2>
+              <h5 className="text-xs text-gray-300 mt-1">
                 Choose what notifications you want to receive.
               </h5>
             </div>
@@ -155,8 +155,8 @@ export default function Settings() {
         <section className="flex-3 flex flex-col">
           <div className="flex items-center justify-between mb-2">
             <div>
-              <h4>New User Registrations</h4>
-              <h5 className="text-xs text-gray-500">
+              <h4 className="text-gray-200">New User Registrations</h4>
+              <h5 className="text-xs text-gray-400">
                 Receive a notification when a new user registers.
               </h5>
             </div>
@@ -164,8 +164,8 @@ export default function Settings() {
           </div>
           <div className="flex items-center justify-between mb-2">
             <div>
-              <h4>New User Published</h4>
-              <h5 className="text-xs text-gray-500">
+              <h4 className="text-gray-200">New User Published</h4>
+              <h5 className="text-xs text-gray-400">
                 Receive a notification when a new user is Published.
               </h5>
             </div>
@@ -173,8 +173,8 @@ export default function Settings() {
           </div>
           <div className="flex items-center justify-between mb-2">
             <div>
-              <h4>System Alerts</h4>
-              <h5 className="text-xs text-gray-500">
+              <h4 className="text-gray-200">System Alerts</h4>
+              <h5 className="text-xs text-gray-400">
                 Receive important system alerts and warnings.
               </h5>
             </div>
@@ -182,8 +182,8 @@ export default function Settings() {
           </div>
           <div className="flex items-center justify-between mb-2">
             <div>
-              <h4>Weekly Reports</h4>
-              <h5 className="text-xs text-gray-500">
+              <h4 className="text-gray-200">Weekly Reports</h4>
+              <h5 className="text-xs text-gray-400">
                 Receive a weekly summary of system activity.
               </h5>
             </div>
@@ -191,15 +191,15 @@ export default function Settings() {
           </div>
         </section>
       </section>
-      <section className="flex items-center rounded-lg shadow-xl p-5 h-36 border border-grey-100 ">
+      <section className="flex items-center rounded-lg shadow-xl p-5 h-36 border border-grey-700 ">
         <section className="w-60 p-3 ">
           <div className="flex gap-3">
             <div className="text-orange-500 bg-orange-100 w-14 h-10 flex items-center justify-center rounded-lg">
               <VscEditSparkle />
             </div>
             <div>
-              <h2 className="text-lg">Appearance</h2>
-              <h5 className="text-xs text-gray-500 mt-1">
+              <h2 className="text-lg text-gray-100">Appearance</h2>
+              <h5 className="text-xs text-gray-300 mt-1">
                 Customize the look and feel of the admin panel.
               </h5>
             </div>
@@ -208,8 +208,8 @@ export default function Settings() {
         <div className="w-32 h-[1px] bg-green-300 rotate-90"></div>
         <section className="flex-3 flex gap-10">
           <div>
-            <h4>Theme</h4>
-            <h5 className="text-xs text-gray-500">
+            <h4 className="text-gray-200">Theme</h4>
+            <h5 className="text-xs text-gray-400">
               Choose your preferred theme
             </h5>
           </div>
