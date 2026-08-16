@@ -6,9 +6,9 @@ import { IoNewspaperOutline } from "react-icons/io5";
 export default function MobileGuideNavBar() {
   return (
     <>
-      <nav className="md:hidden fixed right-0 top-18 flex flex-col items-center gap-5 px-3 py-5 bg-grey-50 text-xl">
+      <nav className="md:hidden fixed right-0 top-18 flex flex-col items-center gap-5 px-3 py-5 bg-radial-[at_25%_25%] from-green-600 to-zinc-800 to-75% text-xl">
         <section>
-          <ul className="flex flex-col items-center gap-8 text-grey-700 text-xl">
+          <ul className="flex flex-col items-center gap-8 text-grey-300 text-xl">
             <List to="/">
               <FaHome />
             </List>

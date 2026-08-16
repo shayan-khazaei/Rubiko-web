@@ -14,7 +14,7 @@ export default function Settings() {
 
   return (
     <div className="space-y-6 w-[79%] mx-auto">
-      <section className="flex items-center rounded-lg shadow-xl p-5 border border-grey-700 ">
+      <section className="flex items-center rounded-lg shadow-xl p-5 border border-green-700 ">
         <section className="w-60 p-3 ">
           <div className="flex gap-3">
             <div className="text-green-500 bg-green-100 w-14 h-10 flex items-center justify-center rounded-lg">
@@ -72,7 +72,7 @@ export default function Settings() {
           </form>
         </section>
       </section>
-      <section className="flex items-center rounded-lg shadow-xl p-5 border border-grey-700 ">
+      <section className="flex items-center rounded-lg shadow-xl p-5 border border-green-700 ">
         <section className="w-60 p-3 ">
           <div className="flex gap-3">
             <div className="text-blue-500 bg-blue-100 w-14 h-10 flex items-center justify-center rounded-lg">
@@ -137,7 +137,7 @@ export default function Settings() {
           </form>
         </section>
       </section>
-      <section className="flex items-center rounded-lg shadow-xl p-5 border border-grey-700 ">
+      <section className="flex items-center rounded-lg shadow-xl p-5 border border-green-700 ">
         <section className="w-60 p-3 ">
           <div className="flex gap-3">
             <div className="text-purple-500 bg-purple-100 w-14 h-10 flex items-center justify-center rounded-lg">
@@ -191,7 +191,7 @@ export default function Settings() {
           </div>
         </section>
       </section>
-      <section className="flex items-center rounded-lg shadow-xl p-5 h-36 border border-grey-700 ">
+      <section className="flex items-center rounded-lg shadow-xl p-5 h-36 border border-green-700 ">
         <section className="w-60 p-3 ">
           <div className="flex gap-3">
             <div className="text-orange-500 bg-orange-100 w-14 h-10 flex items-center justify-center rounded-lg">
@@ -214,11 +214,11 @@ export default function Settings() {
             </h5>
           </div>
           <div className="flex gap-5">
-            <div className="flex flex-col items-center justify-center border border-gray-200 rounded-xl text-md text-gray-100 gap-2 bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% w-18 h-18 cursor-pointer">
+            <div className="flex flex-col items-center justify-center border border-green-500 rounded-xl text-md text-gray-100 gap-2 bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% w-18 h-18 cursor-pointer">
               <FaRegSun className="text-xl" />
               <span>Light</span>
             </div>
-            <div className="flex flex-col items-center justify-center border border-gray-200 rounded-xl text-md text-gray-100 gap-2 bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% w-18 h-18 cursor-pointer">
+            <div className="flex flex-col items-center justify-center border border-green-500 rounded-xl text-md text-gray-100 gap-2 bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% w-18 h-18 cursor-pointer">
               <FaRegMoon className="text-xl" />
               <span>Dark</span>
             </div>

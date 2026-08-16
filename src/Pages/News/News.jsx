@@ -43,7 +43,7 @@ export default function News() {
         />
       </section>
       <section>
-        <section className="relative flex items-center gap-5 bg-grey-100 shadow-sm rounded-xl p-5 hover:-translate-y-1 transition-transform">
+        <section className="relative flex items-center gap-5 bg-gray-100 shadow-sm shadow-green-900 rounded-xl p-5 hover:-translate-y-1 transition-transform">
           <section>
             <img
               src="images/NewsPage/wcaLogo.png"
@@ -59,11 +59,11 @@ export default function News() {
               <h2 className="uppercase text-lg sm:text-xl lg:text-4xl font-semibold underline">
                 Wca Speed Cubing Competitions
               </h2>
-              <p className="md:max-w-2xl text-grey-700">
+              <p className="md:max-w-2xl text-gray-700">
                 Discover World Cubing Association competitions hosted <br />
                 internationally around the world. Find one near you!
               </p>
-              <div className="absolute top-0 right-0 text-green-700 bg-grey-300 p-1 md:p-3 rounded-tr-xl  ">
+              <div className="absolute top-0 right-0 text-green-300 bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% p-1 md:p-3 rounded-tr-xl  ">
                 <FaArrowUpRightFromSquare />
               </div>
             </section>
@@ -86,7 +86,7 @@ export default function News() {
           ))}
         </ul>
         <div
-          className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-grey-100 rounded-full text-xl md:text-2xl cursor-pointer"
+          className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 text-green-300 bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% rounded-full text-xl md:text-2xl cursor-pointer"
           onClick={clickHandler}
         >
           {newsSlider ? <GoArrowLeft /> : <GoArrowRight />}

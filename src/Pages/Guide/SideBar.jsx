@@ -37,7 +37,7 @@ export default function SideBar({setIsOpenSidebar}) {
 
   return (
     <>
-      <section className="relative bg-grey-100 flex-2">
+      <section className="relative bg-radial-[at_25%_25%] from-green-700 to-zinc-800 to-60% flex-2">
         <ul className="flex flex-col items-center pt-10 cursor-pointer text-center">
           <List to="/solution-guides" end>
             Beginners
@@ -50,8 +50,8 @@ export default function SideBar({setIsOpenSidebar}) {
       </section>
 
       {sidebarIcons && (
-        <section className="relative flex-[1.4] 2xl:flex-[1.2] bg-grey-200 z-10 ">
-          <div className="absolute w-[2px] h-[100%] bg-green-500 top-0 left-[50%] -z-10 "></div>
+        <section className="relative flex-[1.4] 2xl:flex-[1.2] z-10 ">
+          <div className="absolute w-[2px] h-[100%] bg-green-800 top-0 left-[50%] -z-10 "></div>
           <ul className="flex flex-col items-center gap-5 h-full justify-center">
             {currentSidebar?.icons.map((data) => (
               <ShowGuidIcons

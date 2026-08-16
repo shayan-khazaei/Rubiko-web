@@ -13,7 +13,7 @@ export default function NewsCard({
 }) {
   return (
     <div
-      className={`rounded-xl flex flex-col p-2.5 space-y-2 bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% border border-gray-600`}
+      className={`rounded-xl flex flex-col p-2.5 space-y-2 bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% border border-green-700`}
     >
       <section className="relative flex gap-5">
         <img

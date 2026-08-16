@@ -9,7 +9,7 @@ export default function DashboardCard({
   icon: Icon,
 }) {
   return (
-    <div className="w-72 h-52 rounded-lg shadow-xl pl-5 flex flex-col justify-center border border-gray-700 relative ">
+    <div className="w-72 h-52 rounded-lg shadow-xl pl-5 flex flex-col justify-center border border-green-700 relative ">
       <section className="flex items-center gap-3">
         <div
           className={`${color} w-14 h-14 rounded-full flex items-center justify-center`}

@@ -83,7 +83,6 @@ export default function UserProfile() {
 
   return (
     <div className="flex h-[calc(100vh-176px)] border-y-2 border-green-700 ">
-      <img src="" alt="" />
       <section className="flex flex-col px-5 py-7 flex-2 ">
         <div className="text-center">
           <h1 className="text-3xl md:text-4xl">User Info</h1>
@@ -111,7 +110,7 @@ export default function UserProfile() {
           <img src="images/profilebg.png" alt="profilebg" />
         </div>
       </section>
-      <section className="flex-12 bg-grey-50 flex items-center justify-center">
+      <section className="flex-12 bg-gray-50 flex items-center justify-center">
         <div className="flex flex-col gap-6  items-center justify-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl">Edit User</h2>
           <form

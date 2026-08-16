@@ -37,7 +37,7 @@ export default function NewsAnatomy() {
   ];
 
   return (
-    <div className="relative flex items-center bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% mt-1 px-10 rounded-xl">
+    <div className="relative flex items-center bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% mt-1 px-10 rounded-xl border border-green-700">
       <section className="absolute top-2 flex items-center justify-between w-[65%] text-xl text-gray-300">
         <h2 className="mt-1">Card Anatomy</h2>
         <h2>Status Badges</h2>

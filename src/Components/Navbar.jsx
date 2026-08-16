@@ -24,12 +24,12 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="md:flex justify-between items-center px-5 py-1 bg-grey-50 text-xl h-[88px] hidden">
+    <nav className="md:flex justify-between items-center px-5 py-1 bg-radial-[at_25%_25%] from-green-600 to-zinc-800 to-75% text-xl h-[88px] hidden">
       <section className="flex items-center">
         <Logo />
       </section>
       <section>
-        <ul className="flex items-center gap-5 md:gap-8 text-grey-700  text-sm lg:text-xl">
+        <ul className="flex items-center gap-5 md:gap-8 text-grey-200 text-sm lg:text-xl">
           <List to="/">Home</List>
           <List to="/solution-guides">Solution Guides</List>
           <List to="/history">History</List>

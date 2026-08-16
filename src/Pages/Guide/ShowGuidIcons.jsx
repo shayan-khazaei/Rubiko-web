@@ -22,7 +22,7 @@ export default function ShowGuidIcons({
 
   return (
     <li
-      className="transition-all duration-300 flex items-center justify-center rounded-full w-[70px] h-[70px] cursor-pointer border-1 border-green-500 bg-grey-200"
+      className="transition-all duration-300 flex items-center justify-center rounded-full w-[70px] h-[70px] cursor-pointer border-1 border-green-500 bg-radial-[at_25%_25%] from-green-200 to-zinc-800 to-75%"
       onClick={clickHandler}
     >
       <a href={`#${id}`}>

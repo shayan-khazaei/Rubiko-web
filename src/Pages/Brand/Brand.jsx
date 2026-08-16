@@ -1,7 +1,7 @@
 export default function Brand() {
   return (
     <div className="flex flex-col gap-24 pb-14">
-      <section className="border-b-8 border-green-700">
+      <section className="border-b-8 border-green-900">
         <img
           src="images/brandSection.png"
           alt="brandHeader"
@@ -93,12 +93,12 @@ export default function Brand() {
         </section>
       </section>
       <section className="w-[95%] mx-auto">
-        <div className="text-green-700 border mb-10" />
+        <div className="text-green-900 border mb-10" />
         <div className="flex flex-col gap-2">
-          <h4 className="text-grey-900 sm:text-xl font-semibold">
+          <h4 className="text-gray-900 sm:text-xl font-semibold">
             More information:
           </h4>
-          <p className="font-grey-700 sm:text-lg">
+          <p className="font-gray-700 sm:text-lg">
             For questions regarding our legal information, please contact us at
             our social media accounts.
           </p>

@@ -83,7 +83,7 @@ export default function Timer() {
       </section>
       <section>
         <div
-          className="bg-grey-200 border border-green-500 h-[400px] flex items-center justify-center mt-7 cursor-pointer"
+          className="bg-grey-200 border border-green-800 h-[400px] flex items-center justify-center mt-7 cursor-pointer"
           onPointerDown={() => {
             if (isRunning) stopTimer();
             else startTimer();
@@ -100,7 +100,7 @@ export default function Timer() {
         </div>
         <div
           onClick={resetTimer}
-          className="w-[100px] bg-grey-200 border border-green-500 flex items-center justify-center mt-7 cursor-pointer"
+          className="w-[100px] bg-radial-[at_25%_25%] from-green-200 to-zinc-800 to-0% text-gray-300 border border-green-600 flex items-center justify-center mt-7 cursor-pointer"
         >
           <span>Reset</span>
         </div>

@@ -14,7 +14,7 @@ export default function ReportsRankCard({ data, attempt }) {
         </div>
       </section>
       <section>
-        <div className="p-4 mx-4 rounded-lg shadow-xl flex flex-col justify-center border border-grey-700">
+        <div className="p-4 mx-4 rounded-lg shadow-xl flex flex-col justify-center border border-green-700">
           {data.slice(0, 5).map((user) => (
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3 px-2 py-1 rounded-xl text-gray-200">

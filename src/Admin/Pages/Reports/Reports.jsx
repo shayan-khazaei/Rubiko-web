@@ -23,7 +23,7 @@ export default function Reports() {
       <section className="grid grid-cols-3">
         <section className="col-span-2 space-y-6">
           <section className="col-span-2">
-            <section className="flex flex-col items-center justify-center rounded-lg shadow-xl pt-5 pb-10 border border-grey-700">
+            <section className="flex flex-col items-center justify-center rounded-lg shadow-xl pt-5 pb-10 border border-green-700">
               <div className="w-full flex justify-between px-5 mb-5">
                 <h2 className="text-xl text-gray-100">Attempts Over Time</h2>
                 <div className="relative">
@@ -74,7 +74,7 @@ export default function Reports() {
               </AreaChart>
             </section>
           </section>
-          <section className="col-span-1 justify-center rounded-lg shadow-xl pt-5 pb-5 border border-grey-700">
+          <section className="col-span-1 justify-center rounded-lg shadow-xl pt-5 pb-5 border border-green-700">
             <table className="w-[85%] mx-auto text-left ">
               <thead>
                 <tr className="border border-green-800 text-gray-100 text-lg ">

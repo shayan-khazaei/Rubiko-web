@@ -10,7 +10,7 @@ export default function NewsCard({
 }) {
   return (
     <a href={newsLink} target="blank">
-      <div className="relative bg-grey-100 shadow-sm rounded-xl cursor-pointer hover:-translate-y-1 transition-transform">
+      <div className="relative bg-gray-100 shadow-sm shadow-green-900 rounded-xl cursor-pointer hover:-translate-y-1 transition-transform">
         <div>
           <img
             src={image}
@@ -19,11 +19,13 @@ export default function NewsCard({
           />
         </div>
         <div className="flex flex-col gap-7 p-5">
-          <span className=" text-grey-600 text-sm">
+          <span className=" text-gray-600 text-sm">
             {date} / {publisher}
           </span>
-          <h2 className="uppercase text-xl md:text-2xl font-semibold">{description}</h2>
-          <div className="absolute top-0 right-0  text-green-700 bg-grey-300 p-2 md:p-3 rounded-tr-xl">
+          <h2 className="uppercase text-xl md:text-2xl font-semibold">
+            {description}
+          </h2>
+          <div className="absolute top-0 right-0 text-green-300 bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% p-2 md:p-3 rounded-tr-xl">
             <FaArrowUpRightFromSquare />
           </div>
         </div>

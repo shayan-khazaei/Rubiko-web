@@ -11,7 +11,7 @@ export default function AdminLayout() {
       <header className="fixed top-0 left-60 w-[calc(100%-15rem)] pt-5 px-5">
         <Navbar />
       </header>
-      <main className="pl-64 pr-4 pt-20 bg-radial-[at_25%_25%] from-green-900 to-zinc-700 to-75% min-h-screen">
+      <main className="pl-64 pr-4 pt-20 bg-radial-[at_25%_25%] from-green-900 to-zinc-800 to-75% min-h-screen">
         <Outlet />
       </main>
     </div>

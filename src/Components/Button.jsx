@@ -13,8 +13,8 @@ export default function Button({
 
   const variantClass =
     variant === "outline"
-      ? "bg-green-600 text-white hover:bg-green-700"
-      : "text-gray-700 hover:border-b hover:border-l hover:border-green-600";
+      ? "bg-radial-[at_25%_25%] from-green-900 to-zinc-800 to-75% text-white hover:border-green-900"
+      : "text-gray-400 hover:border-b hover:border-l hover:border-green-900";
 
   const disabledClass = "disabled:bg-green-900 disabled:cursor-none";
 

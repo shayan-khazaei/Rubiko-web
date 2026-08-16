@@ -19,14 +19,14 @@ export default function Dashboard() {
           />
         ))}
       </section>
-      <section className="flex flex-col items-center justify-center rounded-lg shadow-xl pt-5 pb-10 border border-gray-700">
+      <section className="flex flex-col items-center justify-center rounded-lg shadow-xl pt-5 pb-10 border border-green-700">
         <div className="w-full flex justify-between px-5 mb-5">
           <h2 className="text-xl text-gray-100">User Registrations</h2>
           <div className="relative">
             <select
               name="filterUsers"
               id="filter_users"
-              className="text-gray-200 shadow-2xl bg-gray-600 pl-3 pr-6 py-2.5 rounded-lg cursor-pointer hover:text-gray-400 focus:border-none focus:outline-0 appearance-none"
+              className="text-gray-200 shadow-2xl bg-radial-[at_25%_25%] from-zinc-800 to-green-900 to-95% pl-3 pr-6 py-2.5 rounded-lg cursor-pointer hover:text-gray-400 focus:border-none focus:outline-0 appearance-none"
             >
               <option value="30days">Last 30 days</option>
               <option value="6month">6 month</option>
@@ -70,7 +70,7 @@ export default function Dashboard() {
           {/* <RechartsDevtools /> */}
         </LineChart>
       </section>
-      <section className="flex flex-col justify-center rounded-lg shadow-xl pt-5 pb-5 border border-gray-700">
+      <section className="flex flex-col justify-center rounded-lg shadow-xl pt-5 pb-5 border border-green-700">
         <div className="w-full flex justify-between px-5 mb-1">
           <h2 className="text-xl text-gray-100">Recent Users</h2>
           <div className="relative">
@@ -92,7 +92,7 @@ export default function Dashboard() {
                   <img
                     src={user.image}
                     alt="userImage"
-                    className="w-9 h-9 rounded-full border border-gray-700"
+                    className="w-9 h-9 rounded-full border border-green-700"
                   />
                   {user.user}
                 </th>

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 export default function List({ children, to, end }) {
   return (
     <li
-      className={`w-full mt-2 flex justify-center hover:bg-green-500 transition-all duration-[0.2s]`}
+      className={`w-full mt-2 flex justify-center text-gray-200 hover:bg-green-700 transition-all duration-[0.2s]`}
     >
       <NavLink
         to={to}

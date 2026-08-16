@@ -2,7 +2,7 @@ import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 export default function WallPaperCard({ image, desktopImage, mobileImage }) {
   return (
-    <div className="relative bg-grey-100 shadow-sm rounded-xl">
+    <div className="relative bg-gray-100 shadow-sm shadow-green-900 rounded-xl">
       <div>
         <img
           src={image}

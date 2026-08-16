@@ -8,7 +8,7 @@ export default function Logo() {
           alt="menuIcon"
         />
       </a>
-      <h2 className="text-lg md:text-2xl font-medium text-grey-800 hidden md:block">
+      <h2 className="text-lg md:text-2xl font-medium text-grey-200 hidden md:block">
         Rubiko
       </h2>
     </>
