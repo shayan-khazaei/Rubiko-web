@@ -3,8 +3,54 @@ import { FaCamera, FaRegMoon, FaRegSun, FaUser } from "react-icons/fa6";
 import { AiOutlineSecurityScan } from "react-icons/ai";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { VscEditSparkle } from "react-icons/vsc";
+import useAuth from "../../../Hook/useAuth";
+import supabase from "../../../Services/Supabase";
+import toast from "react-hot-toast";
 
 export default function Settings() {
+  const session = useAuth();
+
+  const submitForm = async (data) => {
+    if (data.name) {
+      await supabase.auth.updateUser({
+        data: {
+          display_name: data.name,
+        },
+      });
+    }
+
+    if (data.password) {
+      await supabase.auth.updateUser({
+        password: data.password,
+      });
+    }
+
+    if (data.avatar?.length > 0) {
+      const file = data.avatar[0];
+
+      const fileName = `${session.user.id}-${crypto.randomUUID()}-img`;
+
+      await supabase.storage.from("avatars").upload(fileName, file);
+
+      const { data: image } = supabase.storage
+        .from("avatars")
+        .getPublicUrl(fileName);
+
+      const { data: updated, error } = await supabase
+        .from("profile")
+        .update({
+          avatar: image.publicUrl,
+        })
+        .eq("id", session.user.id)
+        .select();
+
+      console.log(updated);
+      console.log(error);
+    }
+
+    toast.success("Profile updated");
+  };
+
   const {
     register,
     formState: { errors },
@@ -44,7 +90,7 @@ export default function Settings() {
         <div className="w-30 h-[1px] bg-green-300 rotate-90"></div>
         <section className="flex-3">
           <form
-            onSubmit={handleSubmit(() => "")}
+            onSubmit={handleSubmit(submitForm)}
             className="flex gap-5 bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% px-6 py-10 md:px-10 md:py-16 rounded-sm"
           >
             <div>
