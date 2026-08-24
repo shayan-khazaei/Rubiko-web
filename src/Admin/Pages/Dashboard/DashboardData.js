@@ -49,6 +49,7 @@ const ChartData = [
 
 const UsersData = [
   {
+    id: 1,
     image: "/images/mainProfile.jpg",
     user: "Shayan",
     email: "shayankhazaei50@gmail.com",
@@ -57,6 +58,7 @@ const UsersData = [
     status: "Suspended",
   },
   {
+    id: 2,
     image: "/images/profilebg.png",
     user: "Ali",
     email: "aliakbari557@gmail.com",
@@ -65,6 +67,7 @@ const UsersData = [
     status: "Active",
   },
   {
+    id: 3,
     image: "/images/profilebg.png",
     user: "Ali",
     email: "aliakbari557@gmail.com",
@@ -73,6 +76,7 @@ const UsersData = [
     status: "Banned",
   },
   {
+    id: 4,
     image: "/images/profilebg.png",
     user: "Ali",
     email: "aliakbari557@gmail.com",
@@ -81,6 +85,7 @@ const UsersData = [
     status: "Active",
   },
   {
+    id: 5,
     image: "/images/profilebg.png",
     user: "Ali",
     email: "aliakbari557@gmail.com",
@@ -89,6 +94,7 @@ const UsersData = [
     status: "Inactive",
   },
   {
+    id: 6,
     image: "/images/profilebg.png",
     user: "Ali",
     email: "aliakbari557@gmail.com",
@@ -97,6 +103,7 @@ const UsersData = [
     status: "Active",
   },
   {
+    id: 7,
     image: "/images/profilebg.png",
     user: "Ali",
     email: "aliakbari557@gmail.com",
@@ -105,6 +112,7 @@ const UsersData = [
     status: "Active",
   },
   {
+    id: 8,
     image: "/images/profilebg.png",
     user: "Ali",
     email: "aliakbari557@gmail.com",
@@ -113,6 +121,7 @@ const UsersData = [
     status: "Pending",
   },
   {
+    id: 9,
     image: "/images/profilebg.png",
     user: "Ali",
     email: "aliakbari557@gmail.com",
@@ -121,6 +130,7 @@ const UsersData = [
     status: "Active",
   },
   {
+    id: 10,
     image: "/images/profilebg.png",
     user: "Ali",
     email: "aliakbari557@gmail.com",
