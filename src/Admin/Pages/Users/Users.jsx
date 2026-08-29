@@ -12,12 +12,53 @@ import { useState } from "react";
 
 export default function Users() {
   const [searchInput, setSearchInput] = useState("");
+  const [selectedRole, setSelectedRole] = useState("role");
+  const [selectedStatus, setSelectedStatus] = useState("status");
+  const [selectedDate, setSelectedDate] = useState("date");
 
-  const filteredUsers = searchInput
-    ? UsersData.filter((user) =>
-        user.user.toLowerCase().includes(searchInput.toLowerCase())
-      )
-    : UsersData;
+  const CheckDateFilter = (joinedAt) => {
+    if (selectedDate === "date") return true;
+
+    const userDate = new Date(joinedAt);
+    const today = new Date();
+
+    if (isNaN(userDate.getTime())) return false;
+
+    const difference = today - userDate;
+    const differenceInDays = difference / (1000 * 60 * 60 * 24);
+
+    if (selectedDate === "30days") {
+      return differenceInDays >= 0 && differenceInDays <= 30;
+    }
+
+    if (selectedDate === "6month") {
+      return differenceInDays >= 0 && differenceInDays <= 180;
+    }
+
+    if (selectedDate === "1year") {
+      return differenceInDays >= 0 && differenceInDays <= 365;
+    }
+
+    return true;
+  };
+
+  const filteredUsers = UsersData.filter((user) => {
+    const matchesSearch = user.user
+      .toLowerCase()
+      .includes(searchInput.toLowerCase());
+
+    const matchesRole =
+      selectedRole === "role" ||
+      user.role.toLowerCase() === selectedRole.toLowerCase();
+
+    const matchesStatus =
+      selectedStatus === "status" ||
+      user.status.toLowerCase() === selectedStatus.toLowerCase();
+
+    const matchesDate = CheckDateFilter(user.joinedAt);
+
+    return matchesSearch && matchesRole && matchesStatus && matchesDate;
+  });
 
   const statusStyle = {
     Active: "bg-green-700 text-green-400",
@@ -53,6 +94,7 @@ export default function Users() {
               name="userRole"
               id="user_role"
               className="text-gray-300 shadow-2xl w-29 text-center bg-radial-[at_25%_25%] from-zinc-800 to-green-900 to-95% pl-3 pr-8 py-2.5 rounded-lg cursor-pointer hover:text-gray-400 focus:outline-none appearance-none"
+              onChange={(e) => setSelectedRole(e.target.value)}
             >
               <option value="role" className="bg-green-900 hover:bg-green-600">
                 Role
@@ -71,6 +113,7 @@ export default function Users() {
               name="userStatus"
               id="user_status"
               className="text-gray-300 shadow-2xl w-29 text-center bg-radial-[at_25%_25%] from-zinc-800 to-green-900 to-95% pl-3 pr-8 py-2.5 rounded-lg cursor-pointer hover:text-gray-400 focus:outline-none appearance-none"
+              onChange={(e) => setSelectedStatus(e.target.value)}
             >
               <option
                 value="status"
@@ -117,6 +160,7 @@ export default function Users() {
               name="filterUsers"
               id="filter_users"
               className="text-gray-300 shadow-2xl w-29 text-center bg-radial-[at_25%_25%] from-zinc-800 to-green-900 to-95% pl-3 pr-6 py-2.5 rounded-lg cursor-pointer hover:text-gray-400 focus:border-none focus:outline-0 appearance-none"
+              onChange={(e) => setSelectedDate(e.target.value)}
             >
               <option value="date" className="bg-green-900 hover:bg-green-600">
                 Date
@@ -174,7 +218,7 @@ export default function Users() {
                 >
                   <th className="px-2 py-1 flex items-center gap-3">
                     <img
-                      src={user.image}
+                      src={user.image || "/images/logoIcon.png"}
                       alt="userImage"
                       className="w-9 h-9 rounded-full border border-gray-700"
                     />
