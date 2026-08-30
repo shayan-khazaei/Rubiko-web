@@ -38,15 +38,6 @@ const CardsData = [
   },
 ];
 
-const ChartData = [
-  { month: "Jan", users: 120 },
-  { month: "Feb", users: 180 },
-  { month: "Mar", users: 150 },
-  { month: "Apr", users: 230 },
-  { month: "May", users: 340 },
-  { month: "Jun", users: 280 },
-];
-
 const UsersData = [
   {
     id: 1,
@@ -55,7 +46,7 @@ const UsersData = [
     email: "shayankhazaei50@gmail.com",
     joinedAt: "Sep 30, 2025",
     role: "Admin",
-    status: "Suspended",
+    status: "Active",
   },
   {
     id: 2,
@@ -138,6 +129,24 @@ const UsersData = [
     role: "User",
     status: "Active",
   },
+  {
+    id: 11,
+    image: "/images/profilebg.png",
+    user: "Sara",
+    email: "sara256@gmail.com",
+    joinedAt: "July 25, 2026",
+    role: "User",
+    status: "Banned",
+  },
+];
+
+const ChartData = [
+  { month: "Jan", users: 120 },
+  { month: "Feb", users: 180 },
+  { month: "Mar", users: 150 },
+  { month: "Apr", users: 230 },
+  { month: "May", users: 340 },
+  { month: "Jun", users: 280 },
 ];
 
 const theadData = ["User", "Email", "Joined At", "Role", "Status"];
