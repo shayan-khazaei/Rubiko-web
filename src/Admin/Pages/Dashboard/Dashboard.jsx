@@ -74,7 +74,7 @@ export default function Dashboard() {
         <div className="w-full flex justify-between px-5 mb-1">
           <h2 className="text-xl text-gray-100">Recent Users</h2>
           <div className="relative">
-            <Button>View all</Button>
+            <Button to="/dashboard/users">View all</Button>
           </div>
         </div>
         <table className="w-[85%] mx-auto text-left ">

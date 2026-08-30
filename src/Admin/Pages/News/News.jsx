@@ -38,6 +38,7 @@ export default function News() {
             title={data.description}
             publisher={data.publisher}
             status={data.status}
+            newsLink={data.newsLink}
             date={data.date}
             height={100}
           />

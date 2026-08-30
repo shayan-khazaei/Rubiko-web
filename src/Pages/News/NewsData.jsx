@@ -56,14 +56,6 @@ const datas = [
     publisher: "USA Today",
     description: "Watch 21-year-old solve rubik's cube in...",
   },
-  // {
-  //   id: 7,
-  //   status: "Published",
-  //   image: "/images/NewsPage/News1.jpg",
-  //   date: "January 7,2024",
-  //   publisher: "USA Today",
-  //   description: "Watch 21-year-old solve rubik's cube in...",
-  // },
 ];
 
 export { datas };

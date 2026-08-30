@@ -2,6 +2,7 @@ import { CiUser } from "react-icons/ci";
 import { GoDotFill } from "react-icons/go";
 import { GrView } from "react-icons/gr";
 import { MdDelete, MdEdit, MdOutlineDateRange } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 export default function NewsCard({
   image,
@@ -9,6 +10,7 @@ export default function NewsCard({
   status,
   publisher,
   date,
+  newsLink,
   anatomyCard,
 }) {
   return (
@@ -54,8 +56,14 @@ export default function NewsCard({
         <div className="flex items-center gap-1 text-red-300 cursor-pointer">
           <MdDelete /> Delete
         </div>
-        <div className="flex items-center gap-1 text-gray-300 cursor-pointer">
-          <GrView /> View
+        <div className="text-gray-300 cursor-pointer">
+          <Link
+            target="blank"
+            to={newsLink}
+            className="flex items-center gap-1"
+          >
+            <GrView /> View
+          </Link>
         </div>
       </section>
     </div>

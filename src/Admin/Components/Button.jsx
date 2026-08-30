@@ -1,8 +1,11 @@
+import { Link } from "react-router-dom";
+
 export default function Button({
   children,
   variant = "solid",
   light,
   onClick,
+  to,
 }) {
   const baseClass =
     "flex items-center gap-3 text-sm md:text-lg block text-center px-3.5 py-1 md:px-4 md:py-1.5 rounded-lg border-b border-l transition-colors cursor-pointer border-transparent";
@@ -13,6 +16,14 @@ export default function Button({
       : `${
           light ? "text-gray-800" : "text-gray-300"
         } hover:border-b hover:border-l hover:border-grey-600`;
+
+  if (to) {
+    return (
+      <Link to={to} className={`${baseClass} ${variantClass}`}>
+        {children}
+      </Link>
+    );
+  }
 
   return (
     <button onClick={onClick} className={`${baseClass} ${variantClass}`}>
