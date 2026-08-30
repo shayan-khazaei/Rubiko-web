@@ -17,11 +17,13 @@ export default function Users() {
   const [selectedDate, setSelectedDate] = useState("date");
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(10);
+  const [pageNumber, setPageNumber] = useState(1);
 
   const nextPageHandler = () => {
     if (endIndex <= UsersData.length) {
       setStartIndex((prev) => prev + 10);
       setEndIndex((prev) => prev + 10);
+      setPageNumber((prev) => prev + 1);
     }
   };
 
@@ -29,6 +31,7 @@ export default function Users() {
     if (startIndex > 0) {
       setStartIndex((prev) => prev - 10);
       setEndIndex((prev) => prev - 10);
+      setPageNumber((prev) => prev - 1);
     }
   };
 
@@ -264,8 +267,8 @@ export default function Users() {
       </section>
       <section className="mt-3 flex items-center justify-between">
         <div className="text-gray-300">
-          Page <span>1</span> of
-          <span className="ml-1">{UsersData.length / 10}</span>
+          Page <span>{pageNumber}</span> of
+          <span className="ml-1"> {Math.ceil(UsersData.length / 10)}</span>
         </div>
         <div className="bg-radial-[at_25%_25%] from-zinc-950 to-green-900 to-95% text-green-300">
           <button

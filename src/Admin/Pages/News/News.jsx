@@ -10,11 +10,13 @@ import { useState } from "react";
 export default function News() {
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(3);
+  const [pageNumber, setPageNumber] = useState(1);
 
   const nextPageHandler = () => {
     if (endIndex < datas.length) {
       setStartIndex((prev) => prev + 3);
       setEndIndex((prev) => prev + 3);
+      setPageNumber((prev) => prev + 1);
     }
   };
 
@@ -22,6 +24,7 @@ export default function News() {
     if (startIndex > 0) {
       setStartIndex((prev) => prev - 3);
       setEndIndex((prev) => prev - 3);
+      setPageNumber((prev) => prev - 1);
     }
   };
 
@@ -42,7 +45,8 @@ export default function News() {
       </section>
       <section className="mt-3 flex items-center justify-between">
         <div className="text-gray-300">
-          Page <span>1</span> of <span className="ml-1">2</span>
+          Page <span>{pageNumber}</span> of{" "}
+          <span className="ml-1">{Math.ceil(datas.length / 3)}</span>
         </div>
         <div className="bg-radial-[at_25%_25%] from-zinc-950 to-green-900 to-95% text-green-300">
           <button
