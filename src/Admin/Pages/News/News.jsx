@@ -5,12 +5,30 @@ import {
 } from "react-icons/md";
 import NewsCard from "./NewsCard";
 import NewsAnatomy from "./NewsAnatomy";
+import { useState } from "react";
 
 export default function News() {
+  const [startIndex, setStartIndex] = useState(0);
+  const [endIndex, setEndIndex] = useState(3);
+
+  const nextPageHandler = () => {
+    if (endIndex < datas.length) {
+      setStartIndex((prev) => prev + 3);
+      setEndIndex((prev) => prev + 3);
+    }
+  };
+
+  const prevPageHandler = () => {
+    if (startIndex > 0) {
+      setStartIndex((prev) => prev - 3);
+      setEndIndex((prev) => prev - 3);
+    }
+  };
+
   return (
     <div className="w-[79%] mx-auto mt-auto">
       <section className="grid grid-cols-3 gap-5">
-        {datas.slice(0, 3).map((data) => (
+        {datas.slice(startIndex, endIndex).map((data) => (
           <NewsCard
             key={data.id}
             image={data.image}
@@ -27,10 +45,16 @@ export default function News() {
           Page <span>1</span> of <span className="ml-1">2</span>
         </div>
         <div className="bg-radial-[at_25%_25%] from-zinc-950 to-green-900 to-95% text-green-300">
-          <button className=" px-2 py-2 text-xl border border-green-900 cursor-pointer ">
+          <button
+            className=" px-2 py-2 text-xl border border-green-900 cursor-pointer "
+            onClick={prevPageHandler}
+          >
             <MdOutlineKeyboardArrowLeft />
           </button>
-          <button className=" px-2 py-2 text-xl border border-green-900 border-l-0 cursor-pointer ">
+          <button
+            className=" px-2 py-2 text-xl border border-green-900 border-l-0 cursor-pointer "
+            onClick={nextPageHandler}
+          >
             <MdOutlineKeyboardArrowRight />
           </button>
         </div>

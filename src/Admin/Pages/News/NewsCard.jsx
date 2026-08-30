@@ -13,7 +13,9 @@ export default function NewsCard({
 }) {
   return (
     <div
-      className={`rounded-xl flex flex-col p-2.5 space-y-2 bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% border border-green-700`}
+      className={`rounded-xl ${
+        !anatomyCard && "h-100"
+      } flex flex-col p-2.5 space-y-2 bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% border border-green-700`}
     >
       <section className="relative flex gap-5">
         <img
@@ -33,7 +35,7 @@ export default function NewsCard({
         </div>
       </section>
       <section className="px-2">
-        <h1 className="max-w-[60%] my-2 text-gray-300">{title}</h1>
+        <h1 className="max-w-[60%] h-18 my-2 text-gray-300">{title}</h1>
       </section>
       <div className="h-[1px] bg-gray-200"></div>
       <section className="flex items-center justify-between px-2">

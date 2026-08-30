@@ -23,13 +23,13 @@ export default function Users() {
       setStartIndex((prev) => prev + 10);
       setEndIndex((prev) => prev + 10);
     }
-    console.log(startIndex, endIndex);
   };
 
   const prevPageHandler = () => {
-    setStartIndex(0);
-    setEndIndex(10);
-    console.log(startIndex, endIndex);
+    if (startIndex > 0) {
+      setStartIndex((prev) => prev - 10);
+      setEndIndex((prev) => prev - 10);
+    }
   };
 
   const CheckDateFilter = (joinedAt) => {
