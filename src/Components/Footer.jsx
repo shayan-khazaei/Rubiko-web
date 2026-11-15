@@ -7,14 +7,14 @@ export default function Footer() {
       <ul className="flex gap-2 md:gap-5 items-center">
         <List border="noBorder">Contact Us</List>
         <div className="flex gap-2 md:gap-5">
-          <List to="https://instagram.com/shayan_kze/" border="noBorder">
-            <SiInstagram className="text-green-600" />
+          <List to="https://instagram.com/shayan_kze/" border="noBorder" changeColor>
+            <SiInstagram className="text-green-600 hover:text-green-700" />
           </List>
-          <List to="https://t.me/shayan_kze16/" border="noBorder">
-            <SiTelegram className="text-green-600" />
+          <List to="https://t.me/shayan_kze16/" border="noBorder" changeColor>
+            <SiTelegram className="text-green-600 hover:text-green-700" />
           </List>
-          <List to="mailto:shayankhazaie50@gmail.com" border="noBorder">
-            <SiGmail className="text-green-600" />
+          <List to="mailto:shayankhazaie50@gmail.com" border="noBorder" changeColor>
+            <SiGmail className="text-green-600 hover:text-green-700" />
           </List>
         </div>
       </ul>

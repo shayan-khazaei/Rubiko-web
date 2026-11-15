@@ -38,18 +38,36 @@ const CardData = [
   },
 ];
 
+const DailyChartData = [
+  { time: "Sun", attempts: 40 },
+  { time: "Mon", attempts: 45 },
+  { time: "Tues", attempts: 50 },
+  { time: "Wed", attempts: 38 },
+  { time: "Thurs ", attempts: 150 },
+  { time: "Fri", attempts: 100 },
+  { time: "Sat", attempts: 80 },
+];
 
-const ChartData = [
-    
-  { date: "May 12", attempts: 20 },
-  { date: "May 16", attempts: 45 },
-  { date: "May 20", attempts: 11 },
-  { date: "May 24", attempts: 3 },
-  { date: "May 28", attempts: 150 },
-  { date: "Jun 1", attempts: 200 },
-  { date: "Jun 5", attempts: 100 },
-  { date: "Jun 9", attempts: 12 },
-  { date: "Jun 12", attempts: 10 },
+const WeeklyChartData = [
+  { time: "Week 1 ", attempts: 230 },
+  { time: "Week 2 ", attempts: 200 },
+  { time: "Week 3 ", attempts: 110 },
+  { time: "Week 4 ", attempts: 153 },
+];
+
+const MonthlyChartData = [
+  { time: "Jan", attempts: 1200 },
+  { time: "Feb", attempts: 1800 },
+  { time: "Mar", attempts: 1500 },
+  { time: "Apr", attempts: 2300 },
+  { time: "May", attempts: 3400 },
+  { time: "Jun", attempts: 2801 },
+  { time: "July", attempts: 1205 },
+  { time: "Aug", attempts: 1805 },
+  { time: "Sep", attempts: 1509 },
+  { time: "Oct", attempts: 2300 },
+  { time: "Nov", attempts: 3400 },
+  { time: "Dec", attempts: 2802 },
 ];
 
 const RecordsData = [
@@ -158,7 +176,9 @@ const theadData = ["User", "Time", "Type", "Date"];
 
 export {
   CardData,
-  ChartData,
+  DailyChartData,
+  WeeklyChartData,
+  MonthlyChartData,
   RecordsData,
   theadData,
   TopUsersData,

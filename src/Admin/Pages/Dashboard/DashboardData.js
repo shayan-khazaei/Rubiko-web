@@ -147,7 +147,14 @@ const ChartData = [
   { month: "Apr", users: 230 },
   { month: "May", users: 340 },
   { month: "Jun", users: 280 },
+  { month: "July", users: 120 },
+  { month: "Aug", users: 180 },
+  { month: "Sep", users: 150 },
+  { month: "Oct", users: 230 },
+  { month: "Nov", users: 340 },
+  { month: "Dec", users: 280 },
 ];
+
 
 const theadData = ["User", "Email", "Joined At", "Role", "Status"];
 

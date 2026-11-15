@@ -1,11 +1,35 @@
 import { MdArrowDropDown } from "react-icons/md";
 import DashboardCard from "../Dashboard/DashboardCard";
-import { CardData, ChartData, RecordsData, theadData } from "./ReportsData";
+import {
+  CardData,
+  DailyChartData,
+  WeeklyChartData,
+  MonthlyChartData,
+  RecordsData,
+  theadData,
+} from "./ReportsData";
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import ReportsRankCard from "./ReportsRankCard";
 import { TopUsersData, BestTimeData } from "./ReportsData";
+import { useState } from "react";
 
 export default function Reports() {
+  const [filteredValue, setFilteredValue] = useState("daily");
+
+  const filteredData =
+    filteredValue === "daily"
+      ? DailyChartData
+      : filteredValue === "weekly"
+      ? WeeklyChartData
+      : MonthlyChartData;
+
+  const tricksValue =
+    filteredValue === "daily"
+      ? [0, 50, 100, 150, 200]
+      : filteredValue === "weekly"
+      ? [0, 250, 500, 750, 1000]
+      : [0, 1000, 2000, 3000, 4000, 5000];
+
   return (
     <div className="space-y-6 w-[79%] mx-auto">
       <section className="flex-2 flex justify-center gap-12">
@@ -31,6 +55,7 @@ export default function Reports() {
                     name="filterUsers"
                     id="filter_users"
                     className="text-gray-300 shadow-2xl bg-radial-[at_25%_25%] from-zinc-800 to-green-900 to-95% px-3 py-2.5 rounded-lg cursor-pointer hover:text-gray-400 focus:border-none focus:outline-0 appearance-none"
+                    onChange={(e) => setFilteredValue(e.target.value)}
                   >
                     <option value="daily">Daily</option>
                     <option value="weekly">Weekly</option>
@@ -44,7 +69,7 @@ export default function Reports() {
                   width: "70%",
                   height: 250,
                 }}
-                data={ChartData}
+                data={filteredData}
                 responsive
                 className="focus:border-none focus:outline-none"
               >
@@ -53,13 +78,13 @@ export default function Reports() {
                   strokeDasharray="5 5"
                 />
                 <XAxis
-                  dataKey="date"
+                  dataKey="time"
                   stroke="#d7e1db"
                   padding={{ left: 20, right: 20 }}
                 />
                 <YAxis
                   width={50}
-                  ticks={[0, 50, 100, 150, 200]}
+                  ticks={tricksValue}
                   stroke="#d7e1db"
                   padding={{ top: 20, bottom: 20 }}
                 />

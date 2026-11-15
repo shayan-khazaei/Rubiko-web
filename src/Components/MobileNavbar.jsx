@@ -25,7 +25,7 @@ export default function MobileNavbar({ setIsOpenNavBar }) {
 
   return (
     <>
-      <nav className="md:hidden relative flex flex-col items-center h-screen border-r-2 border-green-700 gap-5 px-3 py-5 bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% text-xl">
+      <nav className="md:hidden relative flex flex-col items-center h-screen border-r-2 border-green-700 gap-5 px-3 py-5 bg-radial-[at_5%_70%] from-green-100 to-zinc-50 to-65% text-xl">
         <section className="flex items-center gap-2">
           <a href="/">
             <img
@@ -34,10 +34,10 @@ export default function MobileNavbar({ setIsOpenNavBar }) {
               alt="menuIcon"
             />
           </a>
-          <h2 className="text-xl font-medium text-grey-200">Rubiko</h2>
+          <h2 className="text-xl font-medium text-grey-800">Rubiko</h2>
         </section>
         <section>
-          <ul className="flex flex-col items-center gap-8 text-grey-300 text-sm">
+          <ul className="flex flex-col items-center gap-8 text-grey-700 text-sm">
             <List to="/">Home</List>
             <List to="/solution-guides">Solution Guides</List>
             <List to="/history">History</List>
@@ -46,7 +46,7 @@ export default function MobileNavbar({ setIsOpenNavBar }) {
           </ul>
         </section>
       </nav>
-      <section className="flex items-center gap-2 absolute bottom-2 left-2">
+      <section className="flex items-center gap-2 absolute bottom-2 left-2 md:hidden ">
         {session ? (
           <Button
             disabled={isLoading}

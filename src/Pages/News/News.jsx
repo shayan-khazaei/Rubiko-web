@@ -39,7 +39,7 @@ export default function News() {
         <img
           src="images/NewsPage/NewsHeader.png"
           alt="NewsHeader"
-          className="w-[170px] sm:w-2xs md:w-sm object-cover"
+          className="w-[170px] sm:w-2xs md:w-sm object-cover animate-swingX"
         />
       </section>
       <section>

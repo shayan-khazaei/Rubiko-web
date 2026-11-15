@@ -11,14 +11,36 @@ body {
   font-family: "Figtree, sans-serif";
 }
 
-/* html,
+html,
 body,
 #root {
   height: 100%;
   margin: 0;
-} */
+}
 
 @theme {
+
+  --animate-swingX: swingX 1s ease-in-out infinite alternate;
+  --animate-swingY: swingY 1s ease-in-out infinite alternate;
+
+  @keyframes swingX {
+    0% {
+      transform: translateX(3px);
+    }
+    100% {
+      transform: translateX(-3px);
+    }
+  }
+
+  @keyframes swingY {
+    0% {
+      transform: translateY(3px);
+    }
+    100% {
+      transform: translateY(-3px);
+    }
+  }
+
   /* Grey */
   --color-grey-0: #fff;
   --color-grey-50: #f9fafb;

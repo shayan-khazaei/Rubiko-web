@@ -3,8 +3,14 @@ import DashboardCard from "./DashboardCard";
 import { CardsData, ChartData, UsersData, theadData } from "./DashboardData";
 import { MdArrowDropDown } from "react-icons/md";
 import Button from "../../Components/Button";
+import { useState } from "react";
 
 export default function Dashboard() {
+  const [filteredValue, setFilteredValue] = useState("6month");
+
+  const filteredData =
+    filteredValue === "1year" ? ChartData : ChartData.slice(0, 6);
+
   return (
     <div className="space-y-6 w-[79%] mx-auto">
       <section className="flex justify-center gap-12">
@@ -27,8 +33,8 @@ export default function Dashboard() {
               name="filterUsers"
               id="filter_users"
               className="text-gray-200 shadow-2xl bg-radial-[at_25%_25%] from-zinc-800 to-green-900 to-95% pl-3 pr-6 py-2.5 rounded-lg cursor-pointer hover:text-gray-400 focus:border-none focus:outline-0 appearance-none"
+              onChange={(e) => setFilteredValue(e.target.value)}
             >
-              <option value="30days">Last 30 days</option>
               <option value="6month">6 month</option>
               <option value="1year">1 year</option>
             </select>
@@ -40,7 +46,7 @@ export default function Dashboard() {
             width: "70%",
             height: 250,
           }}
-          data={ChartData}
+          data={filteredData}
           responsive
           className="focus:border-none focus:outline-none"
         >
