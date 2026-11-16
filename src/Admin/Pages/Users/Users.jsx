@@ -9,6 +9,7 @@ import { UsersData, theadData } from "../Dashboard/DashboardData";
 import { CiEdit } from "react-icons/ci";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { useState } from "react";
+import AddUser from "./AddUser";
 
 export default function Users() {
   const [searchInput, setSearchInput] = useState("");
@@ -18,6 +19,7 @@ export default function Users() {
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(10);
   const [pageNumber, setPageNumber] = useState(1);
+  const [isOpenAddUser, setIsOpenAddUSer] = useState(false);
 
   const nextPageHandler = () => {
     if (endIndex < filteredUsers.length) {
@@ -127,7 +129,7 @@ export default function Users() {
 
   return (
     <>
-      <div className="w-[79%] mx-auto mt-6">
+      <div className="w-[79%] mx-auto mt-6 relative">
         <section className="text-center space-y-1">
           <h2 className="text-4xl text-gray-100">User Management</h2>
           <h4 className="text-xl text-gray-400">
@@ -263,7 +265,12 @@ export default function Users() {
                 <PiExportLight /> Export
               </span>
             </Button>
-            <Button variant="outline">Add User</Button>
+            <Button
+              variant="outline"
+              onClick={() => setIsOpenAddUSer((prev) => !prev)}
+            >
+              Add User
+            </Button>
           </section>
         </section>
         <section>
@@ -339,6 +346,7 @@ export default function Users() {
           </div>
         </section>
       </div>
+      {isOpenAddUser && <AddUser />}
     </>
   );
 }
