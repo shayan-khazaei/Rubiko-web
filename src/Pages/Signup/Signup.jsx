@@ -67,7 +67,7 @@ export default function Signup() {
             {...register("name", {
               required: "name is required",
             })}
-            aria-invalid={errors.password ? "true" : "false"}
+            aria-invalid={errors.name ? "true" : "false"}
             className="px-4 py-2 md:px-6 md:py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-lg focus:outline-0 focus:placeholder:text-xl"
             type="text"
             placeholder="Name"
@@ -98,7 +98,7 @@ export default function Signup() {
               required: "Password is required",
               minLength: {
                 value: 8,
-                message: "Password must be at least 6 characters",
+                message: "Password must be at least 8 characters",
               },
             })}
             aria-invalid={errors.password ? "true" : "false"}
