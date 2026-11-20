@@ -19,7 +19,7 @@ export default function Users() {
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(10);
   const [pageNumber, setPageNumber] = useState(1);
-  const [isOpenAddUser, setIsOpenAddUSer] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
   const nextPageHandler = () => {
     if (endIndex < filteredUsers.length) {
@@ -267,7 +267,7 @@ export default function Users() {
             </Button>
             <Button
               variant="outline"
-              onClick={() => setIsOpenAddUSer((prev) => !prev)}
+              onClick={() => setShowForm((prev) => !prev)}
             >
               Add User
             </Button>
@@ -346,7 +346,7 @@ export default function Users() {
           </div>
         </section>
       </div>
-      {isOpenAddUser && <AddUser />}
+      {showForm && <AddUser onClose={() => setShowForm(false)} />}
     </>
   );
 }
