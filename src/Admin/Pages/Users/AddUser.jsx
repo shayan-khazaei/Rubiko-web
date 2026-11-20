@@ -4,7 +4,7 @@ import supabase from "../../../Services/Supabase";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-export default function AddUser({ onClose }) {
+export default function AddUser({onClose}) {
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -54,8 +54,7 @@ export default function AddUser({ onClose }) {
   };
 
   return (
-    <div className="absolute top-58 left-186 w-xl h-134 bg-radial-[at_15%_15%] from-zinc-800 to-green-900 to-98% opacity-96 rounded-lg flex items-center justify-center">
-      /
+    <div className="absolute top-58 left-186 w-xl h-134 bg-radial-[at_15%_15%] from-zinc-800 to-green-900 to-98% opacity-96 rounded-lg flex items-center justify-center">/
       <div
         className="absolute top-2 right-2 text-lg text-gray-300 rotate-45 cursor-pointer"
         onClick={onClose}

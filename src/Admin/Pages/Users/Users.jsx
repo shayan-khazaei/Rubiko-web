@@ -129,7 +129,11 @@ export default function Users() {
 
   return (
     <>
-      <div className="w-[79%] mx-auto mt-6 relative">
+      <div
+        className={`w-[79%] mx-auto mt-6 relative${
+          showForm && "pointer-events-none opacity-20"
+        } `}
+      >
         <section className="text-center space-y-1">
           <h2 className="text-4xl text-gray-100">User Management</h2>
           <h4 className="text-xl text-gray-400">
