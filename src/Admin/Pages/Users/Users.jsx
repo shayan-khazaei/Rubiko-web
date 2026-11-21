@@ -119,6 +119,10 @@ export default function Users() {
     URL.revokeObjectURL(url);
   };
 
+  const deleteUserHandler = (id) => {
+    filteredUsers.filter((user) => user.id !== id);
+  };
+
   const statusStyle = {
     Active: "bg-green-700 text-green-400",
     Inactive: "bg-gray-700 text-gray-400",
@@ -129,11 +133,7 @@ export default function Users() {
 
   return (
     <>
-      <div
-        className={`w-[79%] mx-auto mt-6 relative${
-          showForm && "pointer-events-none opacity-20"
-        } `}
-      >
+      <div className="w-[79%] mx-auto mt-6 relative">
         <section className="text-center space-y-1">
           <h2 className="text-4xl text-gray-100">User Management</h2>
           <h4 className="text-xl text-gray-400">
@@ -318,7 +318,10 @@ export default function Users() {
                     </td>
                     <td className="flex items-center gap-5 text-lg -translate-y-1/2">
                       <CiEdit className="text-red-500 cursor-pointer" />
-                      <RiDeleteBin5Line className="text-green-500 cursor-pointer" />
+                      <RiDeleteBin5Line
+                        className="text-green-500 cursor-pointer"
+                        onClick={() => deleteUserHandler(user.id)}
+                      />
                     </td>
                   </tr>
                 ))}
@@ -350,7 +353,11 @@ export default function Users() {
           </div>
         </section>
       </div>
-      {showForm && <AddUser onClose={() => setShowForm(false)} />}
+      {showForm && (
+        <div className="fixed inset-0 z-50 bg-black/50">
+          <AddUser onClose={() => setShowForm(false)} />
+        </div>
+      )}
     </>
   );
 }

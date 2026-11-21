@@ -3,6 +3,7 @@ import useAuth from "../../Hook/useAuth";
 import supabase from "../../Services/Supabase";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function UserProfile() {
   const { session } = useAuth();
@@ -105,6 +106,17 @@ export default function UserProfile() {
         <div className="ml-3 mt-4">
           <h5 className="text-lg">Email Address</h5>
           <span className="text-xs">{session.user.email}</span>
+        </div>
+        <div>
+          <p className="ml-3 mt-4 text-lg">
+            Manage data and users by clicking{" "}
+            <Link className="text-green-800" to={"/dashboard"}>
+              here
+            </Link>
+          </p>
+        </div>
+        <div className="bg-green-50 ml-3 mt-4 rounded-md p-3 text-red-700">
+          <p>All users can see and manage the dashboard for now</p>
         </div>
         <div className="bg-green-55 w-3xs absolute bottom-23">
           <img src="images/profilebg.png" alt="profilebg" />
