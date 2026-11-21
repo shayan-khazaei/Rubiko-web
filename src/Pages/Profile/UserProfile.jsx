@@ -108,15 +108,15 @@ export default function UserProfile() {
           <span className="text-xs">{session.user.email}</span>
         </div>
         <div>
-          <p className="ml-3 mt-4 text-lg">
-            Manage data and users by clicking{" "}
-            <Link className="text-green-800" to={"/dashboard"}>
+          <p className="ml-3 mt-6 text-lg">
+            Manage data and users by <br /> clicking{" "}
+            <Link className="text-green-600 text-xl" to={"/dashboard"}>
               here
             </Link>
           </p>
         </div>
         <div className="bg-green-50 ml-3 mt-4 rounded-md p-3 text-red-700">
-          <p>All users can see and manage the dashboard for now</p>
+          <p>All users can view and manage the dashboard for now</p>
         </div>
         <div className="bg-green-55 w-3xs absolute bottom-23">
           <img src="images/profilebg.png" alt="profilebg" />
