@@ -8,12 +8,16 @@ import { PiExportLight } from "react-icons/pi";
 import { UsersData, theadData } from "../Dashboard/DashboardData";
 import { CiEdit } from "react-icons/ci";
 import { RiDeleteBin5Line } from "react-icons/ri";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddUser from "./AddUser";
 import { GrAdd } from "react-icons/gr";
 
 export default function Users() {
-  const [users, setUsers] = useState(UsersData);
+  const [users, setUsers] = useState(() => {
+    const savedUsers = localStorage.getItem("users");
+
+    return savedUsers ? JSON.parse(savedUsers) : UsersData;
+  });
   const [searchInput, setSearchInput] = useState("");
   const [selectedRole, setSelectedRole] = useState("role");
   const [selectedStatus, setSelectedStatus] = useState("status");
@@ -137,6 +141,10 @@ export default function Users() {
     Suspended: "bg-orange-700 text-orange-400",
     Banned: "bg-red-700 text-red-400",
   };
+
+  useEffect(() => {
+    localStorage.setItem("users", JSON.stringify(users));
+  }, [users]);
 
   return (
     <>
