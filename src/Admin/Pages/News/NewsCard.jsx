@@ -5,6 +5,7 @@ import { MdDelete, MdEdit, MdOutlineDateRange } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 export default function NewsCard({
+  id,
   image,
   title,
   status,
@@ -12,6 +13,8 @@ export default function NewsCard({
   date,
   newsLink,
   anatomyCard,
+  setShowDeleteModal,
+  setSelectedPostId,
 }) {
   return (
     <div
@@ -53,7 +56,13 @@ export default function NewsCard({
         <div className="flex items-center gap-1 text-green-300 cursor-pointer">
           <MdEdit /> Edit
         </div>
-        <div className="flex items-center gap-1 text-red-300 cursor-pointer">
+        <div
+          className="flex items-center gap-1 text-red-300 cursor-pointer"
+          onClick={() => {
+            setShowDeleteModal(true), 
+            setSelectedPostId(id);
+          }}
+        >
           <MdDelete /> Delete
         </div>
         <div className="text-gray-300 cursor-pointer">

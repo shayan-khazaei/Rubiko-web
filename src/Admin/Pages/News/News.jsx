@@ -6,14 +6,18 @@ import {
 import NewsCard from "./NewsCard";
 import NewsAnatomy from "./NewsAnatomy";
 import { useState } from "react";
+import DeleteModal from "../../Components/DeleteModal";
 
 export default function News() {
+  const [posts, setPosts] = useState(datas);
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(3);
   const [pageNumber, setPageNumber] = useState(1);
+  const [selectedPostId, setSelectedPostId] = useState(null);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   const nextPageHandler = () => {
-    if (endIndex < datas.length) {
+    if (endIndex < posts.length) {
       setStartIndex((prev) => prev + 3);
       setEndIndex((prev) => prev + 3);
       setPageNumber((prev) => prev + 1);
@@ -28,12 +32,24 @@ export default function News() {
     }
   };
 
+  const deletePostHandler = (id) => {
+    // const newPosts = posts.filter((post) => {
+    //   post.id !== id;
+    //   alert(post.id)
+    // });
+    // setPosts(newPosts);
+    setPosts((prevPosts) => prevPosts.filter((post) => post.id !== id));
+    setShowDeleteModal(false);
+    setSelectedPostId(null);
+  };
+
   return (
     <div className="w-[79%] mx-auto mt-auto">
       <section className="grid grid-cols-3 gap-5">
-        {datas.slice(startIndex, endIndex).map((data) => (
+        {posts.slice(startIndex, endIndex).map((data) => (
           <NewsCard
             key={data.id}
+            id={data.id}
             image={data.image}
             title={data.description}
             publisher={data.publisher}
@@ -41,13 +57,15 @@ export default function News() {
             newsLink={data.newsLink}
             date={data.date}
             height={100}
+            setShowDeleteModal={setShowDeleteModal}
+            setSelectedPostId={setSelectedPostId}
           />
         ))}
       </section>
       <section className="mt-3 flex items-center justify-between">
         <div className="text-gray-300">
           Page <span>{pageNumber}</span> of{" "}
-          <span className="ml-1">{Math.ceil(datas.length / 3)}</span>
+          <span className="ml-1">{Math.ceil(posts.length / 3)}</span>
         </div>
         <div className="bg-radial-[at_25%_25%] from-zinc-950 to-green-900 to-95% text-green-300">
           <button
@@ -64,6 +82,14 @@ export default function News() {
           </button>
         </div>
       </section>
+      {showDeleteModal && (
+        <DeleteModal
+          selectedItemId={selectedPostId}
+          setShowDeleteModal={setShowDeleteModal}
+          setSelectedItemId={setSelectedPostId}
+          deleteItemHandler={deletePostHandler}
+        />
+      )}
       <section>
         <NewsAnatomy />
       </section>

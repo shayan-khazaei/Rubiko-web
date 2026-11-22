@@ -132,7 +132,7 @@ const UsersData = [
   {
     id: 11,
     image: "/images/profilebg.png",
-    user: "Sara",
+    user: "Zahra",
     email: "sara256@gmail.com",
     joinedAt: "July 25, 2026",
     role: "User",
