@@ -132,7 +132,7 @@ export default function AddUser({onClose}) {
           </div>
           <button
             disabled={isLoading}
-            className="px-4 py-1.5 text-xl rounded-sm text-gray-300 bg-green-800 hover:bg-green-700 transition-colors cursor-pointer disabled:bg-green-900 disabled:cursor-none"
+            className="px-4 py-1.5 text-xl rounded-sm text-gray-300 bg-radial-[at_25%_25%] from-zinc-900 to-green-900 to-70% hover:to-88% transition-colors cursor-pointer disabled:bg-green-900 disabled:cursor-none"
           >
             Add
           </button>

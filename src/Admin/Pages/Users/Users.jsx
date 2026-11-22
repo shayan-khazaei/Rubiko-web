@@ -13,6 +13,7 @@ import AddUser from "./AddUser";
 import { GrAdd } from "react-icons/gr";
 
 export default function Users() {
+  const [users, setUsers] = useState(UsersData);
   const [searchInput, setSearchInput] = useState("");
   const [selectedRole, setSelectedRole] = useState("role");
   const [selectedStatus, setSelectedStatus] = useState("status");
@@ -22,6 +23,7 @@ export default function Users() {
   const [pageNumber, setPageNumber] = useState(1);
   const [showForm, setShowForm] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [selectedUserId, setSelectedUserId] = useState(null);
 
   const nextPageHandler = () => {
     if (endIndex < filteredUsers.length) {
@@ -65,7 +67,7 @@ export default function Users() {
     return true;
   };
 
-  const filteredUsers = UsersData.filter((user) => {
+  const filteredUsers = users.filter((user) => {
     const matchesSearch = user.user
       .toLowerCase()
       .includes(searchInput.toLowerCase());
@@ -121,8 +123,11 @@ export default function Users() {
     URL.revokeObjectURL(url);
   };
 
-  const deleteUserHandler = () => {
-    // filteredUsers.filter((user) => user.id !== id);
+  const deleteUserHandler = (id) => {
+    setUsers((prevUSers) => prevUSers.filter((user) => user.id !== id));
+
+    setShowDeleteModal(false);
+    setSelectedUserId(null);
   };
 
   const statusStyle = {
@@ -135,7 +140,11 @@ export default function Users() {
 
   return (
     <>
-      <div className="w-[79%] mx-auto mt-6 relative">
+      <div
+        className={`w-[79%] mx-auto mt-6 relative ${
+          showDeleteModal && "opacity-40 pointer-events-none"
+        }`}
+      >
         <section className="text-center space-y-1">
           <h2 className="text-4xl text-gray-100">User Management</h2>
           <h4 className="text-xl text-gray-400">
@@ -322,7 +331,10 @@ export default function Users() {
                       <CiEdit className="text-red-500 cursor-pointer" />
                       <RiDeleteBin5Line
                         className="text-green-500 cursor-pointer"
-                        onClick={() => setShowDeleteModal((prev) => !prev)}
+                        onClick={() => {
+                          setSelectedUserId(user.id);
+                          setShowDeleteModal(true);
+                        }}
                       />
                     </td>
                   </tr>
@@ -361,19 +373,24 @@ export default function Users() {
         </div>
       )}
       {showDeleteModal && (
-        <div className="bg-radial-[at_15%_15%] from-zinc-800 to-green-900 to-98% opacity-99 w-sm h-46 rounded-lg flex flex-col items-center fixed top-10 left-1/2 -translate-x-1/2 p-3">
+        <div className="bg-radial-[at_15%_15%] from-zinc-800 to-green-900 to-98% opacity-99 w-sm h-46 rounded-lg flex flex-col items-center fixed top-6 left-1/2 -translate-x-1/2 p-3">
           <p className="text-gray-200 relative text-2xl">Delete The User !?</p>
           <p className="text-gray-400 relative text-md text-center mt-2">
-            The deleted user cannot be restored and must signup again.
+            deleted user cannot be restored and <br />
+            must signup again
           </p>
           <div className="flex gap-2 absolute bottom-2 right-2">
-            <button className="bg-radial-[at_25%_25%] from-zinc-900 to-green-900 to-70% px-10 py-3 rounded-md text-gray-200 text-lg cursor-pointer hover:to-80%">
+            <button
+              className="bg-radial-[at_25%_25%] from-zinc-900 to-green-900 to-70% px-10 py-3 rounded-md text-gray-200 text-lg cursor-pointer hover:to-80%"
+              onClick={() => deleteUserHandler(selectedUserId)}
+            >
               yes
             </button>
             <button
               className="bg-radial-[at_25%_25%] from-zinc-900 to-green-900 to-70% px-10 py-3 rounded-md text-gray-200 text-lg cursor-pointer hover:to-80%"
               onClick={() => {
                 setShowDeleteModal(false);
+                setSelectedUserId(null);
               }}
             >
               no
