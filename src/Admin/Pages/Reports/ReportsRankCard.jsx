@@ -1,6 +1,19 @@
+import { useEffect, useState } from "react";
 import Button from "../../Components/Button";
 
 export default function ReportsRankCard({ data, attempt }) {
+  const [showTopTimeModal, setShowTopTimeModal] = useState(false);
+
+  useEffect(() => {
+    if (!showTopTimeModal) return;
+
+    const timer = setTimeout(() => {
+      setShowTopTimeModal(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [showTopTimeModal]);
+
   return (
     <div>
       <section>
@@ -9,8 +22,22 @@ export default function ReportsRankCard({ data, attempt }) {
             {attempt ? "Top Users" : "Best Times (All Time)"}
           </h2>
           <div className="relative">
-            <Button>View all</Button>
+            <Button
+              onClick={() => {
+                setShowTopTimeModal((prev) => !prev);
+              }}
+            >
+              View all
+            </Button>
           </div>
+          {showTopTimeModal && (
+            <div className="bg-radial-[at_15%_15%] from-zinc-900 to-green-600 to-88% border border-2 border-orange-800 opacity-99 w-xs rounded-lg flex flex-col items-center fixed top-6 left-1/2 -translate-x-1/2 p-3">
+              <p className="text-gray-300 text-center">
+                This section will be implemented once <br /> the users' record
+                is recorded. <br />
+              </p>
+            </div>
+          )}
         </div>
       </section>
       <section>

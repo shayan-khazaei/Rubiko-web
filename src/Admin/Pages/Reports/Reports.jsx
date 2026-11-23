@@ -32,7 +32,7 @@ export default function Reports() {
 
   return (
     <div className="space-y-6 w-[79%] mx-auto">
-      <section className="flex-2 flex justify-center gap-12">
+      <section className="flex-2 flex justify-center gap-12 relative">
         {CardData.map((item) => (
           <DashboardCard
             title={item.Title}
@@ -44,7 +44,7 @@ export default function Reports() {
           />
         ))}
       </section>
-      <section className="grid grid-cols-3">
+      <section className="grid grid-cols-3 ">
         <section className="col-span-2 space-y-6">
           <section className="col-span-2">
             <section className="flex flex-col items-center justify-center rounded-lg shadow-xl pt-5 pb-10 border border-green-700">
