@@ -5,11 +5,14 @@ import {
 } from "react-icons/md";
 import NewsCard from "./NewsCard";
 import NewsAnatomy from "./NewsAnatomy";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DeleteModal from "../../Components/DeleteModal";
 
 export default function News() {
-  const [posts, setPosts] = useState(datas);
+  const [posts, setPosts] = useState(() => {
+    const savedPosts = localStorage.getItem("posts");
+    return savedPosts ? JSON.parse(savedPosts) : datas;
+  });
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(3);
   const [pageNumber, setPageNumber] = useState(1);
@@ -33,15 +36,14 @@ export default function News() {
   };
 
   const deletePostHandler = (id) => {
-    // const newPosts = posts.filter((post) => {
-    //   post.id !== id;
-    //   alert(post.id)
-    // });
-    // setPosts(newPosts);
     setPosts((prevPosts) => prevPosts.filter((post) => post.id !== id));
     setShowDeleteModal(false);
     setSelectedPostId(null);
   };
+
+  useEffect(() => {
+    localStorage.setItem("posts", JSON.stringify(posts));
+  }, [posts]);
 
   return (
     <div className="w-[79%] mx-auto mt-auto">
@@ -88,6 +90,8 @@ export default function News() {
           setShowDeleteModal={setShowDeleteModal}
           setSelectedItemId={setSelectedPostId}
           deleteItemHandler={deletePostHandler}
+          modalTitle="Delete The Post?"
+          modalDescription=" post"
         />
       )}
       <section>
