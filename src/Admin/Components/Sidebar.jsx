@@ -10,15 +10,34 @@ import { IoExitOutline } from "react-icons/io5";
 import useAuth from "../../Hook/useAuth";
 import { useNavigate } from "react-router-dom";
 import supabase from "../../Services/Supabase";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 export default function Sidebar() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  const [profile, setProfile] = useState(null);
   const { session } = useAuth();
+  const userId = session?.user?.id;
 
-  console.log(session);
+  useEffect(() => {
+    if (!userId) return;
+
+    async function getProfile() {
+      const { data, error } = await supabase
+        .from("profile")
+        .select("*")
+        .eq("id", userId)
+        .single();
+
+      if (error) {
+        console.error("Profile error:", error.message);
+        return;
+      }
+      setProfile(data);
+    }
+    getProfile();
+  }, [userId]);
 
   const logoutHandler = async () => {
     setIsLoading(true);
@@ -63,9 +82,9 @@ export default function Sidebar() {
         <section className="absolute bottom-0 left-0 w-full px-2 py-10 flex flex-col gap-3">
           <div className="flex py-5 items-center gap-3 shadow-2xl rounded-lg">
             <img
-              src="/images/mainProfile.jpg"
+              src={profile?.avatar || "images/logoIcon.png"}
               alt="profileImg"
-              className="w-12 rounded-full"
+              className="w-16 h-16 rounded-full "
             />
             <div>
               <h2 className="text-gray-200">

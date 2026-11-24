@@ -207,7 +207,7 @@ export default function Settings() {
                 <img
                   src={profile?.avatar || "images/logoIcon.png"}
                   alt="adminImage"
-                  className="w-16 h-16 rounded-full"
+                  className="w-16 h-16 rounded-full object-cover object-center"
                 />
                 <label
                   htmlFor="avatarImg"
