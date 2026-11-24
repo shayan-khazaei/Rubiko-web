@@ -6,18 +6,56 @@ import { VscEditSparkle } from "react-icons/vsc";
 import useAuth from "../../../Hook/useAuth";
 import supabase from "../../../Services/Supabase";
 import toast from "react-hot-toast";
+import { useState } from "react";
 
 export default function Settings() {
+  const [isLoading, setIsLoading] = useState(false);
   const session = useAuth();
 
   const submitForm = async (data) => {
+    setIsLoading(true);
+
     if (data.name) {
       await supabase.auth.updateUser({
         data: {
           display_name: data.name,
         },
       });
+
+      setIsLoading(false);
+      toast.success("Profile updated");
+      toast.error(errors.message);
     }
+
+    // if (data.avatar?.length > 0) {
+    //   const file = data.avatar[0];
+
+    //   const fileName = `${session.user.id}-${crypto.randomUUID()}-img`;
+
+    //   await supabase.storage.from("avatars").upload(fileName, file);
+
+    //   const { data: image } = supabase.storage
+    //     .from("avatars")
+    //     .getPublicUrl(fileName);
+
+    //   const { data: updated, error } = await supabase
+    //     .from("profile")
+    //     .update({
+    //       avatar: image.publicUrl,
+    //     })
+    //     .eq("id", session.user.id)
+    //     .select();
+
+    //   console.log(updated);
+    //   console.log(error);
+    // }
+
+    // if (data.name.length > 0 || data.password.length > 0)
+    //   toast.success("Profile updated");
+  };
+
+  const submitFormPassword = async (data) => {
+    setIsLoading(true);
 
     if (data.password) {
       await supabase.auth.updateUser({
@@ -25,30 +63,9 @@ export default function Settings() {
       });
     }
 
-    if (data.avatar?.length > 0) {
-      const file = data.avatar[0];
-
-      const fileName = `${session.user.id}-${crypto.randomUUID()}-img`;
-
-      await supabase.storage.from("avatars").upload(fileName, file);
-
-      const { data: image } = supabase.storage
-        .from("avatars")
-        .getPublicUrl(fileName);
-
-      const { data: updated, error } = await supabase
-        .from("profile")
-        .update({
-          avatar: image.publicUrl,
-        })
-        .eq("id", session.user.id)
-        .select();
-
-      console.log(updated);
-      console.log(error);
-    }
-
+    setIsLoading(false);
     toast.success("Profile updated");
+    toast.error(errors.message);
   };
 
   const {
@@ -110,7 +127,7 @@ export default function Settings() {
               />
             </div>
             <button
-              // disabled={isLoading}
+              disabled={isLoading}
               className="px-4 py-1.5 rounded-sm text-gray-300 bg-green-800 hover:bg-green-700 transition-colors cursor-pointer disabled:bg-green-900 disabled:cursor-none"
             >
               Update
@@ -135,7 +152,7 @@ export default function Settings() {
         <div className="w-30 h-[1px] bg-green-300 rotate-90"></div>
         <section className="flex-3">
           <form
-            onSubmit={handleSubmit(() => "")}
+            onSubmit={handleSubmit(submitFormPassword)}
             className="flex gap-5 bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% px-10 py-6 rounded-sm"
           >
             <div>
@@ -175,7 +192,7 @@ export default function Settings() {
               )}
             </div>
             <button
-              // disabled={isLoading}
+              disabled={isLoading}
               className="px-4 py-1.5 rounded-sm text-gray-300 bg-green-800 hover:bg-green-700 transition-colors cursor-pointer disabled:bg-green-900 disabled:cursor-none"
             >
               Update
