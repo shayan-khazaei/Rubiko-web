@@ -1,102 +1,167 @@
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+
 import { FaCamera, FaRegMoon, FaRegSun, FaUser } from "react-icons/fa6";
+
 import { AiOutlineSecurityScan } from "react-icons/ai";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { VscEditSparkle } from "react-icons/vsc";
+
 import useAuth from "../../../Hook/useAuth";
 import supabase from "../../../Services/Supabase";
 import toast from "react-hot-toast";
-import { useState } from "react";
 
 export default function Settings() {
   const [isLoading, setIsLoading] = useState(false);
-  const session = useAuth();
+  const [profile, setProfile] = useState(null);
 
-  const submitForm = async (data) => {
-    setIsLoading(true);
+  const { session } = useAuth();
+  const userId = session?.user?.id;
 
-    if (data.name) {
-      await supabase.auth.updateUser({
-        data: {
-          display_name: data.name,
-        },
-      });
-
-      setIsLoading(false);
-      toast.success("Profile updated");
-      toast.error(errors.message);
-    }
-
-    // if (data.avatar?.length > 0) {
-    //   const file = data.avatar[0];
-
-    //   const fileName = `${session.user.id}-${crypto.randomUUID()}-img`;
-
-    //   await supabase.storage.from("avatars").upload(fileName, file);
-
-    //   const { data: image } = supabase.storage
-    //     .from("avatars")
-    //     .getPublicUrl(fileName);
-
-    //   const { data: updated, error } = await supabase
-    //     .from("profile")
-    //     .update({
-    //       avatar: image.publicUrl,
-    //     })
-    //     .eq("id", session.user.id)
-    //     .select();
-
-    //   console.log(updated);
-    //   console.log(error);
-    // }
-
-    // if (data.name.length > 0 || data.password.length > 0)
-    //   toast.success("Profile updated");
-  };
-
-  const submitFormPassword = async (data) => {
-    setIsLoading(true);
-
-    if (data.password) {
-      await supabase.auth.updateUser({
-        password: data.password,
-      });
-    }
-
-    setIsLoading(false);
-    toast.success("Profile updated");
-    toast.error(errors.message);
-  };
+  console.log(session);
+  console.log(session?.user);
+  console.log(session?.user?.id);
 
   const {
     register,
-    formState: { errors },
     handleSubmit,
     getValues,
+    reset,
+    formState: { errors },
   } = useForm();
+
+  useEffect(() => {
+    if (!userId) return;
+
+    let isMounted = true;
+
+    async function getProfile() {
+      const { data, error } = await supabase
+        .from("profile")
+        .select("*")
+        .eq("id", userId)
+        .single();
+
+      if (!isMounted) return;
+
+      if (error) {
+        console.error("Profile error:", error.message);
+        return;
+      }
+
+      setProfile(data);
+    }
+
+    getProfile();
+
+    reset({
+      name: session.user.user_metadata?.display_name || "",
+      email: session.user.email || "",
+      password: "",
+      confirmPassword: "",
+    });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [userId, reset]);
+
+  const submitForm = async (data) => {
+    if (!userId) {
+      toast.error("User session not found");
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const updates = {};
+
+      if (data.name?.trim()) {
+        updates.data = {
+          display_name: data.name.trim(),
+        };
+      }
+
+      if (data.email?.trim()) {
+        updates.email = data.email.trim();
+      }
+
+      if (Object.keys(updates).length === 0) {
+        toast.error("Nothing to update");
+        return;
+      }
+
+      const { error } = await supabase.auth.updateUser(updates);
+
+      if (error) throw error;
+
+      toast.success("Profile updated successfully");
+    } catch (error) {
+      console.error(error);
+      toast.error(error.message || "Something went wrong");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const submitFormPassword = async (data) => {
+    if (!userId) {
+      toast.error("User session not found");
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const { error } = await supabase.auth.updateUser({
+        password: data.password,
+      });
+
+      if (error) throw error;
+
+      toast.success("Password updated successfully");
+
+      reset({
+        ...getValues(),
+        password: "",
+        confirmPassword: "",
+      });
+    } catch (error) {
+      console.error(error);
+      toast.error(error.message || "Something went wrong");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="space-y-6 w-[79%] mx-auto">
-      <section className="flex items-center rounded-lg shadow-xl p-5 border border-green-700 ">
-        <section className="w-60 p-3 ">
+      <section className="flex items-center rounded-lg shadow-xl p-5 border border-green-700">
+        <section className="w-60 p-3">
           <div className="flex gap-3">
             <div className="text-green-500 bg-green-100 w-14 h-10 flex items-center justify-center rounded-lg">
               <FaUser />
             </div>
+
             <div>
               <h2 className="text-lg text-gray-100">Profile Information</h2>
+
               <h5 className="text-xs text-gray-300 mt-1">
                 Update your personal information and profile picture.
               </h5>
+
               <div className="mt-3 ml-6 relative flex flex-col">
                 <img
-                  src="/images/mainProfile.jpg"
+                  src={profile?.avatar || "images/logoIcon.png"}
                   alt="adminImage"
                   className="w-16 h-16 rounded-full"
                 />
+
                 <div className="bg-gray-400 w-6 h-6 flex items-center justify-center rounded-full absolute bottom-9 left-11">
-                  <FaCamera className="text-gray-600 text-xs" />
+                  <FaCamera className="text-gray-600 text-xs cursor-pointer" />
                 </div>
+
                 <h4 className="text-xs text-gray-400 mt-3 -ml-7">
                   JPG, PNG. Max size 2MB.
                 </h4>
@@ -104,52 +169,58 @@ export default function Settings() {
             </div>
           </div>
         </section>
+
         <div className="w-30 h-[1px] bg-green-300 rotate-90"></div>
+
         <section className="flex-3">
           <form
             onSubmit={handleSubmit(submitForm)}
             className="flex gap-5 bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% px-6 py-10 md:px-10 md:py-16 rounded-sm"
           >
-            <div>
-              <input
-                {...register("name")}
-                className="px-6 py-2 md:px-20 md:py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-lg placeholder:text-center focus:outline-0 focus:placeholder:text-xl"
-                type="text"
-                placeholder="User Name"
-              />
-            </div>
-            <div>
-              <input
-                {...register("email")}
-                className="px-6 py-2 md:px-20 md:py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-lg placeholder:text-center focus:outline-0 focus:placeholder:text-xl"
-                type="email"
-                placeholder="Email Address"
-              />
-            </div>
+            <input
+              {...register("name")}
+              className="px-6 py-2 md:px-20 md:py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-lg placeholder:text-center focus:outline-0"
+              type="text"
+              placeholder="User Name"
+            />
+
+            <input
+              {...register("email")}
+              className="px-6 py-2 md:px-20 md:py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-lg placeholder:text-center focus:outline-0"
+              type="email"
+              placeholder="Email Address"
+            />
+
             <button
+              type="submit"
               disabled={isLoading}
-              className="px-4 py-1.5 rounded-sm text-gray-300 bg-green-800 hover:bg-green-700 transition-colors cursor-pointer disabled:bg-green-900 disabled:cursor-none"
+              className="px-4 py-1.5 rounded-sm text-gray-300 bg-green-800 hover:bg-green-700 transition-colors cursor-pointer disabled:bg-green-900 disabled:cursor-not-allowed"
             >
               Update
             </button>
           </form>
         </section>
       </section>
-      <section className="flex items-center rounded-lg shadow-xl p-5 border border-green-700 ">
-        <section className="w-60 p-3 ">
+
+      <section className="flex items-center rounded-lg shadow-xl p-5 border border-green-700">
+        <section className="w-60 p-3">
           <div className="flex gap-3">
             <div className="text-blue-500 bg-blue-100 w-14 h-10 flex items-center justify-center rounded-lg">
               <AiOutlineSecurityScan />
             </div>
+
             <div>
               <h2 className="text-lg text-gray-100">Security</h2>
+
               <h5 className="text-xs text-gray-300 mt-1">
                 Change your password and secure account.
               </h5>
             </div>
           </div>
         </section>
+
         <div className="w-30 h-[1px] bg-green-300 rotate-90"></div>
+
         <section className="flex-3">
           <form
             onSubmit={handleSubmit(submitFormPassword)}
@@ -160,115 +231,125 @@ export default function Settings() {
                 {...register("password", {
                   minLength: {
                     value: 8,
-                    message: "Password must be at least 6 characters",
+                    message: "Password must be at least 8 characters",
                   },
                 })}
-                aria-invalid={errors.password ? "true" : "false"}
-                className="px-4 py-2 md:px-20 md:py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-lg placeholder:text-center focus:outline-0 focus:placeholder:text-xl"
+                aria-invalid={!!errors.password}
+                className="px-4 py-2 md:px-20 md:py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-lg placeholder:text-center focus:outline-0"
                 type="password"
                 placeholder="New Password"
               />
+
               {errors.password && (
                 <p className="text-orange-600 text-sm mt-2" role="alert">
                   {errors.password.message}
                 </p>
               )}
             </div>
+
             <div>
               <input
                 {...register("confirmPassword", {
                   validate: (value) =>
-                    value === getValues("password") || "Password don't match",
+                    value === getValues("password") || "Passwords don't match",
                 })}
-                aria-invalid={errors.confirmPassword ? "true" : "false"}
-                className="px-4 py-2 md:px-20 md:py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-lg placeholder:text-center focus:outline-0 focus:placeholder:text-xl"
+                aria-invalid={!!errors.confirmPassword}
+                className="px-4 py-2 md:px-20 md:py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-lg placeholder:text-center focus:outline-0"
                 type="password"
                 placeholder="Confirm New Password"
               />
+
               {errors.confirmPassword && (
                 <p className="text-orange-600 text-sm mt-2" role="alert">
                   {errors.confirmPassword.message}
                 </p>
               )}
             </div>
+
             <button
+              type="submit"
               disabled={isLoading}
-              className="px-4 py-1.5 rounded-sm text-gray-300 bg-green-800 hover:bg-green-700 transition-colors cursor-pointer disabled:bg-green-900 disabled:cursor-none"
+              className="px-4 py-1.5 rounded-sm text-gray-300 bg-green-800 hover:bg-green-700 transition-colors cursor-pointer disabled:bg-green-900 disabled:cursor-not-allowed"
             >
               Update
             </button>
           </form>
         </section>
       </section>
-      <section className="flex items-center rounded-lg shadow-xl p-5 border border-green-700 ">
-        <section className="w-60 p-3 ">
+
+      <section className="flex items-center rounded-lg shadow-xl p-5 border border-green-700">
+        <section className="w-60 p-3">
           <div className="flex gap-3">
             <div className="text-purple-500 bg-purple-100 w-14 h-10 flex items-center justify-center rounded-lg">
               <IoIosNotificationsOutline />
             </div>
+
             <div>
               <h2 className="text-lg text-gray-100">Notifications</h2>
+
               <h5 className="text-xs text-gray-300 mt-1">
                 Choose what notifications you want to receive.
               </h5>
             </div>
           </div>
         </section>
+
         <div className="w-30 h-[1px] bg-green-300 rotate-90"></div>
+
         <section className="flex-3 flex flex-col">
-          <div className="flex items-center justify-between mb-2">
-            <div>
-              <h4 className="text-gray-200">New User Registrations</h4>
-              <h5 className="text-xs text-gray-400">
-                Receive a notification when a new user registers.
-              </h5>
+          {[
+            {
+              title: "New User Registrations",
+              description: "Receive a notification when a new user registers.",
+            },
+            {
+              title: "New User Published",
+              description:
+                "Receive a notification when a new user is published.",
+            },
+            {
+              title: "System Alerts",
+              description: "Receive important system alerts and warnings.",
+            },
+            {
+              title: "Weekly Reports",
+              description: "Receive a weekly summary of system activity.",
+            },
+          ].map((item) => (
+            <div
+              key={item.title}
+              className="flex items-center justify-between mb-2"
+            >
+              <div>
+                <h4 className="text-gray-200">{item.title}</h4>
+                <h5 className="text-xs text-gray-400">{item.description}</h5>
+              </div>
+
+              <input type="checkbox" className="cursor-pointer" />
             </div>
-            <input type="checkbox" className="cursor-pointer" />
-          </div>
-          <div className="flex items-center justify-between mb-2">
-            <div>
-              <h4 className="text-gray-200">New User Published</h4>
-              <h5 className="text-xs text-gray-400">
-                Receive a notification when a new user is Published.
-              </h5>
-            </div>
-            <input type="checkbox" className="cursor-pointer" />
-          </div>
-          <div className="flex items-center justify-between mb-2">
-            <div>
-              <h4 className="text-gray-200">System Alerts</h4>
-              <h5 className="text-xs text-gray-400">
-                Receive important system alerts and warnings.
-              </h5>
-            </div>
-            <input type="checkbox" className="cursor-pointer" />
-          </div>
-          <div className="flex items-center justify-between mb-2">
-            <div>
-              <h4 className="text-gray-200">Weekly Reports</h4>
-              <h5 className="text-xs text-gray-400">
-                Receive a weekly summary of system activity.
-              </h5>
-            </div>
-            <input type="checkbox" className="cursor-pointer" />
-          </div>
+          ))}
         </section>
       </section>
-      <section className="flex items-center rounded-lg shadow-xl p-5 h-36 border border-green-700 ">
-        <section className="w-60 p-3 ">
+
+      <section className="flex items-center rounded-lg shadow-xl p-5 h-36 border border-green-700">
+        <section className="w-60 p-3">
           <div className="flex gap-3">
             <div className="text-orange-500 bg-orange-100 w-14 h-10 flex items-center justify-center rounded-lg">
               <VscEditSparkle />
             </div>
+
             <div>
               <h2 className="text-lg text-gray-100">Appearance</h2>
+
               <h5 className="text-xs text-gray-300 mt-1">
                 Customize the look and feel of the admin panel.
               </h5>
             </div>
           </div>
         </section>
+
         <div className="w-32 h-[1px] bg-green-300 rotate-90"></div>
+
         <section className="flex-3 flex gap-10">
           <div>
             <h4 className="text-gray-200">Theme</h4>
@@ -276,11 +357,13 @@ export default function Settings() {
               Choose your preferred theme
             </h5>
           </div>
+
           <div className="flex gap-5">
             <div className="flex flex-col items-center justify-center border border-green-500 rounded-xl text-md text-gray-100 gap-2 bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% w-18 h-18 cursor-pointer">
               <FaRegSun className="text-xl" />
               <span>Light</span>
             </div>
+
             <div className="flex flex-col items-center justify-center border border-green-500 rounded-xl text-md text-gray-100 gap-2 bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% w-18 h-18 cursor-pointer">
               <FaRegMoon className="text-xl" />
               <span>Dark</span>

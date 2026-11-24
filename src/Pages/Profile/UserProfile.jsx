@@ -22,8 +22,6 @@ export default function UserProfile() {
         .single();
 
       setProfile(data);
-
-      console.log(data);
     }
 
     getProfile();
