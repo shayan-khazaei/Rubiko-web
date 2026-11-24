@@ -47,7 +47,9 @@ export default function News() {
 
   return (
     <div className="w-[79%] mx-auto mt-auto">
-      <section className="grid grid-cols-3 gap-5">
+      <section
+        className={`grid grid-cols-3 gap-5 ${showDeleteModal && "opacity-60"}`}
+      >
         {posts.slice(startIndex, endIndex).map((data) => (
           <NewsCard
             key={data.id}
@@ -64,7 +66,11 @@ export default function News() {
           />
         ))}
       </section>
-      <section className="mt-3 flex items-center justify-between">
+      <section
+        className={`mt-3 flex items-center justify-between ${
+          showDeleteModal && "opacity-60"
+        }`}
+      >
         <div className="text-gray-300">
           Page <span>{pageNumber}</span> of{" "}
           <span className="ml-1">{Math.ceil(posts.length / 3)}</span>
@@ -94,7 +100,7 @@ export default function News() {
           modalDescription=" post"
         />
       )}
-      <section>
+      <section className={`${showDeleteModal && "opacity-60"}`}>
         <NewsAnatomy />
       </section>
     </div>

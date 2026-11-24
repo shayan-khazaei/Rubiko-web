@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function UserProfile() {
+  const [isLoading, setIsLoading] = useState(false);
   const { session } = useAuth();
   const [profile, setProfile] = useState();
 
@@ -22,12 +23,23 @@ export default function UserProfile() {
         .single();
 
       setProfile(data);
+
+      // if(data.length === 0){
+      //   toast.error("Nothing to update")
+      // }
     }
 
     getProfile();
   }, [session.user.id]);
 
   const submitForm = async (data) => {
+    if (session.user.id) {
+      toast.error("User session not found");
+      return;
+    }
+
+    setIsLoading(true);
+
     if (data.name) {
       await supabase.auth.updateUser({
         data: {
@@ -44,6 +56,11 @@ export default function UserProfile() {
 
     if (data.avatar?.length > 0) {
       const file = data.avatar[0];
+
+      if (!file.type.startsWith("image/")) {
+        toast.error("Please select an image");
+        return;
+      }
 
       const fileName = `${session.user.id}-${crypto.randomUUID()}-img`;
 
@@ -70,6 +87,7 @@ export default function UserProfile() {
       }));
     }
 
+    setIsLoading(false);
     toast.success("Profile updated");
   };
 
@@ -176,10 +194,11 @@ export default function UserProfile() {
                 {...register("avatar")}
                 className="px-19.5 py-2.5 w-[353px] rounded-sm bg-gray-300 text-gray-600 text-lg focus:outline-0 focus:placeholder:text-xl"
                 type="file"
+                accept="image/png,image/jpeg,image/webp"
               />
             </div>
             <button
-              // disabled={isLoading}
+              disabled={isLoading}
               className="px-4 py-1.5 rounded-sm text-gray-300 bg-green-800 hover:bg-green-700 transition-colors cursor-pointer disabled:bg-green-900 disabled:cursor-none"
             >
               Update

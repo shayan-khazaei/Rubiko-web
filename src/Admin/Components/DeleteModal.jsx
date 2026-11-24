@@ -9,7 +9,7 @@ export default function DeleteModal({
   modalDescription,
 }) {
   return (
-    <div className="bg-radial-[at_15%_15%] from-zinc-800 to-green-900 to-98% opacity-99 w-sm h-46 rounded-lg flex flex-col items-center fixed top-6 left-1/2 -translate-x-1/2 p-3">
+    <div className="bg-radial-[at_15%_15%] from-zinc-800 to-green-900 to-98% opacity-99 w-sm h-46 rounded-lg flex flex-col items-center absolute fixed top-6 left-1/2 -translate-x-1/2 p-3">
       <p className="text-gray-200 relative text-2xl">{modalTitle}</p>
       <p className="text-gray-400 relative text-md text-center mt-2">
         deleted {modalDescription} cannot be restored and <br />

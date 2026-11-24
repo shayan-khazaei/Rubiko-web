@@ -33,16 +33,12 @@ export default function Settings() {
   useEffect(() => {
     if (!userId) return;
 
-    let isMounted = true;
-
     async function getProfile() {
       const { data, error } = await supabase
         .from("profile")
         .select("*")
         .eq("id", userId)
         .single();
-
-      if (!isMounted) return;
 
       if (error) {
         console.error("Profile error:", error.message);
@@ -55,15 +51,11 @@ export default function Settings() {
     getProfile();
 
     reset({
-      name: session.user.user_metadata?.display_name || "",
-      email: session.user.email || "",
+      name: "",
+      email: "",
       password: "",
       confirmPassword: "",
     });
-
-    return () => {
-      isMounted = false;
-    };
   }, [userId, reset]);
 
   const submitForm = async (data) => {
@@ -77,14 +69,14 @@ export default function Settings() {
     try {
       const updates = {};
 
-      if (data.name?.trim()) {
+      if (data.name) {
         updates.data = {
-          display_name: data.name.trim(),
+          display_name: data.name,
         };
       }
 
-      if (data.email?.trim()) {
-        updates.email = data.email.trim();
+      if (data.email) {
+        updates.email = data.email;
       }
 
       if (Object.keys(updates).length === 0) {
@@ -135,6 +127,66 @@ export default function Settings() {
     }
   };
 
+  const uploadPictureHandler = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!userId) {
+      toast.error("User session not found");
+      return;
+    }
+
+    if (!file.type.startsWith("image/")) {
+      toast.error("Please select an image");
+      return;
+    }
+
+    if (file.size > 5 * 1024 * 1024 * 1024 * 1024 * 1024) {
+      toast.error("Image size must be less than 5Mg");
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const fileName = `${userId}-${crypto.randomUUID()}-img`;
+      const { error: uploadError } = await supabase.storage
+        .from("avatars")
+        .upload(fileName, file);
+      if (uploadError) throw uploadError;
+
+      const { data: image } = supabase.storage
+        .from("avatars")
+        .getPublicUrl(fileName);
+
+      const avatarUrl = image.publicUrl;
+
+      const { data, error: updateError } = await supabase
+        .from("profile")
+        .update({
+          avatar: avatarUrl,
+        })
+        .eq("id", userId)
+        .select();
+
+      if (updateError) throw updateError;
+
+      setProfile((prev) => ({
+        ...prev,
+        avatar: data.avatar,
+      }));
+      toast.success(
+        "Profile picture updated, Please refresh the page to see the photo"
+      );
+    } catch (error) {
+      console.error("Avatar upload error:", error);
+      toast.error(error.message || "Upload failed");
+    } finally {
+      setIsLoading(false);
+      e.target.value = "";
+    }
+  };
+
   return (
     <div className="space-y-6 w-[79%] mx-auto">
       <section className="flex items-center rounded-lg shadow-xl p-5 border border-green-700">
@@ -157,10 +209,19 @@ export default function Settings() {
                   alt="adminImage"
                   className="w-16 h-16 rounded-full"
                 />
-
-                <div className="bg-gray-400 w-6 h-6 flex items-center justify-center rounded-full absolute bottom-9 left-11">
+                <label
+                  htmlFor="avatarImg"
+                  className="bg-gray-400 w-6 h-6 flex items-center justify-center rounded-full absolute bottom-7 left-11"
+                >
                   <FaCamera className="text-gray-600 text-xs cursor-pointer" />
-                </div>
+                </label>
+                <input
+                  type="file"
+                  id="avatarImg"
+                  accept="image/png,image/jpeg,image/webp"
+                  className="hidden"
+                  onChange={uploadPictureHandler}
+                />
 
                 <h4 className="text-xs text-gray-400 mt-3 -ml-7">
                   JPG, PNG. Max size 2MB.
