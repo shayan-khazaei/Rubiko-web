@@ -23,17 +23,23 @@ export default function UserProfile() {
         .single();
 
       setProfile(data);
-
-      // if(data.length === 0){
-      //   toast.error("Nothing to update")
-      // }
     }
 
     getProfile();
   }, [session.user.id]);
 
   const submitForm = async (data) => {
-    if (session.user.id) {
+    const hashChanges =
+      data.name?.trim() || data.password?.trim() || data.avatar?.length > 0;
+
+    if (!hashChanges) {
+      toast.error("Nothing to update");
+
+      setIsLoading(false);
+      return;
+    }
+
+    if (!session.user.id) {
       toast.error("User session not found");
       return;
     }
@@ -59,6 +65,7 @@ export default function UserProfile() {
 
       if (!file.type.startsWith("image/")) {
         toast.error("Please select an image");
+        setIsLoading(false);
         return;
       }
 
