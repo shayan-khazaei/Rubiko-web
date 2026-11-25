@@ -18,8 +18,16 @@ body,
   margin: 0;
 }
 
-@theme {
+.re-chart,
+.re-chart:focus,
+.re-chart:focus-visible,
+.re-chart .recharts-surface,
+.re-chart .recharts-surface:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
 
+@theme {
   --animate-swingX: swingX 1s ease-in-out infinite alternate;
   --animate-swingY: swingY 1s ease-in-out infinite alternate;
 

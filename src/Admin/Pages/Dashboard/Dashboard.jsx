@@ -48,7 +48,7 @@ export default function Dashboard() {
           }}
           data={filteredData}
           responsive
-          className="focus:border-none focus:outline-none"
+          className="re-chart"
         >
           <CartesianGrid stroke="var(--color-border-3)" strokeDasharray="5 5" />
           <XAxis

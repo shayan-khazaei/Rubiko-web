@@ -71,7 +71,7 @@ export default function Reports() {
                 }}
                 data={filteredData}
                 responsive
-                className="focus:border-none focus:outline-none"
+                className="re-chart"
               >
                 <CartesianGrid
                   stroke="var(--color-border-3)"
