@@ -26,7 +26,7 @@ export default function UserProfile() {
     }
 
     getProfile();
-  }, [session.user.id]);
+  }, [session.user.id, profile]);
 
   const submitForm = async (data) => {
     const hashChanges =

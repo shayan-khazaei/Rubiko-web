@@ -87,7 +87,7 @@ export default function Settings() {
       password: "",
       confirmPassword: "",
     });
-  }, [userId, reset]);
+  }, [userId, reset, profile]);
 
   useEffect(() => {
     localStorage.setItem("notifications", JSON.stringify(notificationItems));
@@ -184,8 +184,8 @@ export default function Settings() {
       return;
     }
 
-    if (file.size > 5 * 1024 * 1024 * 1024 * 1024 * 1024) {
-      toast.error("Image size must be less than 5Mg");
+    if (file.size > 5 * 1024 * 1024) {
+      toast.error("Image size must be less than 5MB");
       return;
     }
 
@@ -204,7 +204,7 @@ export default function Settings() {
 
       const avatarUrl = image.publicUrl;
 
-      const { data, error: updateError } = await supabase
+      const { error: updateError } = await supabase
         .from("profile")
         .update({
           avatar: avatarUrl,
@@ -216,11 +216,9 @@ export default function Settings() {
 
       setProfile((prev) => ({
         ...prev,
-        avatar: data.avatar,
+        avatar: avatarUrl,
       }));
-      toast.success(
-        "Profile picture updated, Please refresh the page to see the photo"
-      );
+      toast.success("Profile picture updated");
     } catch (error) {
       console.error("Avatar upload error:", error);
       toast.error(error.message || "Upload failed");

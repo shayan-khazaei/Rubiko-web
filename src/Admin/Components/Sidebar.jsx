@@ -37,12 +37,13 @@ export default function Sidebar() {
       setProfile(data);
     }
     getProfile();
-  }, [userId]);
+  }, [userId, profile]);
 
   const logoutHandler = async () => {
     setIsLoading(true);
     const { error } = await supabase.auth.signOut();
     setIsLoading(false);
+    setProfile(null);
     navigate("/");
 
     if (error) toast.error("Something Went Wrong...");
