@@ -14,6 +14,37 @@ import toast from "react-hot-toast";
 export default function Settings() {
   const [isLoading, setIsLoading] = useState(false);
   const [profile, setProfile] = useState(null);
+  const [notificationItems, setNotificationItems] = useState(() => {
+    const saved = localStorage.getItem("notifications");
+    return saved
+      ? JSON.parse(saved)
+      : [
+          {
+            id: 1,
+            title: "New User Registrations",
+            description: "Receive a notification when a new user registers.",
+            checked: false,
+          },
+          {
+            id: 2,
+            title: "New User Published",
+            description: "Receive a notification when a new user is published.",
+            checked: false,
+          },
+          {
+            id: 3,
+            title: "System Alerts",
+            description: "Receive important system alerts and warnings.",
+            checked: false,
+          },
+          {
+            id: 4,
+            title: "Weekly Reports",
+            description: "Receive a weekly summary of system activity.",
+            checked: false,
+          },
+        ];
+  });
 
   const { session } = useAuth();
   const userId = session?.user?.id;
@@ -57,6 +88,18 @@ export default function Settings() {
       confirmPassword: "",
     });
   }, [userId, reset]);
+
+  useEffect(() => {
+    localStorage.setItem("notifications", JSON.stringify(notificationItems));
+  }, [notificationItems]);
+
+  const checkedNotificationHandler = (id, checked) => {
+    setNotificationItems((prev) =>
+      prev.map((item) => {
+        return item.id === id ? { ...item, checked } : item;
+      })
+    );
+  };
 
   const submitForm = async (data) => {
     if (!userId) {
@@ -199,7 +242,7 @@ export default function Settings() {
             <div>
               <h2 className="text-lg text-gray-100">Profile Information</h2>
 
-              <h5 className="text-xs text-gray-300 mt-1">
+              <h5 className="text-sm text-gray-300 mt-1">
                 Update your personal information and profile picture.
               </h5>
 
@@ -273,7 +316,7 @@ export default function Settings() {
             <div>
               <h2 className="text-lg text-gray-100">Security</h2>
 
-              <h5 className="text-xs text-gray-300 mt-1">
+              <h5 className="text-sm text-gray-300 mt-1">
                 Change your password and secure account.
               </h5>
             </div>
@@ -348,7 +391,7 @@ export default function Settings() {
             <div>
               <h2 className="text-lg text-gray-100">Notifications</h2>
 
-              <h5 className="text-xs text-gray-300 mt-1">
+              <h5 className="text-sm text-gray-300 mt-1">
                 Choose what notifications you want to receive.
               </h5>
             </div>
@@ -358,25 +401,7 @@ export default function Settings() {
         <div className="w-30 h-[1px] bg-green-300 rotate-90"></div>
 
         <section className="flex-3 flex flex-col">
-          {[
-            {
-              title: "New User Registrations",
-              description: "Receive a notification when a new user registers.",
-            },
-            {
-              title: "New User Published",
-              description:
-                "Receive a notification when a new user is published.",
-            },
-            {
-              title: "System Alerts",
-              description: "Receive important system alerts and warnings.",
-            },
-            {
-              title: "Weekly Reports",
-              description: "Receive a weekly summary of system activity.",
-            },
-          ].map((item) => (
+          {notificationItems.map((item) => (
             <div
               key={item.title}
               className="flex items-center justify-between mb-2"
@@ -386,7 +411,14 @@ export default function Settings() {
                 <h5 className="text-xs text-gray-400">{item.description}</h5>
               </div>
 
-              <input type="checkbox" className="cursor-pointer" />
+              <input
+                type="checkbox"
+                className="cursor-pointer"
+                checked={item.checked}
+                onChange={(e) =>
+                  checkedNotificationHandler(item.id, e.target.checked)
+                }
+              />
             </div>
           ))}
         </section>
@@ -402,7 +434,7 @@ export default function Settings() {
             <div>
               <h2 className="text-lg text-gray-100">Appearance</h2>
 
-              <h5 className="text-xs text-gray-300 mt-1">
+              <h5 className="text-sm text-gray-300 mt-1">
                 Customize the look and feel of the admin panel.
               </h5>
             </div>
