@@ -127,7 +127,17 @@ export default function Users() {
   };
 
   const deleteItemHandler = (id) => {
-    setUsers((prevUSers) => prevUSers.filter((user) => user.id !== id));
+    setUsers((prevUSers) => {
+      const updatedUSer = prevUSers.filter((user) => user.id !== id);
+
+      const totalPages = Math.ceil(updatedUSer.length / 10);
+      if (pageNumber > totalPages) {
+        setStartIndex((prev) => prev - 10);
+        setPageNumber(totalPages);
+      }
+
+      return updatedUSer;
+    });
 
     setShowDeleteModal(false);
     setSelectedUserId(null);

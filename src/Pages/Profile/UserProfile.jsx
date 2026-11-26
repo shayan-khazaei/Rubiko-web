@@ -116,7 +116,7 @@ export default function UserProfile() {
             <img
               src={profile?.avatar || "images/logoIcon.png"}
               alt="userAvatar"
-              className="bg-white rounded-full object-cover object-center size-24 md:size-22 2xl:size-24"
+              className="bg-white rounded-full object-cover object-center size-24 md:size-20 2xl:size-24"
             />
           </div>
           <div className="">
@@ -143,7 +143,7 @@ export default function UserProfile() {
         <div className="bg-green-50 md:ml-3 mt-3 sm:mt-2 md:mt-4 rounded-md p-3 text-red-700">
           <p>All users can view and manage the dashboard for now</p>
         </div>
-        <div className="bg-green-55 w-3xs absolute bottom-23 hidden 2xl:block">
+        <div className="bg-green-55 w-45 absolute bottom-23 hidden md:block">
           <img src="images/profilebg.png" alt="profilebg" />
         </div>
       </section>
@@ -208,7 +208,7 @@ export default function UserProfile() {
             <div>
               <input
                 {...register("avatar")}
-                className="md:px-19.5 py-1.5 md:py-2.5 w-[193px] sm:w-[242px] md:w-[353px] rounded-sm bg-gray-300 text-gray-600 text-sm md:text-lg focus:outline-0 focus:placeholder:text-md md:focus:placeholder:text-xl"
+                className="md:px-19.5 py-1.5 md:py-2.5 w-48.25 sm:w-60.5 md:w-88.25 rounded-sm bg-gray-300 text-gray-600 text-sm md:text-lg focus:outline-0 focus:placeholder:text-md md:focus:placeholder:text-xl"
                 type="file"
                 accept="image/png,image/jpeg,image/webp"
               />

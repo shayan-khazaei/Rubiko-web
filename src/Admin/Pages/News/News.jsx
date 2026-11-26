@@ -36,7 +36,16 @@ export default function News() {
   };
 
   const deletePostHandler = (id) => {
-    setPosts((prevPosts) => prevPosts.filter((post) => post.id !== id));
+    setPosts((prevPosts) => {
+      const updatedPosts = prevPosts.filter((post) => post.id !== id);
+      const totalPages = Math.ceil(updatedPosts.length / 10);
+      if (pageNumber > totalPages) {
+        setStartIndex((prev) => prev - 10);
+        setPageNumber(totalPages);
+      }
+
+      return updatedPosts;
+    });
     setShowDeleteModal(false);
     setSelectedPostId(null);
   };

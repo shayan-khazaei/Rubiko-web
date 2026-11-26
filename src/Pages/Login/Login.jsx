@@ -34,7 +34,7 @@ export default function Login() {
     setIsLoading(false);
 
     if (error) {
-      toast.error("Email or Password is incorrect");
+      toast.error("Something went wrong");
       return;
     }
 

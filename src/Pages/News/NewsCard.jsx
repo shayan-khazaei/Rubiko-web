@@ -10,12 +10,12 @@ export default function NewsCard({
 }) {
   return (
     <a href={newsLink} target="blank">
-      <div className="relative h-122 bg-gray-100 shadow-sm shadow-green-900 rounded-xl cursor-pointer hover:-translate-y-1 transition-transform">
+      <div className="relative h-104 md:h-128 bg-gray-100 shadow-sm shadow-green-900 rounded-xl cursor-pointer hover:-translate-y-1 transition-transform">
         <div>
           <img
             src={image}
             alt={`${id}Image`}
-            className="rounded-t-xl lg:h-[300px] w-full object-cover"
+            className="rounded-t-xl h-55 sm:h-62.5 md:h-75 w-full object-cover"
           />
         </div>
         <div className="flex flex-col gap-7 p-5">
