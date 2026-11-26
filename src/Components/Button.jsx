@@ -27,7 +27,11 @@ export default function Button({
       );
     } else
       return (
-        <Link to={to} className={`${baseClass} ${variantClass}`}>
+        <Link
+          to={to}
+          className={`${baseClass} ${variantClass}`}
+          onClick={onClick}
+        >
           {children}
         </Link>
       );

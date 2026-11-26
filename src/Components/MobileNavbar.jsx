@@ -22,7 +22,6 @@ export default function MobileNavbar({ setIsOpenNavBar }) {
 
     toast.success("You logged out successfully");
   };
-
   return (
     <>
       <nav className="md:hidden relative flex flex-col items-center h-screen border-r-2 border-green-700 gap-5 px-3 py-5 bg-radial-[at_5%_70%] from-green-100 to-zinc-50 to-65% text-xl">
@@ -49,7 +48,11 @@ export default function MobileNavbar({ setIsOpenNavBar }) {
       <section className="flex items-center gap-2 absolute bottom-2 left-2 md:hidden ">
         {session ? (
           <div className="flex flex-col gap-2">
-            <Button to="/user-profile" variant="outline">
+            <Button
+              to="/user-profile"
+              variant="outline"
+              onClick={() => setIsOpenNavBar(false)}
+            >
               See Profile
             </Button>
             <Button
@@ -61,7 +64,11 @@ export default function MobileNavbar({ setIsOpenNavBar }) {
             </Button>
           </div>
         ) : (
-          <Button to="/login" variant="outline">
+          <Button
+            to="/login"
+            variant="outline"
+            onClick={() => setIsOpenNavBar(false)}
+          >
             Log in
           </Button>
         )}
