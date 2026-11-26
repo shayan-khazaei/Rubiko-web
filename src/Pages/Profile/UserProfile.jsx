@@ -106,56 +106,59 @@ export default function UserProfile() {
   } = useForm();
 
   return (
-    <div className="flex h-[calc(100vh-176px)] border-y-2 border-green-700 ">
-      <section className="flex flex-col px-5 py-7 flex-2 ">
+    <div className="flex flex-col md:flex-row h-[calc(100vh-176px)] 2xl:border-y-2 2xl:border-green-700">
+      <section className="flex flex-col px-2 py-1 sm:px-3 md:px-5 md:py-7 flex-2 ">
         <div className="text-center">
-          <h1 className="text-3xl md:text-4xl">User Info</h1>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl">User Info</h1>
         </div>
-        <div className="flex items-center gap-3 mt-8">
-          <div className="bg-green-500 size-26  flex items-center justify-center rounded-full">
+        <div className="flex items-center gap-3 mt-1 md:mt-8">
+          <div className="bg-green-500 size:24 2xl:size-26 flex items-center justify-center rounded-full">
             <img
               src={profile?.avatar || "images/logoIcon.png"}
               alt="userAvatar"
-              className="bg-white rounded-full size-24"
+              className="bg-white rounded-full object-cover object-center size-24 md:size-22 2xl:size-24"
             />
           </div>
           <div className="">
-            <h2 className="text-2xl sm:text-2xl md:text-3xl">
+            <h2 className="text-3xl sm:text-4xl md:text-3xl">
               {session.user.user_metadata.display_name}
             </h2>
-            <span className="text-xs">User (Joined at {createdAt})</span>
+            <span className="text-sm md:text-xs">
+              User (Joined at {createdAt})
+            </span>
           </div>
         </div>
-        <div className="ml-3 mt-4">
+        <div className="ml-3 mt-3 sm:mt-2 md:mt-4">
           <h5 className="text-lg">Email Address</h5>
           <span className="text-xs">{session.user.email}</span>
         </div>
         <div>
-          <p className="ml-3 mt-6 text-lg">
+          <p className="ml-3 mt-3 sm:mt-2 md:mt-6 text-lg">
             Manage data and users by <br /> clicking{" "}
             <Link className="text-green-600 text-xl" to={"/dashboard"}>
               here
             </Link>
           </p>
         </div>
-        <div className="bg-green-50 ml-3 mt-4 rounded-md p-3 text-red-700">
+        <div className="bg-green-50 md:ml-3 mt-3 sm:mt-2 md:mt-4 rounded-md p-3 text-red-700">
           <p>All users can view and manage the dashboard for now</p>
         </div>
-        <div className="bg-green-55 w-3xs absolute bottom-23">
+        <div className="bg-green-55 w-3xs absolute bottom-23 hidden 2xl:block">
           <img src="images/profilebg.png" alt="profilebg" />
         </div>
       </section>
-      <section className="flex-12 bg-gray-50 flex items-center justify-center">
-        <div className="flex flex-col gap-6  items-center justify-center">
+
+      <section className="flex-12 md:bg-gray-50 flex items-center justify-center">
+        <div className="flex flex-col gap-2 md:gap-6 items-center justify-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl">Edit User</h2>
           <form
             onSubmit={handleSubmit(submitForm)}
-            className="flex flex-col gap-5 bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% px-6 py-10 md:px-10 md:py-16 rounded-sm"
+            className="flex flex-col gap-5 sm:gap-3 bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% px-5 py-4 sm:px-2 sm:py-10 md:px-10 md:py-16 rounded-sm"
           >
             <div>
               <input
                 {...register("name")}
-                className="px-6 py-2 md:px-20 md:py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-lg placeholder:text-center focus:outline-0 focus:placeholder:text-xl"
+                className=" sm:px-6 sm:py-2 md:px-20 md:py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-sm md:placeholder:text-lg placeholder:text-center focus:outline-0 focus:placeholder:text-md md:focus:placeholder:text-xl"
                 type="text"
                 placeholder={session.user.user_metadata.display_name}
               />
@@ -169,12 +172,15 @@ export default function UserProfile() {
                   },
                 })}
                 aria-invalid={errors.password ? "true" : "false"}
-                className="px-4 py-2 md:px-20 md:py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-lg placeholder:text-center focus:outline-0 focus:placeholder:text-xl"
+                className=" sm:px-6 sm:py-2 md:px-20 md:py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-sm md:placeholder:text-lg placeholder:text-center focus:outline-0 focus:placeholder:text-md md:focus:placeholder:text-xl"
                 type="password"
                 placeholder="New Password"
               />
               {errors.password && (
-                <p className="text-orange-600 text-sm mt-2" role="alert">
+                <p
+                  className="text-orange-600 text-xs mt-1 md:text-sm md:mt-2"
+                  role="alert"
+                >
                   {errors.password.message}
                 </p>
               )}
@@ -186,12 +192,15 @@ export default function UserProfile() {
                     value === getValues("password") || "Password don't match",
                 })}
                 aria-invalid={errors.confirmPassword ? "true" : "false"}
-                className="px-4 py-2 md:px-20 md:py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-lg placeholder:text-center focus:outline-0 focus:placeholder:text-xl"
+                className=" sm:px-6 sm:py-2 md:px-20 md:py-3 rounded-sm bg-gray-300 placeholder:text-gray-600 placeholder:text-sm md:placeholder:text-lg placeholder:text-center focus:outline-0 focus:placeholder:text-md md:focus:placeholder:text-xl"
                 type="password"
                 placeholder="Confirm New Password"
               />
               {errors.confirmPassword && (
-                <p className="text-orange-600 text-sm mt-2" role="alert">
+                <p
+                  className="text-orange-600 text-xs mt-1 md:text-sm md:mt-2"
+                  role="alert"
+                >
                   {errors.confirmPassword.message}
                 </p>
               )}
@@ -199,14 +208,14 @@ export default function UserProfile() {
             <div>
               <input
                 {...register("avatar")}
-                className="px-19.5 py-2.5 w-[353px] rounded-sm bg-gray-300 text-gray-600 text-lg focus:outline-0 focus:placeholder:text-xl"
+                className="md:px-19.5 py-1.5 md:py-2.5 w-[193px] sm:w-[242px] md:w-[353px] rounded-sm bg-gray-300 text-gray-600 text-sm md:text-lg focus:outline-0 focus:placeholder:text-md md:focus:placeholder:text-xl"
                 type="file"
                 accept="image/png,image/jpeg,image/webp"
               />
             </div>
             <button
               disabled={isLoading}
-              className="px-4 py-1.5 rounded-sm text-gray-300 bg-green-800 hover:bg-green-700 transition-colors cursor-pointer disabled:bg-green-900 disabled:cursor-none"
+              className="md:px-4 md:py-1.5 rounded-sm text-gray-300 bg-green-800 hover:bg-green-700 transition-colors cursor-pointer disabled:bg-green-900 disabled:cursor-none"
             >
               Update
             </button>

@@ -48,13 +48,18 @@ export default function MobileNavbar({ setIsOpenNavBar }) {
       </nav>
       <section className="flex items-center gap-2 absolute bottom-2 left-2 md:hidden ">
         {session ? (
-          <Button
-            disabled={isLoading}
-            onClick={logoutHandler}
-            variant="outline"
-          >
-            Log Out
-          </Button>
+          <div className="flex flex-col gap-2">
+            <Button to="/user-profile" variant="outline">
+              See Profile
+            </Button>
+            <Button
+              disabled={isLoading}
+              onClick={logoutHandler}
+              variant="outline"
+            >
+              Log Out
+            </Button>
+          </div>
         ) : (
           <Button to="/login" variant="outline">
             Log in
