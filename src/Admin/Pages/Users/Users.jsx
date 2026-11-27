@@ -17,13 +17,16 @@ export default function Users() {
     const savedUsers = localStorage.getItem("users");
     return savedUsers ? JSON.parse(savedUsers) : UsersData;
   });
+  const isItemsEmpty = users.length === 0;
   const [searchInput, setSearchInput] = useState("");
   const [selectedRole, setSelectedRole] = useState("role");
   const [selectedStatus, setSelectedStatus] = useState("status");
   const [selectedDate, setSelectedDate] = useState("date");
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(10);
-  const [pageNumber, setPageNumber] = useState(1);
+  const [pageNumber, setPageNumber] = useState(() => {
+    return isItemsEmpty ? 0 : 1;
+  });
   const [showForm, setShowForm] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [selectedUserId, setSelectedUserId] = useState(null);
@@ -169,6 +172,7 @@ export default function Users() {
             monitor activity...
           </h4>
         </section>
+
         <section className="flex items-center justify-between mt-10">
           <section className="flex items-center gap-5">
             <div>
@@ -305,61 +309,68 @@ export default function Users() {
             </Button>
           </section>
         </section>
-        <section>
-          <div>
-            <table className="w-full mx-auto mt-5 text-left ">
-              <thead>
-                <tr className="border border-green-800 text-lg text-gray-100 ">
-                  {theadData.map((thead) => (
-                    <td key={thead} className="px-2 py-1">
-                      {thead}
-                    </td>
-                  ))}
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredUsers.slice(startIndex, endIndex).map((user) => (
-                  <tr
-                    key={user.id}
-                    className="border border-green-800 text-gray-300"
-                  >
-                    <th className="px-2 py-1 flex items-center gap-3">
-                      <img
-                        src={user.image || "/images/logoIcon.png"}
-                        alt="userImage"
-                        className="w-9 h-9 rounded-full border border-gray-700"
-                      />
-                      {user.user}
-                    </th>
-                    <td className="px-2 py-1">{user.email}</td>
-                    <td className="px-2 py-1">{user.joinedAt}</td>
-                    <td className="px-2 py-1">{user.role}</td>
-                    <td className="px-2 py-1">
-                      <div
-                        className={`w-20 py-1 text-center rounded-2xl ${
-                          statusStyle[user.status]
-                        }`}
-                      >
-                        {user.status}
-                      </div>
-                    </td>
-                    <td className="flex items-center gap-5 text-lg -translate-y-1/2">
-                      <CiEdit className="text-red-500 cursor-pointer" />
-                      <RiDeleteBin5Line
-                        className="text-green-500 cursor-pointer"
-                        onClick={() => {
-                          setSelectedUserId(user.id);
-                          setShowDeleteModal(true);
-                        }}
-                      />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        {isItemsEmpty ? (
+          <div className="bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% border border-green-700 p-5 rounded-xl">
+            <p className="text-2xl text-gray-300">there is no user yet</p>
           </div>
-        </section>
+        ) : (
+          <section>
+            <div>
+              <table className="w-full mx-auto mt-5 text-left ">
+                <thead>
+                  <tr className="border border-green-800 text-lg text-gray-100 ">
+                    {theadData.map((thead) => (
+                      <td key={thead} className="px-2 py-1">
+                        {thead}
+                      </td>
+                    ))}
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredUsers.slice(startIndex, endIndex).map((user) => (
+                    <tr
+                      key={user.id}
+                      className="border border-green-800 text-gray-300"
+                    >
+                      <th className="px-2 py-1 flex items-center gap-3">
+                        <img
+                          src={user.image || "/images/logoIcon.png"}
+                          alt="userImage"
+                          className="w-9 h-9 rounded-full border border-gray-700"
+                        />
+                        {user.user}
+                      </th>
+                      <td className="px-2 py-1">{user.email}</td>
+                      <td className="px-2 py-1">{user.joinedAt}</td>
+                      <td className="px-2 py-1">{user.role}</td>
+                      <td className="px-2 py-1">
+                        <div
+                          className={`w-20 py-1 text-center rounded-2xl ${
+                            statusStyle[user.status]
+                          }`}
+                        >
+                          {user.status}
+                        </div>
+                      </td>
+                      <td className="flex items-center gap-5 text-lg -translate-y-1/2">
+                        <CiEdit className="text-red-500 cursor-pointer" />
+                        <RiDeleteBin5Line
+                          className="text-green-500 cursor-pointer"
+                          onClick={() => {
+                            setSelectedUserId(user.id);
+                            setShowDeleteModal(true);
+                          }}
+                        />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        )}
+
         <section className="mt-3 flex items-center justify-between">
           <div className="text-gray-300">
             Page <span>{pageNumber}</span> of

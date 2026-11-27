@@ -13,9 +13,12 @@ export default function News() {
     const savedPosts = localStorage.getItem("posts");
     return savedPosts ? JSON.parse(savedPosts) : datas;
   });
+  const isItemsEmpty = posts.length === 0;
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(3);
-  const [pageNumber, setPageNumber] = useState(1);
+  const [pageNumber, setPageNumber] = useState(() => {
+    return posts.length ? 1 : 0;
+  });
   const [selectedPostId, setSelectedPostId] = useState(null);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
 
@@ -38,9 +41,9 @@ export default function News() {
   const deletePostHandler = (id) => {
     setPosts((prevPosts) => {
       const updatedPosts = prevPosts.filter((post) => post.id !== id);
-      const totalPages = Math.ceil(updatedPosts.length / 10);
+      const totalPages = Math.ceil(updatedPosts.length / 3);
       if (pageNumber > totalPages) {
-        setStartIndex((prev) => prev - 10);
+        setStartIndex((prev) => prev - 3);
         setPageNumber(totalPages);
       }
 
@@ -56,25 +59,34 @@ export default function News() {
 
   return (
     <div className="w-[79%] mx-auto mt-auto">
-      <section
-        className={`grid grid-cols-3 gap-5 ${showDeleteModal && "opacity-60"}`}
-      >
-        {posts.slice(startIndex, endIndex).map((data) => (
-          <NewsCard
-            key={data.id}
-            id={data.id}
-            image={data.image}
-            title={data.description}
-            publisher={data.publisher}
-            status={data.status}
-            newsLink={data.newsLink}
-            date={data.date}
-            height={100}
-            setShowDeleteModal={setShowDeleteModal}
-            setSelectedPostId={setSelectedPostId}
-          />
-        ))}
-      </section>
+      {isItemsEmpty ? (
+        <div className="bg-radial-[at_25%_25%] from-green-800 to-zinc-800 to-75% border border-green-700 p-5 rounded-xl">
+          <p className="text-2xl text-gray-300">there is no post yet</p>
+        </div>
+      ) : (
+        <section
+          className={`grid grid-cols-3 gap-5 ${
+            showDeleteModal && "opacity-60"
+          }`}
+        >
+          {posts.slice(startIndex, endIndex).map((data) => (
+            <NewsCard
+              key={data.id}
+              id={data.id}
+              image={data.image}
+              title={data.description}
+              publisher={data.publisher}
+              status={data.status}
+              newsLink={data.newsLink}
+              date={data.date}
+              height={0}
+              setShowDeleteModal={setShowDeleteModal}
+              setSelectedPostId={setSelectedPostId}
+            />
+          ))}
+        </section>
+      )}
+
       <section
         className={`mt-3 flex items-center justify-between ${
           showDeleteModal && "opacity-60"
@@ -99,6 +111,7 @@ export default function News() {
           </button>
         </div>
       </section>
+
       {showDeleteModal && (
         <DeleteModal
           selectedItemId={selectedPostId}
@@ -109,6 +122,7 @@ export default function News() {
           modalDescription=" post"
         />
       )}
+
       <section className={`${showDeleteModal && "opacity-60"}`}>
         <NewsAnatomy />
       </section>

@@ -114,7 +114,7 @@ export default function NewsAnatomy() {
       <section className="flex-2">
         <div className="border border-gray-200 rounded-xl px-3 py-2">
           {newsStatus.map((status) => (
-            <>
+            <div key={status.title}>
               <div className="flex justify-between my-2">
                 <div className={`${status.color} px-2 py-1 rounded-xl`}>
                   {status.title}
@@ -122,7 +122,7 @@ export default function NewsAnatomy() {
                 <div className="w-80 text-gray-300">{status.description}</div>
               </div>
               <div className="h-[1px] bg-gray-200"></div>
-            </>
+            </div>
           ))}
         </div>
       </section>
